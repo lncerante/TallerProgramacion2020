@@ -7,7 +7,7 @@ namespace TallerProgramacion2020
     {
         static void Main(string[] args)
         {
-            var unit = new UnitOfWork(new MediaManagerDbContext());
+            var unit = new UnitOfWork(new MediaManagerDbContext());/*asd*/
         }
     }
 }
