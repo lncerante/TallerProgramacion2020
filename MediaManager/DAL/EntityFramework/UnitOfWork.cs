@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TallerProgramacion2020.MediaManager.DAL;
-
-namespace TallerProgramacion2020.MediaManager.DAL.EntityFramework
+﻿namespace TallerProgramacion2020.MediaManager.DAL.EntityFramework
 {
     internal class UnitOfWork : IUnitOfWork
     {

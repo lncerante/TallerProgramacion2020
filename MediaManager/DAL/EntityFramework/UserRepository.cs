@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using TallerProgramacion2020.MediaManager.Domain;
-using TallerProgramacion2020.MediaManager.DAL;
 
 namespace TallerProgramacion2020.MediaManager.DAL.EntityFramework
 {

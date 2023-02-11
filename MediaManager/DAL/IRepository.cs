@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace TallerProgramacion2020.MediaManager.DAL
 {
-    public interface IRepository<TEntity>
+    internal interface IRepository<TEntity>
     {
         void Create(TEntity pEntity);
         void Update(TEntity pEntity);

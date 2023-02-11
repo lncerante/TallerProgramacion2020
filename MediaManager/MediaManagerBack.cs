@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TallerProgramacion2020.MediaManager.Domain;
-using TallerProgramacion2020.MediaManager.DAL;
-using TallerProgramacion2020.MediaManager.IO;
+﻿using TallerProgramacion2020.MediaManager.DAL;
 using TallerProgramacion2020.MediaManager.DAL.EntityFramework;
+using TallerProgramacion2020.MediaManager.Domain;
+using TallerProgramacion2020.MediaManager.IO;
 
 namespace TallerProgramacion2020.MediaManager
 {
@@ -19,7 +14,7 @@ namespace TallerProgramacion2020.MediaManager
             iUnitOfWork = new UnitOfWork(new MediaManagerDbContext());
         }
 
-        private void SetBaseDTO(BaseObjectDTO pBaseObjectDTO, BaseObject pBaseObject) 
+        private void SetBaseDTO(BaseObjectDTO pBaseObjectDTO, BaseObject pBaseObject)
         {
             pBaseObjectDTO.ID = pBaseObject.ID;
             pBaseObjectDTO.ITS = pBaseObject.ITS;
