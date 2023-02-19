@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Xml.Linq;
 
 namespace TallerProgramacion2020.MediaManager.Domain
 {
@@ -84,6 +85,11 @@ namespace TallerProgramacion2020.MediaManager.Domain
         {
             get { return iImdbRating; }
             set { iImdbRating = value; }
+        }
+
+        public bool Equals(Media other)
+        {
+            return ImdbID == other.ImdbID;
         }
     }
 }

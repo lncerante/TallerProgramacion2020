@@ -4,10 +4,20 @@
     {
         protected string iName;
 
+        public Genre(string pName)
+        { 
+            Name = pName;
+        }
+
         public string Name
         {
             get { return iName; }
             set { iName = value; }
+        }
+
+        public bool Equals(Genre other)
+        {
+            return Name == other.Name;
         }
     }
 }
