@@ -58,6 +58,30 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\FormManageUsers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormManageUsers.Designer.cs">
+      <DependentUpon>FormManageUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormRegisterUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormRegisterUser.Designer.cs">
+      <DependentUpon>FormRegisterUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormSearchMoviesOrSeries.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormSearchMoviesOrSeries.Designer.cs">
+      <DependentUpon>FormSearchMoviesOrSeries.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormSignIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormSignIn.Designer.cs">
+      <DependentUpon>FormSignIn.cs</DependentUpon>
+    </Compile>
     <Compile Include="MediaManager\DAL\EntityFramework\MediaManagerDbContext.cs" />
     <Compile Include="MediaManager\DAL\EntityFramework\Repository.cs" />
     <Compile Include="MediaManager\DAL\EntityFramework\UnitOfWork.cs" />
@@ -83,6 +107,20 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Forms\FormManageUsers.resx">
+      <DependentUpon>FormManageUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormRegisterUser.resx">
+      <DependentUpon>FormRegisterUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormSearchMoviesOrSeries.resx">
+      <DependentUpon>FormSearchMoviesOrSeries.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormSignIn.resx">
+      <DependentUpon>FormSignIn.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSHARP.Targets" />
   <ProjectExtensions>
