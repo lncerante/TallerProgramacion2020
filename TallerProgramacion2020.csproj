@@ -58,6 +58,54 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\FormManageUsers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormManageUsers.designer.cs">
+      <DependentUpon>FormManageUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormMediaPriority.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormMediaPriority.designer.cs">
+      <DependentUpon>FormMediaPriority.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormMenu.designer.cs">
+      <DependentUpon>FormMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormRateMovieOrSerie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormRateMovieOrSerie.designer.cs">
+      <DependentUpon>FormRateMovieOrSerie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormRegisterUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormRegisterUser.designer.cs">
+      <DependentUpon>FormRegisterUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormSearchMoviesOrSeries.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormSearchMoviesOrSeries.designer.cs">
+      <DependentUpon>FormSearchMoviesOrSeries.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormSeeMoreInformation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormSeeMoreInformation.designer.cs">
+      <DependentUpon>FormSeeMoreInformation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormSignIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormSignIn.designer.cs">
+      <DependentUpon>FormSignIn.cs</DependentUpon>
+    </Compile>
     <Compile Include="MediaManager\DAL\EntityFramework\MediaManagerDbContext.cs" />
     <Compile Include="MediaManager\DAL\EntityFramework\Repository.cs" />
     <Compile Include="MediaManager\DAL\EntityFramework\UnitOfWork.cs" />
@@ -83,6 +131,32 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Forms\FormManageUsers.resx">
+      <DependentUpon>FormManageUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormMediaPriority.resx">
+      <DependentUpon>FormMediaPriority.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormMenu.resx">
+      <DependentUpon>FormMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormRateMovieOrSerie.resx">
+      <DependentUpon>FormRateMovieOrSerie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormRegisterUser.resx">
+      <DependentUpon>FormRegisterUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormSearchMoviesOrSeries.resx">
+      <DependentUpon>FormSearchMoviesOrSeries.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormSeeMoreInformation.resx">
+      <DependentUpon>FormSeeMoreInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormSignIn.resx">
+      <DependentUpon>FormSignIn.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSHARP.Targets" />
   <ProjectExtensions>
