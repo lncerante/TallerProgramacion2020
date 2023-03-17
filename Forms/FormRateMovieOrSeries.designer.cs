@@ -1,6 +1,6 @@
 ﻿namespace TallerProgramacion2020.Forms
 {
-    partial class FormRateMovieOrSerie
+    partial class FormRateMovieOrSeries
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@
         {
             this.labelRating = new System.Windows.Forms.Label();
             this.labelComments = new System.Windows.Forms.Label();
-            this.comboBoxType = new System.Windows.Forms.ComboBox();
+            this.comboBoxRating = new System.Windows.Forms.ComboBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.buttonSave = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -53,21 +53,21 @@
             this.labelComments.TabIndex = 1;
             this.labelComments.Text = "Comments";
             // 
-            // comboBoxType
+            // comboBoxRating
             // 
-            this.comboBoxType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxType.FormattingEnabled = true;
-            this.comboBoxType.Items.AddRange(new object[] {
+            this.comboBoxRating.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxRating.FormattingEnabled = true;
+            this.comboBoxRating.Items.AddRange(new object[] {
             "1 - Terrible",
             "2 - Bad",
             "3 - Medium",
             "4 - Good",
             "5 - Great"});
-            this.comboBoxType.Location = new System.Drawing.Point(77, 59);
-            this.comboBoxType.Name = "comboBoxType";
-            this.comboBoxType.Size = new System.Drawing.Size(227, 21);
-            this.comboBoxType.Sorted = true;
-            this.comboBoxType.TabIndex = 18;
+            this.comboBoxRating.Location = new System.Drawing.Point(77, 59);
+            this.comboBoxRating.Name = "comboBoxRating";
+            this.comboBoxRating.Size = new System.Drawing.Size(227, 21);
+            this.comboBoxRating.Sorted = true;
+            this.comboBoxRating.TabIndex = 18;
             // 
             // richTextBox1
             // 
@@ -87,17 +87,17 @@
             this.buttonSave.UseVisualStyleBackColor = true;
             this.buttonSave.Click += new System.EventHandler(this.ButtonSave_Click);
             // 
-            // FormRateMovieOrSerie
+            // FormRateMovieOrSeries
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(421, 266);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.richTextBox1);
-            this.Controls.Add(this.comboBoxType);
+            this.Controls.Add(this.comboBoxRating);
             this.Controls.Add(this.labelComments);
             this.Controls.Add(this.labelRating);
-            this.Name = "FormRateMovieOrSerie";
+            this.Name = "FormRateMovieOrSeries";
             this.Text = "FormRateMovieOrSerie";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -108,7 +108,7 @@
 
         private System.Windows.Forms.Label labelRating;
         private System.Windows.Forms.Label labelComments;
-        private System.Windows.Forms.ComboBox comboBoxType;
+        private System.Windows.Forms.ComboBox comboBoxRating;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Button buttonSave;
     }

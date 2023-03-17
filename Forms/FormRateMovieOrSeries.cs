@@ -10,21 +10,24 @@ using System.Windows.Forms;
 
 namespace TallerProgramacion2020.Forms
 {
-    public partial class FormRateMovieOrSerie : Form
+    public partial class FormRateMovieOrSeries : Form
     {
         readonly string idMedia;
-        public FormRateMovieOrSerie(string imdbID)
+        public FormRateMovieOrSeries(string imdbID)
         {
             idMedia = imdbID;
             InitializeComponent();
         }
+        //IMPORTANTE
+        //LOS VALORES DEL COMBOBOX DEBERIAN OBTENERSE DE LA BASE DE DATOS
+        //POR SI EN ALGUN MOMENTO SE QUIEREN MODIFICAR 
 
         private void ButtonSave_Click(object sender, EventArgs e)
         {
-            if(comboBoxType.Text.Length != 0 && richTextBox1!= null)
+            if(comboBoxRating.Text.Length != 0 && richTextBox1!= null)
             {
                 //va a tener que existir algo como GuardarComentario(idMedia,comboBoxType.Text,richTextBox1);
-                MessageBox.Show("Commentario guardado");
+                MessageBox.Show("Comentario guardado");
                 Close();
             }
         }

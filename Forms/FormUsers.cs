@@ -1,27 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using TallerProgramacion2020.MediaManager.Domain;
-using TallerProgramacion2020.MediaManager.IO;
 
 namespace TallerProgramacion2020.Forms
 {
-    public partial class FormManageUsers : Form
+    public partial class FormUsers : Form
     {
         private string imagePath;
         private byte[] imgByte = null;
         private int idSelected;
         readonly List<User> usersList = new List<User>();
 
-        public FormManageUsers()
+        public FormUsers()
         {
             InitializeComponent();
         }
 
-        private void FormManageUsers_Load(object sender, EventArgs e)
+
+        private void FormUsers_Load(object sender, EventArgs e)
         {
             InitializeUsersGrid();
             ShowUsers();
@@ -31,22 +35,12 @@ namespace TallerProgramacion2020.Forms
         {
             dataGridViewUsers.Rows.Clear();
             dataGridViewUsers.Visible = true;
+            dataGridViewUsers.Columns["ColumnProfilePicture"].Width = 110;
             foreach (var user in usersList)
             {
                 Image imgProfile = ConvertByteArrayToImage(user.ProfilePhoto);
-                dataGridViewUsers.Rows.Add(user.ID, user.UserName, user.PasswordHash, user.FullName, imgProfile);
+                dataGridViewUsers.Rows.Add(user.ID, imgProfile, user.UserName, user.PasswordHash, user.FullName);
             }
-        }
-
-        private void DataGridViewUsers_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            //DataGridViewLinkCell cell = (DataGridViewLinkCell) dataGridViewUsers.Rows[e.RowIndex].Cells[e.ColumnIndex];
-            //if (cell.Value.ToString() == "Delete") 
-            //{
-            //    var idToDelete = dataGridViewUsers.Rows[e.RowIndex].Cells[0].Value;
-            //    listaUsuarios.RemoveAt((int)idToDelete-1);//ACA HAY QUE LLAMAR A LA ELIMINACION REAL DE USUARIOS
-            //    ShowUsers();
-            //}
         }
 
         private void ButtonUploadPicture_Click(object sender, EventArgs e)
@@ -70,8 +64,8 @@ namespace TallerProgramacion2020.Forms
                 ErrorMessage("Please enter all the data");
             }
             else
-            { 
-                if(labelRegisterOrEdit.Text == "REGISTER NEW USER")
+            {
+                if (labelRegisterOrEdit.Text == "REGISTER NEW USER")
                 {
                     //Aca deberia registrarse el usuario
                     User userDTO = new User
@@ -104,12 +98,11 @@ namespace TallerProgramacion2020.Forms
                         ID = idSelected,
                     };
                     usersList.Insert(idSelected - 1, userDTO);
-                    MessageBox.Show("User successfully edited");
                     CleanForm();
                     labelRegisterOrEdit.Text = "REGISTER NEW USER";
+                    MessageBox.Show("User successfully edited");
                 }
-                
-                
+                ShowUsers();
             }
         }
 
@@ -119,7 +112,7 @@ namespace TallerProgramacion2020.Forms
             textBoxUsername.Clear();
             textBoxPassword.Clear();
             imgByte = null;
-            ShowUsers();
+            labelErrorMessage.Visible = false;
         }
 
         private void ErrorMessage(string txt)
@@ -130,21 +123,29 @@ namespace TallerProgramacion2020.Forms
 
         private void ButtonEdit_Click(object sender, EventArgs e)
         {
+            buttonCancel.Visible = true;
             if (dataGridViewUsers.SelectedRows.Count > 0)
             {
                 labelRegisterOrEdit.Text = "EDIT USER";
-                idSelected = Int32.Parse(dataGridViewUsers.CurrentRow.Cells["columnId"].Value.ToString());
-                textBoxUsername.Text = dataGridViewUsers.CurrentRow.Cells["columnUsername"].Value.ToString();
-                textBoxPassword.Text = dataGridViewUsers.CurrentRow.Cells["columnPassword"].Value.ToString();
-                textBoxFullName.Text = dataGridViewUsers.CurrentRow.Cells["columnFullName"].Value.ToString();
-                var img = (Image)dataGridViewUsers.CurrentRow.Cells["columnProfilePhoto"].Value;
+                idSelected = Int32.Parse(dataGridViewUsers.CurrentRow.Cells["ColumnId"].Value.ToString());
+                textBoxUsername.Text = dataGridViewUsers.CurrentRow.Cells["ColumnUsername"].Value.ToString();
+                textBoxPassword.Text = dataGridViewUsers.CurrentRow.Cells["ColumnPassword"].Value.ToString();
+                textBoxFullName.Text = dataGridViewUsers.CurrentRow.Cells["ColumnFullName"].Value.ToString();
+                var img = (Image)dataGridViewUsers.CurrentRow.Cells["ColumnProfilePicture"].Value;
                 imgByte = (byte[])(new ImageConverter()).ConvertTo(img, typeof(byte[]));
             }
             else
             {
-                label1.Text = "      Please select a row.";
-                label1.Visible = true;
+                labelErrorMessageGrid.Text = "      Please select a row.";
+                labelErrorMessageGrid.Visible = true;
             }
+        }
+
+        private void ButtonCancel_Click(object sender, EventArgs e)
+        {
+            labelRegisterOrEdit.Text = "REGISTER NEW USER";
+            buttonCancel.Visible = false;
+            CleanForm();
         }
 
         private void ButtonDelete_Click(object sender, EventArgs e)
@@ -158,8 +159,8 @@ namespace TallerProgramacion2020.Forms
             }
             else
             {
-                label1.Text = "      Please select a row.";
-                label1.Visible = true;
+                labelErrorMessageGrid.Text = "      Please select a row.";
+                labelErrorMessageGrid.Visible = true;
             }
         }
 
@@ -193,7 +194,7 @@ namespace TallerProgramacion2020.Forms
             {
                 ID = 1,
                 FullName = "Pepito",
-                UserName = "pepiFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFto1",
+                UserName = "pepito123456999",
                 PasswordHash = "sjsj8",
                 ProfilePhoto = imgByte
             };
@@ -217,5 +218,6 @@ namespace TallerProgramacion2020.Forms
             usersList.Add(user2);
             usersList.Add(user3);
         }
+
     }
 }

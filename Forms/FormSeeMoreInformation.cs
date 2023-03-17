@@ -31,7 +31,7 @@ namespace TallerProgramacion2020.Forms
             Media media = CrearMediaDePrueba();
             labelTitle.Text = media.Title;
             labelType.Text = media.MediaType.ToString();
-            labelRelaseDate.Text = media.ReleaseDate.ToString();
+            labelRelaseDate.Text = media.ReleaseDate.ToString("dd/MM/yyyy");
             labelRuntime.Text = media.RuntimeInMin.ToString() + " min";
             foreach (Person w in media.Writer)
             {

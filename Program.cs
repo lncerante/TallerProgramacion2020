@@ -14,14 +14,13 @@ namespace TallerProgramacion2020
             var unit = new UnitOfWork(new MediaManagerDbContext());
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new FormSearchMoviesOrSeries());
-
-            FormSignIn formSignIn = new FormSignIn();
-            Application.Run(formSignIn);
-            if (formSignIn.userSuccessfullyAuthenticated)
-            {
-                Application.Run(new FormMenu(formSignIn.adminUser));
-            }
+            Application.Run(new Form1());
+            
+            //Application.Run(new FormSignIn());
+            //if (formSignIn.userSuccessfullyAuthenticated)
+            //{
+              //Application.Run(new FormSignIn());
+            //}
 
         }
     }
