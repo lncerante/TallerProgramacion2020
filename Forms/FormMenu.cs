@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,150 +15,140 @@ namespace TallerProgramacion2020.Forms
 {
     public partial class FormMenu : Form
     {
+        private Form activeForm = null;
         readonly List<User> usersList = new List<User>();
-        private List<Button> btns = new List<Button>();
+        private int LX, LY;
+        //private List<Button> btns = new List<Button>();
+
         public FormMenu()
         {
             InitializeComponent();
         }
 
-        private void DontShowGrids()
-        {
-            dataGridViewList.Visible = false;
-            dataGridViewUsers.Visible = false;
-        }
-
         private void FormMenu_Load(object sender, EventArgs e)
         {
-            btns.Add(buttonAddToList);
-            btns.Add(buttonProfile);
-            btns.Add(buttonRegisterNewUser);
-            btns.Add(buttonSeeRegistersUsers);
-            btns.Add(buttonSeeReviews);
-            btns.Add(buttonSeeWatchList);
-            InitializeUsersGrid();
-            DontShowGrids();
             //Aca vamos a tener que preguntar por el rol del usuario que haya iniciado sesion
             bool admin = true;
             if (!admin)
             {
-                buttonRegisterNewUser.Visible = false;
-                buttonSeeRegistersUsers.Visible = false;
-            }
+                buttonManageUsers.Visible = false;
+            }                                 
         }
 
         private void OpenChildForm(Form childForm)
         {
-            if (this.panelFormsContainer.Controls.Count > 0)
+            if (activeForm != null)
             {
-                this.panelFormsContainer.Controls.RemoveAt(0);
+                activeForm.Close();
+                activeForm = childForm;
+                childForm.TopLevel = false;
+                childForm.Dock = DockStyle.Fill;
+                this.panelFormsContainer.Controls.Add(childForm);
+                this.panelFormsContainer.Tag = childForm;
+                childForm.Show();
             }
-            childForm.TopLevel = false;
-            childForm.Dock = DockStyle.Fill;
-            this.panelFormsContainer.Controls.Add(childForm);
-            this.panelFormsContainer.Tag = childForm;
-            childForm.Show();
         }
+
+        //método que nos permitirá abrir varios formularios
+        //dentro del panel contenedor de formularios.
+        //private void OpenFormInPanel<MyForm>() where MyForm : Form, new()
+        //{
+        //    Form form;            
+        //    form = panelFormsContainer.Controls.OfType<MyForm>().FirstOrDefault();
+        //    //Busca en la colecion el form
+        //    //si el form/instancia no existe
+        //    if (form == null)
+        //    {
+        //        form = new MyForm();
+        //        form.TopLevel = false;
+        //        form.FormBorderStyle = FormBorderStyle.None;
+        //        form.Dock = DockStyle.Fill;
+        //        panelFormsContainer.Controls.Add(form);
+        //        panelFormsContainer.Tag = form;
+        //        form.Show();
+        //        form.BringToFront();
+        //    }
+        //    //si el form/instancia existe
+        //    else
+        //    {
+        //        form.BringToFront();
+        //    }
+        //}
 
         private void ButtonSeeWatchList_Click(object sender, EventArgs e)
         {
-            dataGridViewUsers.Visible = false;
-            labelListTitle.Text = "My Watch List";
-            dataGridViewList.Visible = true;
-            ChangeButtonBackColor(buttonSeeWatchList); 
+            
             //Aca tiene que aparecer la lista de seguimiento del usuario
             //y tiene que haber una columna donde se pueda eliminar de la lista
             // y una columna para la prioridad
-            Media media = CrearMediaDePrueba();
-            dataGridViewList.Rows.Add(media.ImdbID, media.Title);
+            OpenChildForm(new FormWatchList());
+            
+            //ChangeButtonBackColor
+            buttonSeeWatchList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200))))); 
+            buttonSeeReviews.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            buttonAddToList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            buttonProfile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            buttonManageUsers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
         }
 
         private void ButtonSeeReviews_Click(object sender, EventArgs e)
         {
-            dataGridViewUsers.Visible = false;
-            labelListTitle.Text = "My Reviews";
-            ChangeButtonBackColor(buttonSeeReviews);
             //Aca tienen que aparecer las peliculas que califique con su comentario, el comentario
             //deberia poder editarse desde aca
             // creo que con mostrar el titulo, tipo, comentario y calificacion  estaria
+            OpenChildForm(new FormReviews());
+
+            //ChangeButtonBackColor
+            buttonSeeWatchList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            buttonSeeReviews.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            buttonAddToList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            buttonProfile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            buttonManageUsers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
         }
 
         private void ButtonAddToList_Click(object sender, EventArgs e)
         {
-            DontShowGrids();
-            ChangeButtonBackColor(buttonAddToList);
             OpenChildForm(new FormSearchMoviesOrSeries());
+
+            //ChangeButtonBackColor
+            buttonSeeWatchList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            buttonAddToList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            buttonSeeReviews.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            buttonProfile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            buttonManageUsers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
         }
 
-        private void ButtonSeeRegistersUsers_Click(object sender, EventArgs e)
+        private void ButtonProfile_Click(object sender, EventArgs e)
         {
-            dataGridViewList.Visible=false;
-            labelListTitle.Text = "Registers Users";
-            ChangeButtonBackColor(buttonSeeRegistersUsers);
-            //Aca deberiamos llamar a la lista de usuarios real, por ahora es una lista creada asi no mas.
-            // Ejemlo:  List<User> list = controlador.AllUsers();
-            ShowUsers();
+            OpenChildForm(new FormProfile());
+           
+            //ChangeButtonBackColor
+            buttonSeeWatchList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            buttonProfile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            buttonSeeReviews.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            buttonAddToList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            buttonManageUsers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
         }
 
-        private void ShowUsers()
+        private void ButtonManageUsers_Click(object sender, EventArgs e)
         {
-            dataGridViewUsers.Rows.Clear();
-            dataGridViewUsers.Visible = true;
-            foreach (var user in usersList)
+            OpenChildForm(new FormUsers());
+
+            //ChangeButtonBackColor
+            buttonSeeWatchList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            buttonManageUsers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            buttonSeeReviews.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            buttonProfile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            buttonAddToList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+        }
+
+        private void ButtonLogOut_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are you sure to log out?", "Waring", MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning) == DialogResult.Yes)
             {
-                Image imgProfile = ConvertByteArrayToImage(user.ProfilePhoto);
-                dataGridViewUsers.Rows.Add(user.ID, user.UserName, user.PasswordHash, user.FullName, imgProfile);
+                this.Close();
             }
-        }
-
-        private Image ConvertByteArrayToImage(byte[] profilePhoto)
-        {
-            if (profilePhoto == null) return null;
-            MemoryStream ms = new MemoryStream(profilePhoto);
-            Bitmap bm = new Bitmap(ms);
-            return bm;
-        }
-
-        private void ButtonRegisterNewUser_Click(object sender, EventArgs e)
-        {
-            DontShowGrids();
-            ChangeButtonBackColor(buttonRegisterNewUser);
-            OpenChildForm(new FormRegisterAdminUser());
-        }
-
-        private void DataGridViewUsers_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            DataGridViewLinkCell cell = (DataGridViewLinkCell)dataGridViewUsers.Rows[e.RowIndex].Cells[e.ColumnIndex];
-            if (cell.Value.ToString() == "Delete")
-            {
-                var idToDelete = dataGridViewUsers.Rows[e.RowIndex].Cells[0].Value;
-                usersList.RemoveAt((int)idToDelete - 1);//ACA HAY QUE LLAMAR A LA ELIMINACION REAL DE USUARIOS
-                ShowUsers();
-            }
-            else
-            {
-
-            }
-        }
-
-        private void DataGridViewList_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            DataGridViewLinkCell cell = (DataGridViewLinkCell)dataGridViewList.Rows[e.RowIndex].Cells[e.ColumnIndex];
-            if (cell.Value.ToString() == "See more information")
-            {
-                FormSeeMoreInformation formSeeMoreInformation = new FormSeeMoreInformation();
-                formSeeMoreInformation.ShowDialog();
-            }
-            else if (cell.Value.ToString() == "Rate")
-            {
-                FormRateMovieOrSeries formRateMovieOrSerie = new FormRateMovieOrSeries("aaa");
-                formRateMovieOrSerie.ShowDialog();
-            }else if(cell.Value.ToString() == "Delete") { }
-        }
-               
-        private void ButtonClose_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
         }
 
         private void ButtonMinimized_Click(object sender, EventArgs e)
@@ -167,52 +158,43 @@ namespace TallerProgramacion2020.Forms
 
         private void ButtonMaximized_Click(object sender, EventArgs e)
         {
-            this.WindowState = FormWindowState.Maximized;
+            LX = this.Location.X;
+            LY = this.Location.Y;
+            this.Size = Screen.PrimaryScreen.WorkingArea.Size;
+            this.Location = Screen.PrimaryScreen.WorkingArea.Location;
             buttonMaximized.Visible = false;
             buttonRestore.Visible = true;
         }
 
+        private void ButtonClose_Click(object sender, EventArgs e)
+        {
+            if(MessageBox.Show("Are you sure to close the application?","Waring",MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                Application.Exit();
+            }            
+        }
+
         private void ButtonRestore_Click(object sender, EventArgs e)
         {
-            this.WindowState = FormWindowState.Normal;
+            this.Size = new Size(1300, 650);
+            this.Location = new Point(LX, LY);
             buttonRestore.Visible = false;
             buttonMaximized.Visible = true;
         }
 
-        //METODOS QUE DESPUES HAY QUE ELIMINAR
-        private void InitializeUsersGrid()
-        { ///Convierto la foto a byte[]
-            Image img = Image.FromFile("D:\\Downloads\\foto.jpeg");
-            byte[] imgByte = (byte[])(new ImageConverter()).ConvertTo(img, typeof(byte[]));
-
-            User user1 = new User
-            {
-                ID = 1,
-                FullName = "Pepito",
-                UserName = "pepiFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFto1",
-                PasswordHash = "sjsj8",
-                ProfilePhoto = imgByte
-            };
-            User user2 = new User
-            {
-                ID = 2,
-                FullName = "Pepito perez",
-                UserName = "pepito2",
-                PasswordHash = "sjsj89",
-                ProfilePhoto = imgByte
-            };
-            User user3 = new User
-            {
-                ID = 3,
-                FullName = "Juan perez",
-                UserName = "pepito3",
-                PasswordHash = "fde3sjsj89",
-                ProfilePhoto = imgByte
-            };
-            usersList.Add(user1);
-            usersList.Add(user2);
-            usersList.Add(user3);
+        //Function that allows dragging the form
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int IParam);
+        private void PanelControls_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
+
+        #region Metodos que despues hay que eliminar
         private Media CrearMediaDePrueba()
         {
             Person person1 = new Person("Steven Spielberg");
@@ -249,20 +231,17 @@ namespace TallerProgramacion2020.Forms
             };
             return media1;
         }
-        private void ChangeButtonBackColor(Button btn)
-        {
-            btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            List<Button> btnList = btns;
-            btnList.Remove(btn);
-            foreach (Button button in btnList)
-            {
-                button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            }
-        }
+        #endregion
 
-        private void buttonProfile_Click(object sender, EventArgs e)
-        {
-
-        }
+        //private void ChangeButtonBackColor(Button btn)
+        //{
+        //    btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+        //    List<Button> btnList = btns;
+        //    btnList.Remove(btn);
+        //    foreach (Button button in btnList)
+        //    {
+        //        button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+        //    }
+        //}
     }
 }

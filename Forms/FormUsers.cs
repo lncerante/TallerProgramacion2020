@@ -124,7 +124,7 @@ namespace TallerProgramacion2020.Forms
         private void ButtonEdit_Click(object sender, EventArgs e)
         {
             buttonCancel.Visible = true;
-            if (dataGridViewUsers.SelectedRows.Count > 0)
+            if (dataGridViewUsers.SelectedRows.Count == 1)
             {
                 labelRegisterOrEdit.Text = "EDIT USER";
                 idSelected = Int32.Parse(dataGridViewUsers.CurrentRow.Cells["ColumnId"].Value.ToString());
@@ -133,11 +133,6 @@ namespace TallerProgramacion2020.Forms
                 textBoxFullName.Text = dataGridViewUsers.CurrentRow.Cells["ColumnFullName"].Value.ToString();
                 var img = (Image)dataGridViewUsers.CurrentRow.Cells["ColumnProfilePicture"].Value;
                 imgByte = (byte[])(new ImageConverter()).ConvertTo(img, typeof(byte[]));
-            }
-            else
-            {
-                labelErrorMessageGrid.Text = "      Please select a row.";
-                labelErrorMessageGrid.Visible = true;
             }
         }
 
@@ -150,17 +145,12 @@ namespace TallerProgramacion2020.Forms
 
         private void ButtonDelete_Click(object sender, EventArgs e)
         {
-            if (dataGridViewUsers.SelectedRows.Count > 0)
+            if (dataGridViewUsers.SelectedRows.Count == 1)
             {
                 idSelected = Int32.Parse(dataGridViewUsers.CurrentRow.Cells["columnId"].Value.ToString());
                 //contolador.DeleteUser(idSelected);
                 MessageBox.Show("User successfully deleted");
                 ShowUsers();
-            }
-            else
-            {
-                labelErrorMessageGrid.Text = "      Please select a row.";
-                labelErrorMessageGrid.Visible = true;
             }
         }
 
@@ -218,6 +208,5 @@ namespace TallerProgramacion2020.Forms
             usersList.Add(user2);
             usersList.Add(user3);
         }
-
     }
 }

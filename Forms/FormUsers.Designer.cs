@@ -51,7 +51,6 @@
             this.labelRegisterOrEdit = new System.Windows.Forms.Label();
             this.labelRegisteredUsers = new System.Windows.Forms.Label();
             this.buttonDelete = new System.Windows.Forms.Button();
-            this.labelErrorMessageGrid = new System.Windows.Forms.Label();
             this.buttonEdit = new System.Windows.Forms.Button();
             this.openFileDialogUploadPicture = new System.Windows.Forms.OpenFileDialog();
             this.panelGrid = new System.Windows.Forms.Panel();
@@ -315,21 +314,6 @@
             this.buttonDelete.UseVisualStyleBackColor = false;
             this.buttonDelete.Click += new System.EventHandler(this.ButtonDelete_Click);
             // 
-            // labelErrorMessageGrid
-            // 
-            this.labelErrorMessageGrid.AutoSize = true;
-            this.labelErrorMessageGrid.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelErrorMessageGrid.ForeColor = System.Drawing.Color.DarkGray;
-            this.labelErrorMessageGrid.Image = ((System.Drawing.Image)(resources.GetObject("labelErrorMessageGrid.Image")));
-            this.labelErrorMessageGrid.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.labelErrorMessageGrid.Location = new System.Drawing.Point(22, 550);
-            this.labelErrorMessageGrid.Name = "labelErrorMessageGrid";
-            this.labelErrorMessageGrid.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.labelErrorMessageGrid.Size = new System.Drawing.Size(99, 17);
-            this.labelErrorMessageGrid.TabIndex = 47;
-            this.labelErrorMessageGrid.Text = "Error Message:";
-            this.labelErrorMessageGrid.Visible = false;
-            // 
             // buttonEdit
             // 
             this.buttonEdit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
@@ -354,7 +338,6 @@
             this.panelGrid.Controls.Add(this.dataGridViewUsers);
             this.panelGrid.Controls.Add(this.buttonDelete);
             this.panelGrid.Controls.Add(this.labelRegisteredUsers);
-            this.panelGrid.Controls.Add(this.labelErrorMessageGrid);
             this.panelGrid.Controls.Add(this.buttonEdit);
             this.panelGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelGrid.Location = new System.Drawing.Point(0, 0);
@@ -384,7 +367,7 @@
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewUsers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridViewUsers.ColumnHeadersHeight = 50;
+            this.dataGridViewUsers.ColumnHeadersHeight = 40;
             this.dataGridViewUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridViewUsers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnId,
@@ -425,7 +408,7 @@
             this.dataGridViewUsers.RowTemplate.Height = 100;
             this.dataGridViewUsers.RowTemplate.ReadOnly = true;
             this.dataGridViewUsers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewUsers.Size = new System.Drawing.Size(650, 449);
+            this.dataGridViewUsers.Size = new System.Drawing.Size(650, 464);
             this.dataGridViewUsers.TabIndex = 48;
             // 
             // ColumnId
@@ -511,7 +494,6 @@
         private System.Windows.Forms.Label labelRegisterOrEdit;
         private System.Windows.Forms.Label labelRegisteredUsers;
         private System.Windows.Forms.Button buttonDelete;
-        private System.Windows.Forms.Label labelErrorMessageGrid;
         private System.Windows.Forms.Button buttonEdit;
         private System.Windows.Forms.OpenFileDialog openFileDialogUploadPicture;
         private System.Windows.Forms.Panel panelGrid;

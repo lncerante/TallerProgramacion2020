@@ -70,7 +70,7 @@
             this.panelUsername.Size = new System.Drawing.Size(220, 1);
             this.panelUsername.TabIndex = 55;
             // 
-            // buttonSave
+            // buttonSearch
             // 
             this.buttonSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(110)))), ((int)(((byte)(200)))));
             this.buttonSave.FlatAppearance.BorderSize = 0;
@@ -80,7 +80,7 @@
             this.buttonSave.ForeColor = System.Drawing.Color.White;
             this.buttonSave.Location = new System.Drawing.Point(458, 384);
             this.buttonSave.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonSave.Name = "buttonSave";
+            this.buttonSave.Name = "buttonSearch";
             this.buttonSave.Size = new System.Drawing.Size(333, 35);
             this.buttonSave.TabIndex = 51;
             this.buttonSave.Text = "Save";

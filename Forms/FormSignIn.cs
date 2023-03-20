@@ -58,7 +58,7 @@ namespace TallerProgramacion2020.Forms
                 {
                     //Si el usuario es valido lo mando al menu
                     //Capaz al form menu le tenga que pasar el nombre de usario
-                    Form1 formMenu = new Form1();
+                    FormMenu formMenu = new FormMenu();
                     formMenu.Show();
                     formMenu.FormClosed += LogOut;
                     this.Hide();

@@ -14,10 +14,14 @@ namespace TallerProgramacion2020.Forms
 {
     public partial class FormSeeMoreInformation : Form
     {
-        public FormSeeMoreInformation()
+        public string IdIMDB { get; }
+
+        public FormSeeMoreInformation(string idIMDB)
         {
             InitializeComponent();
+            IdIMDB = idIMDB;
         }
+
         // Aca tiene que venir un IMdB para mostrar la info correspondiente
         private void FormSeeMoreInformation_Load(object sender, EventArgs e)
         {
@@ -33,28 +37,30 @@ namespace TallerProgramacion2020.Forms
             labelType.Text = media.MediaType.ToString();
             labelRelaseDate.Text = media.ReleaseDate.ToString("dd/MM/yyyy");
             labelRuntime.Text = media.RuntimeInMin.ToString() + " min";
+            richTextBoxGenre.Text = "Drama, Fantasia, Romance, Accion, Drama, Triller, Comedia, Aventuras, Animación, Musical, Terror, Suspenso";
+            //ESTO LO DEBERIA HACER EL CONTROLADOR
             foreach (Person w in media.Writer)
             {
                 listWriter.Add(w.FullName);
             }
-            labelWriter.Text = String.Join(", ", listWriter);
+            richTextBoxWriter.Text = String.Join(", ", listWriter);
             foreach (Person d in media.Director)
             {
                 listDirector.Add(d.FullName);
             }
-            labelDirector.Text = String.Join(", ", listDirector);
+            richTextBoxDirector.Text = String.Join(", ", listDirector);
             foreach (Person c in media.Cast)
             {
                 listCast.Add(c.FullName);
             }
-            labelCast.Text= String.Join(", ", listCast);
+            richTextBoxCast.Text= String.Join(", ", listCast);
             foreach (Country o in media.Origin)
             {
                 listCountry.Add(o.Name);
             }
             labelCountry.Text = String.Join(", ", listCountry);
             labelImdb.Text = media.ImdbRating.ToString();
-            pictureBox1.ImageLocation = "https://m.media-amazon.com/images/M/MV5BZDRkOWQ5NGUtYTVmOS00ZjNhLWEwODgtOGI2MmUxNTBkMjU0XkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_SX300.jpg";
+            pictureBoxPoster.ImageLocation = "https://m.media-amazon.com/images/M/MV5BZDRkOWQ5NGUtYTVmOS00ZjNhLWEwODgtOGI2MmUxNTBkMjU0XkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_SX300.jpg";
         }
 
         private Media CrearMediaDePrueba()
@@ -92,6 +98,11 @@ namespace TallerProgramacion2020.Forms
                 ImdbRating = 7.7f
             };
             return media1;
+        }
+
+        private void ButtonClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

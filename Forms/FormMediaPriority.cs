@@ -12,11 +12,19 @@ namespace TallerProgramacion2020.Forms
 {
     public partial class FormMediaPriority : Form
     {
-        public FormMediaPriority()
+        private string idIMDB;
+
+        public FormMediaPriority(string idIMDB)  
         {
             InitializeComponent();
+            this.idIMDB = idIMDB;
         }
 
+        private void FormMediaPriority_Load(object sender, EventArgs e)
+        {
+
+        }
+        
         private void ButtonSave_Click(object sender, EventArgs e)
         {
             Close();

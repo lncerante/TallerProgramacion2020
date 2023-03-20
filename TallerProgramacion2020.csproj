@@ -58,29 +58,17 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Forms\Form1.cs">
+    <Compile Include="Forms\FormMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\FormManageUsers.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\FormManageUsers.designer.cs">
-      <DependentUpon>FormManageUsers.cs</DependentUpon>
+    <Compile Include="Forms\FormMenu.Designer.cs">
+      <DependentUpon>FormMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FormMediaPriority.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\FormMediaPriority.designer.cs">
       <DependentUpon>FormMediaPriority.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\FormMenu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\FormMenu.designer.cs">
-      <DependentUpon>FormMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FormProfile.cs">
       <SubType>Form</SubType>
@@ -99,6 +87,12 @@
     </Compile>
     <Compile Include="Forms\FormRegisterAdminUser.designer.cs">
       <DependentUpon>FormRegisterAdminUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormReviews.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormReviews.Designer.cs">
+      <DependentUpon>FormReviews.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FormSearchMoviesOrSeries.cs">
       <SubType>Form</SubType>
@@ -123,6 +117,12 @@
     </Compile>
     <Compile Include="Forms\FormUsers.Designer.cs">
       <DependentUpon>FormUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormWatchList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormWatchList.Designer.cs">
+      <DependentUpon>FormWatchList.cs</DependentUpon>
     </Compile>
     <Compile Include="MediaManager\DAL\EntityFramework\MediaManagerDbContext.cs" />
     <Compile Include="MediaManager\DAL\EntityFramework\Repository.cs" />
@@ -156,17 +156,11 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Forms\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormManageUsers.resx">
-      <DependentUpon>FormManageUsers.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FormMenu.resx">
+      <DependentUpon>FormMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormMediaPriority.resx">
       <DependentUpon>FormMediaPriority.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormMenu.resx">
-      <DependentUpon>FormMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormProfile.resx">
       <DependentUpon>FormProfile.cs</DependentUpon>
@@ -176,6 +170,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormRegisterAdminUser.resx">
       <DependentUpon>FormRegisterAdminUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormReviews.resx">
+      <DependentUpon>FormReviews.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormSearchMoviesOrSeries.resx">
       <DependentUpon>FormSearchMoviesOrSeries.cs</DependentUpon>
@@ -188,6 +185,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormUsers.resx">
       <DependentUpon>FormUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormWatchList.resx">
+      <DependentUpon>FormWatchList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

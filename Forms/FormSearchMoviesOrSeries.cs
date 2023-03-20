@@ -14,6 +14,7 @@ namespace TallerProgramacion2020.Forms
     public partial class FormSearchMoviesOrSeries : Form
     {
         private readonly List<Media> mediaList = new List<Media>();
+        private string genres; 
 
         public FormSearchMoviesOrSeries()
         {
@@ -44,11 +45,19 @@ namespace TallerProgramacion2020.Forms
                     labelErrorMessage.Visible = false;
                     dataGridViewMedia.Rows.Clear();
                     dataGridViewMedia.Visible = true;
+                    buttonAddToMyList.Visible = true;
+                    buttonRate.Visible = true;
+                    buttonSeeMoreInformation.Visible = true;
                     foreach (var media in mediaList)
                     {
-                        dataGridViewMedia.Rows.Add(media.ImdbID, media.Title, media.MediaType,
-                        media.Genres, media.ReleaseDate, media.RuntimeInMin, media.Director,
-                        media.Writer, media.Cast, media.Origin, media.ImdbRating);
+                        var listGenres = new List<String>();
+                        foreach (var genre in media.Genres)
+                        {
+                            listGenres.Add(genre.Name);   
+                        }
+                        genres = String.Join(", ", listGenres);
+                        dataGridViewMedia.Rows.Add(media.ImdbID, media.Title,media.Year, media.MediaType,
+                        genres, media.ImdbRating);
                     }
                 }
                 else
@@ -64,48 +73,83 @@ namespace TallerProgramacion2020.Forms
             labelErrorMessage.Visible = true;
         }
 
-        private void DataGridViewMedia_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void ButtonRate_Click(object sender, EventArgs e)
         {
-            //DataGridViewLinkCell cell = (DataGridViewLinkCell)dataGridViewMedia.Rows[e.RowIndex].Cells[e.ColumnIndex];
-            //if (cell.Value.ToString() == "Rate")
-            //{
-            //    var imdbID = dataGridViewMedia.Rows[e.RowIndex].Cells[0].Value.ToString();
-            //    //Este id lo voy a necesitar para conectar el comentario con la pelicula
-            //    //Tambien voy a necesitar el id del USUARIO 
-            //    FormRateMovieOrSeries formRate = new FormRateMovieOrSeries(imdbID);
-            //    formRate.ShowDialog();
-            //}
-            //else if (cell.Value.ToString() == "Add")
-            //{
-            //    //Valido si la pelicula ya no esta en la lista del usuario, si no esta
-            //    //muestro un mensaje de que media fue agregado de manera exitosa a su lista.
-            //    //Tambien voy a necesitar el imbdid y el usuario
-            //    FormMediaPriority formMediaPriority = new FormMediaPriority();
-            //    formMediaPriority.ShowDialog();
-            //    MessageBox.Show("Se agrego a su lista");
-            //}
-            //else if (cell.Value.ToString() == "More Info")
-            //{
-            //    FormSeeMoreInformation formSeeMoreInformation = new FormSeeMoreInformation();
-            //    formSeeMoreInformation.ShowDialog();
-            //}
+            if (dataGridViewMedia.SelectedRows.Count == 1)
+            { 
+                var idIMDB = dataGridViewMedia.CurrentRow.Cells["ColumnImdbID"].Value.ToString();
+                FormRateMovieOrSeries formRateMoviesOrSeries = new FormRateMovieOrSeries(idIMDB);
+                formRateMoviesOrSeries.ShowDialog();
+            }
+        }
+
+        private void ButtonSeeMoreInformation_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewMedia.SelectedRows.Count == 1)
+            {
+                var idIMDB = dataGridViewMedia.CurrentRow.Cells["ColumnImdbID"].Value.ToString();
+                FormSeeMoreInformation formSeeMoreInformation = new FormSeeMoreInformation(idIMDB);
+                formSeeMoreInformation.ShowDialog();
+            }
+        }
+
+        private void ButtonAddToMyList_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewMedia.SelectedRows.Count == 1)
+            {
+                var idIMDB = dataGridViewMedia.CurrentRow.Cells["ColumnImdbID"].Value.ToString();
+                //var exist = controlador.MediaAlreadyExist(idIMDB);
+                var exist = false;
+                if (exist)
+                {
+                    MessageBox.Show("This media already exists in your watchlist");
+                }
+                else
+                {
+                    FormMediaPriority formMediaPriority = new FormMediaPriority(idIMDB);
+                    formMediaPriority.ShowDialog();
+                }
+                
+            }
         }
 
         //Metodos que hay que eliminar despues
         private void InitializeMediaGrid()
         {
             //mediaList= la funcion buscar que tenga como parametros el tipo genero o titulo que quiere el usuario
+            Genre genLK1 = new Genre("Animation");
+            Genre genLK3 = new Genre("Adventure");
+            Genre genLK5 = new Genre("Drama");
+            List<Genre> gensLK = new List<Genre>
+            {
+                genLK1, genLK3, genLK5
+            };
+
+            Genre genC1 = new Genre("Adventure");
+            Genre genC2 = new Genre("Drama");
+            Genre genC3 = new Genre("Family");
+            List<Genre> gensC = new List<Genre>
+            {
+                genC1,genC2,genC3
+            };
+
             Media media1 = new Media
             {
-                ImdbID = "5896",
-                Title = "El rey leon",
-                RuntimeInMin = 120
+                ImdbID = "tt0110357",
+                Title = "The Lion King",
+                Year = "1994",
+                MediaType = MediaType.Movie,
+                Genres = gensLK,
+                ImdbRating = 8.5f,
             };
             Media media2 = new Media
             {
-                ImdbID = "7896",
-                Title = "La cenicientan",
-                RuntimeInMin = 120
+                ImdbID = "tt1661199",
+                Title = "Cinderella",
+                Year = "2015",
+                MediaType = MediaType.Movie,
+                Genres = gensC,
+                ImdbRating = 6.9f,
             };
             mediaList.Add(media1);
             mediaList.Add(media2);

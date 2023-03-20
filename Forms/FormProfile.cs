@@ -47,7 +47,7 @@ namespace TallerProgramacion2020.Forms
 
         private void ShowUser()
         {
-            pictureBox1.Image = ConvertByteArrayToImage(user.ProfilePhoto);
+            pictureBoxProfile.Image = ConvertByteArrayToImage(user.ProfilePhoto);
             labelUserFullName.Text = user.FullName;
             labelUserPassword.Text = user.PasswordHash;
             labelUserUsername.Text = user.UserName;
@@ -147,5 +147,11 @@ namespace TallerProgramacion2020.Forms
             labelErrorMessage.Text = "      " + txt;
             labelErrorMessage.Visible = true;
         }
+
+        private void ButtonCancel_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

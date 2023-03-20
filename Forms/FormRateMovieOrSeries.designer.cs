@@ -77,10 +77,10 @@
             this.richTextBox1.TabIndex = 20;
             this.richTextBox1.Text = "";
             // 
-            // buttonSave
+            // buttonSearch
             // 
             this.buttonSave.Location = new System.Drawing.Point(170, 231);
-            this.buttonSave.Name = "buttonSave";
+            this.buttonSave.Name = "buttonSearch";
             this.buttonSave.Size = new System.Drawing.Size(75, 23);
             this.buttonSave.TabIndex = 21;
             this.buttonSave.Text = "Save";
