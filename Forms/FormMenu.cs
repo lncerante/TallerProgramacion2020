@@ -16,17 +16,19 @@ namespace TallerProgramacion2020.Forms
     public partial class FormMenu : Form
     {
         private Form activeForm = null;
-        readonly List<User> usersList = new List<User>();
         private int LX, LY;
-        //private List<Button> btns = new List<Button>();
+        private Button currentButton;
+
 
         public FormMenu()
         {
             InitializeComponent();
+            this.DoubleBuffered = true;
         }
 
         private void FormMenu_Load(object sender, EventArgs e)
         {
+            labelTodayDate.Text = DateTime.Today.ToString("D");
             //Aca vamos a tener que preguntar por el rol del usuario que haya iniciado sesion
             bool admin = true;
             if (!admin)
@@ -35,18 +37,53 @@ namespace TallerProgramacion2020.Forms
             }                                 
         }
 
-        private void OpenChildForm(Form childForm)
+        private void ActiveButton(object buttonSender)
         {
-            if (activeForm != null)
+            if (buttonSender != null)
             {
-                activeForm.Close();
-                activeForm = childForm;
-                childForm.TopLevel = false;
-                childForm.Dock = DockStyle.Fill;
-                this.panelFormsContainer.Controls.Add(childForm);
-                this.panelFormsContainer.Tag = childForm;
-                childForm.Show();
+                if (currentButton != (Button)buttonSender)
+                {
+                    DisableButton();
+                    currentButton = (Button)buttonSender;
+                    currentButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+                    currentButton.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                    labelTitle.Text = currentButton.Text;
+                }
             }
+        }
+
+        private void DisableButton()
+        {
+            foreach (Control previousBtn in panelMenu.Controls)
+            {
+                if (previousBtn.GetType() == typeof(Button))
+                {
+                    previousBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+                    previousBtn.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                }
+            }
+        }
+
+        private void ButtonHome_Click(object sender, EventArgs e)
+        {
+            DisableButton();
+            labelTitle.Text = "  Home";
+            //labelTodayDate.Visible = true;
+            //pictureBox1.Visible = true;
+            activeForm?.Close();
+        }
+
+        private void OpenChildForm(Form childForm, object buttonSender)
+        {
+            activeForm?.Close();
+            ActiveButton(buttonSender);
+            activeForm = childForm;
+            childForm.TopLevel = false;
+            childForm.Dock = DockStyle.Fill;
+            this.panelFormsContainer.Controls.Add(childForm);
+            this.panelFormsContainer.Tag = childForm;
+            childForm.BringToFront();
+            childForm.Show();
         }
 
         //método que nos permitirá abrir varios formularios
@@ -77,18 +114,10 @@ namespace TallerProgramacion2020.Forms
 
         private void ButtonSeeWatchList_Click(object sender, EventArgs e)
         {
-            
             //Aca tiene que aparecer la lista de seguimiento del usuario
             //y tiene que haber una columna donde se pueda eliminar de la lista
             // y una columna para la prioridad
-            OpenChildForm(new FormWatchList());
-            
-            //ChangeButtonBackColor
-            buttonSeeWatchList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200))))); 
-            buttonSeeReviews.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            buttonAddToList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            buttonProfile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            buttonManageUsers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            OpenChildForm(new FormWatchList(), sender);
         }
 
         private void ButtonSeeReviews_Click(object sender, EventArgs e)
@@ -96,50 +125,22 @@ namespace TallerProgramacion2020.Forms
             //Aca tienen que aparecer las peliculas que califique con su comentario, el comentario
             //deberia poder editarse desde aca
             // creo que con mostrar el titulo, tipo, comentario y calificacion  estaria
-            OpenChildForm(new FormReviews());
-
-            //ChangeButtonBackColor
-            buttonSeeWatchList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            buttonSeeReviews.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            buttonAddToList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            buttonProfile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            buttonManageUsers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            OpenChildForm(new FormReviews(), sender);
         }
 
         private void ButtonAddToList_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FormSearchMoviesOrSeries());
-
-            //ChangeButtonBackColor
-            buttonSeeWatchList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            buttonAddToList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            buttonSeeReviews.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            buttonProfile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            buttonManageUsers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            OpenChildForm(new FormSearchMoviesOrSeries(), sender);
         }
 
         private void ButtonProfile_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FormProfile());
-           
-            //ChangeButtonBackColor
-            buttonSeeWatchList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            buttonProfile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            buttonSeeReviews.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            buttonAddToList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            buttonManageUsers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            OpenChildForm(new FormProfile(), sender);
         }
 
         private void ButtonManageUsers_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FormUsers());
-
-            //ChangeButtonBackColor
-            buttonSeeWatchList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            buttonManageUsers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            buttonSeeReviews.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            buttonProfile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            buttonAddToList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            OpenChildForm(new FormUsers(), sender);
         }
 
         private void ButtonLogOut_Click(object sender, EventArgs e)
@@ -164,6 +165,16 @@ namespace TallerProgramacion2020.Forms
             this.Location = Screen.PrimaryScreen.WorkingArea.Location;
             buttonMaximized.Visible = false;
             buttonRestore.Visible = true;
+
+            //PROBAR ESTO
+            //if(WindowState == FormWindowState.Normal)
+            //{
+            //    WindowState = FormWindowState.Maximized;
+            //}
+            //else
+            //{
+            //    WindowState = FormWindowState.Normal;
+            //}
         }
 
         private void ButtonClose_Click(object sender, EventArgs e)
@@ -233,15 +244,6 @@ namespace TallerProgramacion2020.Forms
         }
         #endregion
 
-        //private void ChangeButtonBackColor(Button btn)
-        //{
-        //    btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-        //    List<Button> btnList = btns;
-        //    btnList.Remove(btn);
-        //    foreach (Button button in btnList)
-        //    {
-        //        button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-        //    }
-        //}
+
     }
 }

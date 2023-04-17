@@ -48,12 +48,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.buttonMinimized = new System.Windows.Forms.PictureBox();
-            this.buttonClose = new System.Windows.Forms.PictureBox();
+            this.buttonMinimized = new System.Windows.Forms.Button();
+            this.buttonClose = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.buttonMinimized)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.buttonClose)).BeginInit();
             this.SuspendLayout();
             // 
             // openFileDialogUploadPicture
@@ -70,7 +68,7 @@
             this.panelUsername.Size = new System.Drawing.Size(220, 1);
             this.panelUsername.TabIndex = 55;
             // 
-            // buttonSearch
+            // buttonSave
             // 
             this.buttonSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(110)))), ((int)(((byte)(200)))));
             this.buttonSave.FlatAppearance.BorderSize = 0;
@@ -80,7 +78,7 @@
             this.buttonSave.ForeColor = System.Drawing.Color.White;
             this.buttonSave.Location = new System.Drawing.Point(458, 384);
             this.buttonSave.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonSave.Name = "buttonSearch";
+            this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(333, 35);
             this.buttonSave.TabIndex = 51;
             this.buttonSave.Text = "Save";
@@ -281,24 +279,38 @@
             // 
             // buttonMinimized
             // 
+            this.buttonMinimized.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonMinimized.BackColor = System.Drawing.Color.Transparent;
+            this.buttonMinimized.FlatAppearance.BorderSize = 0;
+            this.buttonMinimized.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(110)))), ((int)(((byte)(200)))));
+            this.buttonMinimized.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(110)))), ((int)(((byte)(200)))));
+            this.buttonMinimized.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonMinimized.Image = ((System.Drawing.Image)(resources.GetObject("buttonMinimized.Image")));
-            this.buttonMinimized.Location = new System.Drawing.Point(782, 12);
+            this.buttonMinimized.Location = new System.Drawing.Point(753, 2);
+            this.buttonMinimized.Margin = new System.Windows.Forms.Padding(0);
             this.buttonMinimized.Name = "buttonMinimized";
-            this.buttonMinimized.Size = new System.Drawing.Size(15, 15);
-            this.buttonMinimized.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.buttonMinimized.TabIndex = 58;
-            this.buttonMinimized.TabStop = false;
+            this.buttonMinimized.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.buttonMinimized.Size = new System.Drawing.Size(35, 20);
+            this.buttonMinimized.TabIndex = 60;
+            this.buttonMinimized.UseVisualStyleBackColor = false;
             this.buttonMinimized.Click += new System.EventHandler(this.ButtonMinimized_Click);
             // 
             // buttonClose
             // 
+            this.buttonClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonClose.BackColor = System.Drawing.Color.Transparent;
+            this.buttonClose.FlatAppearance.BorderSize = 0;
+            this.buttonClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.buttonClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.buttonClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonClose.Image = ((System.Drawing.Image)(resources.GetObject("buttonClose.Image")));
-            this.buttonClose.Location = new System.Drawing.Point(803, 12);
+            this.buttonClose.Location = new System.Drawing.Point(793, 2);
+            this.buttonClose.Margin = new System.Windows.Forms.Padding(0);
             this.buttonClose.Name = "buttonClose";
-            this.buttonClose.Size = new System.Drawing.Size(15, 15);
-            this.buttonClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.buttonClose.TabIndex = 57;
-            this.buttonClose.TabStop = false;
+            this.buttonClose.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.buttonClose.Size = new System.Drawing.Size(35, 20);
+            this.buttonClose.TabIndex = 59;
+            this.buttonClose.UseVisualStyleBackColor = false;
             this.buttonClose.Click += new System.EventHandler(this.ButtonClose_Click);
             // 
             // FormRegisterAdminUser
@@ -332,8 +344,6 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.buttonMinimized)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.buttonClose)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -359,7 +369,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox buttonMinimized;
-        private System.Windows.Forms.PictureBox buttonClose;
+        private System.Windows.Forms.Button buttonMinimized;
+        private System.Windows.Forms.Button buttonClose;
     }
 }

@@ -38,7 +38,6 @@
             this.ColumnType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnImdbRating = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnComments = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.labelRegisteredUsers = new System.Windows.Forms.Label();
             this.buttonEdit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMedia)).BeginInit();
             this.SuspendLayout();
@@ -76,7 +75,7 @@
             this.ColumnComments});
             this.dataGridViewMedia.EnableHeadersVisualStyles = false;
             this.dataGridViewMedia.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(86)))), ((int)(((byte)(115)))));
-            this.dataGridViewMedia.Location = new System.Drawing.Point(35, 84);
+            this.dataGridViewMedia.Location = new System.Drawing.Point(35, 33);
             this.dataGridViewMedia.MultiSelect = false;
             this.dataGridViewMedia.Name = "dataGridViewMedia";
             this.dataGridViewMedia.ReadOnly = true;
@@ -96,7 +95,7 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
             this.dataGridViewMedia.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewMedia.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewMedia.Size = new System.Drawing.Size(1010, 454);
+            this.dataGridViewMedia.Size = new System.Drawing.Size(1010, 440);
             this.dataGridViewMedia.TabIndex = 20;
             // 
             // ColumnImdbID
@@ -145,17 +144,6 @@
             this.ColumnComments.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.ColumnComments.Width = 103;
             // 
-            // labelRegisteredUsers
-            // 
-            this.labelRegisteredUsers.AutoSize = true;
-            this.labelRegisteredUsers.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelRegisteredUsers.ForeColor = System.Drawing.Color.White;
-            this.labelRegisteredUsers.Location = new System.Drawing.Point(31, 36);
-            this.labelRegisteredUsers.Name = "labelRegisteredUsers";
-            this.labelRegisteredUsers.Size = new System.Drawing.Size(127, 23);
-            this.labelRegisteredUsers.TabIndex = 28;
-            this.labelRegisteredUsers.Text = "MY REVIEWS";
-            // 
             // buttonEdit
             // 
             this.buttonEdit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
@@ -166,7 +154,7 @@
             this.buttonEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonEdit.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonEdit.ForeColor = System.Drawing.Color.White;
-            this.buttonEdit.Location = new System.Drawing.Point(35, 567);
+            this.buttonEdit.Location = new System.Drawing.Point(35, 502);
             this.buttonEdit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonEdit.Name = "buttonEdit";
             this.buttonEdit.Size = new System.Drawing.Size(143, 35);
@@ -180,9 +168,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
-            this.ClientSize = new System.Drawing.Size(1080, 630);
+            this.ClientSize = new System.Drawing.Size(1080, 565);
             this.Controls.Add(this.buttonEdit);
-            this.Controls.Add(this.labelRegisteredUsers);
             this.Controls.Add(this.dataGridViewMedia);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormReviews";
@@ -190,14 +177,12 @@
             this.Load += new System.EventHandler(this.FormReviews_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMedia)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridViewMedia;
-        private System.Windows.Forms.Label labelRegisteredUsers;
         private System.Windows.Forms.Button buttonEdit;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnImdbID;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTitle;

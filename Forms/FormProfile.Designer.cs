@@ -44,7 +44,6 @@
             this.textBoxFullName = new System.Windows.Forms.TextBox();
             this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.labelProfilePicture = new System.Windows.Forms.Label();
-            this.labelRegisterOrEdit = new System.Windows.Forms.Label();
             this.openFileDialogUploadPicture = new System.Windows.Forms.OpenFileDialog();
             this.buttonSaveChanges = new System.Windows.Forms.Button();
             this.labelUserUsername = new System.Windows.Forms.Label();
@@ -255,18 +254,6 @@
             this.labelProfilePicture.Text = "Profile Picture:";
             this.labelProfilePicture.Visible = false;
             // 
-            // labelRegisterOrEdit
-            // 
-            this.labelRegisterOrEdit.AutoSize = true;
-            this.labelRegisterOrEdit.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelRegisterOrEdit.ForeColor = System.Drawing.Color.White;
-            this.labelRegisterOrEdit.Location = new System.Drawing.Point(216, 50);
-            this.labelRegisterOrEdit.Name = "labelRegisterOrEdit";
-            this.labelRegisterOrEdit.Size = new System.Drawing.Size(122, 23);
-            this.labelRegisterOrEdit.TabIndex = 58;
-            this.labelRegisterOrEdit.Text = "MY PROFILE";
-            this.labelRegisterOrEdit.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
             // openFileDialogUploadPicture
             // 
             this.openFileDialogUploadPicture.FileName = "openFileDialogUploadPicture";
@@ -347,9 +334,9 @@
             this.panel1.Controls.Add(this.buttonUploadPicture);
             this.panel1.Controls.Add(this.labelErrorMessage);
             this.panel1.Controls.Add(this.labelPassword);
-            this.panel1.Location = new System.Drawing.Point(217, 106);
+            this.panel1.Location = new System.Drawing.Point(220, 63);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(654, 368);
+            this.panel1.Size = new System.Drawing.Size(654, 366);
             this.panel1.TabIndex = 63;
             // 
             // FormProfile
@@ -358,8 +345,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(1080, 630);
-            this.Controls.Add(this.labelRegisterOrEdit);
+            this.ClientSize = new System.Drawing.Size(1080, 565);
             this.Controls.Add(this.panel1);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -370,7 +356,6 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -391,7 +376,6 @@
         private System.Windows.Forms.TextBox textBoxFullName;
         private System.Windows.Forms.TextBox textBoxPassword;
         private System.Windows.Forms.Label labelProfilePicture;
-        private System.Windows.Forms.Label labelRegisterOrEdit;
         private System.Windows.Forms.OpenFileDialog openFileDialogUploadPicture;
         private System.Windows.Forms.Button buttonSaveChanges;
         private System.Windows.Forms.Label labelUserUsername;

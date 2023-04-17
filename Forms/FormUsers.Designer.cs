@@ -49,7 +49,6 @@
             this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.labelProfilePicture = new System.Windows.Forms.Label();
             this.labelRegisterOrEdit = new System.Windows.Forms.Label();
-            this.labelRegisteredUsers = new System.Windows.Forms.Label();
             this.buttonDelete = new System.Windows.Forms.Button();
             this.buttonEdit = new System.Windows.Forms.Button();
             this.openFileDialogUploadPicture = new System.Windows.Forms.OpenFileDialog();
@@ -87,7 +86,7 @@
             this.panelForm.Location = new System.Drawing.Point(703, 0);
             this.panelForm.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelForm.Name = "panelForm";
-            this.panelForm.Size = new System.Drawing.Size(377, 630);
+            this.panelForm.Size = new System.Drawing.Size(377, 565);
             this.panelForm.TabIndex = 42;
             // 
             // buttonCancel
@@ -284,17 +283,6 @@
             this.labelRegisterOrEdit.Text = "REGISTER NEW USER";
             this.labelRegisterOrEdit.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // labelRegisteredUsers
-            // 
-            this.labelRegisteredUsers.AutoSize = true;
-            this.labelRegisteredUsers.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelRegisteredUsers.ForeColor = System.Drawing.Color.White;
-            this.labelRegisteredUsers.Location = new System.Drawing.Point(21, 43);
-            this.labelRegisteredUsers.Name = "labelRegisteredUsers";
-            this.labelRegisteredUsers.Size = new System.Drawing.Size(184, 23);
-            this.labelRegisteredUsers.TabIndex = 43;
-            this.labelRegisteredUsers.Text = "REGISTERED USERS";
-            // 
             // buttonDelete
             // 
             this.buttonDelete.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
@@ -305,7 +293,7 @@
             this.buttonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonDelete.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonDelete.ForeColor = System.Drawing.Color.White;
-            this.buttonDelete.Location = new System.Drawing.Point(526, 584);
+            this.buttonDelete.Location = new System.Drawing.Point(526, 519);
             this.buttonDelete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Size = new System.Drawing.Size(143, 35);
@@ -324,7 +312,7 @@
             this.buttonEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonEdit.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonEdit.ForeColor = System.Drawing.Color.White;
-            this.buttonEdit.Location = new System.Drawing.Point(25, 584);
+            this.buttonEdit.Location = new System.Drawing.Point(25, 519);
             this.buttonEdit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonEdit.Name = "buttonEdit";
             this.buttonEdit.Size = new System.Drawing.Size(143, 35);
@@ -335,14 +323,14 @@
             // 
             // panelGrid
             // 
+            this.panelGrid.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
             this.panelGrid.Controls.Add(this.dataGridViewUsers);
             this.panelGrid.Controls.Add(this.buttonDelete);
-            this.panelGrid.Controls.Add(this.labelRegisteredUsers);
             this.panelGrid.Controls.Add(this.buttonEdit);
             this.panelGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelGrid.Location = new System.Drawing.Point(0, 0);
             this.panelGrid.Name = "panelGrid";
-            this.panelGrid.Size = new System.Drawing.Size(703, 630);
+            this.panelGrid.Size = new System.Drawing.Size(703, 565);
             this.panelGrid.TabIndex = 48;
             // 
             // dataGridViewUsers
@@ -385,7 +373,7 @@
             this.dataGridViewUsers.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewUsers.EnableHeadersVisualStyles = false;
             this.dataGridViewUsers.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(86)))), ((int)(((byte)(115)))));
-            this.dataGridViewUsers.Location = new System.Drawing.Point(25, 88);
+            this.dataGridViewUsers.Location = new System.Drawing.Point(25, 32);
             this.dataGridViewUsers.MultiSelect = false;
             this.dataGridViewUsers.Name = "dataGridViewUsers";
             this.dataGridViewUsers.ReadOnly = true;
@@ -408,7 +396,7 @@
             this.dataGridViewUsers.RowTemplate.Height = 100;
             this.dataGridViewUsers.RowTemplate.ReadOnly = true;
             this.dataGridViewUsers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewUsers.Size = new System.Drawing.Size(650, 464);
+            this.dataGridViewUsers.Size = new System.Drawing.Size(650, 455);
             this.dataGridViewUsers.TabIndex = 48;
             // 
             // ColumnId
@@ -459,7 +447,7 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
-            this.ClientSize = new System.Drawing.Size(1080, 630);
+            this.ClientSize = new System.Drawing.Size(1080, 565);
             this.Controls.Add(this.panelGrid);
             this.Controls.Add(this.panelForm);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -469,7 +457,6 @@
             this.panelForm.ResumeLayout(false);
             this.panelForm.PerformLayout();
             this.panelGrid.ResumeLayout(false);
-            this.panelGrid.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsers)).EndInit();
             this.ResumeLayout(false);
 
@@ -492,7 +479,6 @@
         private System.Windows.Forms.TextBox textBoxPassword;
         private System.Windows.Forms.Label labelProfilePicture;
         private System.Windows.Forms.Label labelRegisterOrEdit;
-        private System.Windows.Forms.Label labelRegisteredUsers;
         private System.Windows.Forms.Button buttonDelete;
         private System.Windows.Forms.Button buttonEdit;
         private System.Windows.Forms.OpenFileDialog openFileDialogUploadPicture;

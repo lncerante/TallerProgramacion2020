@@ -39,13 +39,11 @@
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.panelUsername = new System.Windows.Forms.Panel();
             this.panelPassword = new System.Windows.Forms.Panel();
-            this.buttonClose = new System.Windows.Forms.PictureBox();
-            this.buttonMinimized = new System.Windows.Forms.PictureBox();
             this.labelErrorMessage = new System.Windows.Forms.Label();
+            this.buttonMinimized = new System.Windows.Forms.Button();
+            this.buttonClose = new System.Windows.Forms.Button();
             this.panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.buttonClose)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.buttonMinimized)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonConfirm
@@ -159,28 +157,6 @@
             this.panelPassword.Size = new System.Drawing.Size(227, 1);
             this.panelPassword.TabIndex = 21;
             // 
-            // buttonClose
-            // 
-            this.buttonClose.Image = ((System.Drawing.Image)(resources.GetObject("buttonClose.Image")));
-            this.buttonClose.Location = new System.Drawing.Point(765, 0);
-            this.buttonClose.Name = "buttonClose";
-            this.buttonClose.Size = new System.Drawing.Size(15, 15);
-            this.buttonClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.buttonClose.TabIndex = 22;
-            this.buttonClose.TabStop = false;
-            this.buttonClose.Click += new System.EventHandler(this.ButtonClose_Click);
-            // 
-            // buttonMinimized
-            // 
-            this.buttonMinimized.Image = ((System.Drawing.Image)(resources.GetObject("buttonMinimized.Image")));
-            this.buttonMinimized.Location = new System.Drawing.Point(744, 0);
-            this.buttonMinimized.Name = "buttonMinimized";
-            this.buttonMinimized.Size = new System.Drawing.Size(15, 15);
-            this.buttonMinimized.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.buttonMinimized.TabIndex = 23;
-            this.buttonMinimized.TabStop = false;
-            this.buttonMinimized.Click += new System.EventHandler(this.ButtonMinimized_Click);
-            // 
             // labelErrorMessage
             // 
             this.labelErrorMessage.AutoSize = true;
@@ -196,15 +172,51 @@
             this.labelErrorMessage.Text = "Error Message:";
             this.labelErrorMessage.Visible = false;
             // 
+            // buttonMinimized
+            // 
+            this.buttonMinimized.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonMinimized.BackColor = System.Drawing.Color.Transparent;
+            this.buttonMinimized.FlatAppearance.BorderSize = 0;
+            this.buttonMinimized.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(110)))), ((int)(((byte)(200)))));
+            this.buttonMinimized.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(110)))), ((int)(((byte)(200)))));
+            this.buttonMinimized.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonMinimized.Image = ((System.Drawing.Image)(resources.GetObject("buttonMinimized.Image")));
+            this.buttonMinimized.Location = new System.Drawing.Point(709, 2);
+            this.buttonMinimized.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.buttonMinimized.Name = "buttonMinimized";
+            this.buttonMinimized.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.buttonMinimized.Size = new System.Drawing.Size(35, 20);
+            this.buttonMinimized.TabIndex = 62;
+            this.buttonMinimized.UseVisualStyleBackColor = false;
+            this.buttonMinimized.Click += new System.EventHandler(this.ButtonMinimized_Click);
+            // 
+            // buttonClose
+            // 
+            this.buttonClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonClose.BackColor = System.Drawing.Color.Transparent;
+            this.buttonClose.FlatAppearance.BorderSize = 0;
+            this.buttonClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.buttonClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.buttonClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonClose.Image = ((System.Drawing.Image)(resources.GetObject("buttonClose.Image")));
+            this.buttonClose.Location = new System.Drawing.Point(744, 2);
+            this.buttonClose.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonClose.Name = "buttonClose";
+            this.buttonClose.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.buttonClose.Size = new System.Drawing.Size(35, 20);
+            this.buttonClose.TabIndex = 61;
+            this.buttonClose.UseVisualStyleBackColor = false;
+            this.buttonClose.Click += new System.EventHandler(this.ButtonClose_Click);
+            // 
             // FormSignIn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
             this.ClientSize = new System.Drawing.Size(780, 330);
-            this.Controls.Add(this.labelErrorMessage);
             this.Controls.Add(this.buttonMinimized);
             this.Controls.Add(this.buttonClose);
+            this.Controls.Add(this.labelErrorMessage);
             this.Controls.Add(this.panelPassword);
             this.Controls.Add(this.panelUsername);
             this.Controls.Add(this.panelLogo);
@@ -222,8 +234,6 @@
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FormSignIn_MouseDown);
             this.panelLogo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.buttonClose)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.buttonMinimized)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -241,8 +251,8 @@
         private System.Windows.Forms.PictureBox pictureBoxLogo;
         private System.Windows.Forms.Panel panelUsername;
         private System.Windows.Forms.Panel panelPassword;
-        private System.Windows.Forms.PictureBox buttonClose;
-        private System.Windows.Forms.PictureBox buttonMinimized;
         private System.Windows.Forms.Label labelErrorMessage;
+        private System.Windows.Forms.Button buttonMinimized;
+        private System.Windows.Forms.Button buttonClose;
     }
 }

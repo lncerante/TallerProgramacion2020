@@ -14,9 +14,9 @@ namespace TallerProgramacion2020
             var unit = new UnitOfWork(new MediaManagerDbContext());
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormMenu());
+            //Application.Run(new FormRegisterAdminUser());
             
-            //Application.Run(new FormSignIn());
+            Application.Run(new FormSignIn());
             //if (formSignIn.userSuccessfullyAuthenticated)
             //{
               //Application.Run(new FormSignIn());
