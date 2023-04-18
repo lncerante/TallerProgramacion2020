@@ -14,17 +14,12 @@ namespace TallerProgramacion2020.MediaManager
             iUnitOfWork = new UnitOfWork(new MediaManagerDbContext());
         }
 
-        private void SetBaseDTO(BaseObjectDTO pBaseObjectDTO, BaseObject pBaseObject)
-        {
-            pBaseObjectDTO.ID = pBaseObject.ID;
-            pBaseObjectDTO.ITS = pBaseObject.ITS;
-            pBaseObjectDTO.UTS = pBaseObject.UTS;
-        }
-
         private UserDTO AsDTO(User pUser)
         {
             UserDTO dto = new UserDTO();
-            SetBaseDTO(dto, pUser);
+            dto.ID = pUser.ID;
+            dto.ITS = pUser.ITS;
+            dto.UTS = pUser.UTS;
             dto.UserName = pUser.UserName;
             dto.FullName = pUser.FullName;
             dto.ProfilePhoto = pUser.ProfilePhoto;

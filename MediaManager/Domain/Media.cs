@@ -4,21 +4,49 @@ using System.Xml.Linq;
 
 namespace TallerProgramacion2020.MediaManager.Domain
 {
-    internal class Media : BaseObject
+    internal class Media
     {
+        protected int? iID;
+        protected DateTime? iITS;
+        protected DateTime? iUTS;
+        protected DateTime? iDTS;
         protected string iImdbID;
         protected string iTitle;
         protected string iYear;
         protected MediaType iMediaType;
         protected DateTime iReleaseDate;
-        protected IList<Genre> iGenres;
+        protected ICollection<Genre> iGenres;
         protected int iRuntimeInMin;
-        protected IList<Person> iDirector;
-        protected IList<Person> iWriter;
-        protected IList<Person> iCast;
-        protected IList<Country> iOrigin;
+        protected ICollection<Director> iDirector;
+        protected ICollection<Writer> iWriter;
+        protected ICollection<Actor> iCast;
+        protected ICollection<Country> iOrigin;
         protected Byte[] iPoster;
         protected float iImdbRating;
+
+        public int? ID
+        {
+            get { return iID; }
+            set { iID = value; }
+        }
+
+        public DateTime? ITS
+        {
+            get { return iITS; }
+            set { iITS = value; }
+        }
+
+        public DateTime? UTS
+        {
+            get { return iUTS; }
+            set { iUTS = value; }
+        }
+
+        public DateTime? DTS
+        {
+            get { return iDTS; }
+            set { iDTS = value; }
+        }
 
 
         public string ImdbID
@@ -46,7 +74,7 @@ namespace TallerProgramacion2020.MediaManager.Domain
             get { return iReleaseDate; }
             set { iReleaseDate = value; }
         }
-        public IList<Genre> Genres
+        public ICollection<Genre> Genres
         {
             get { return iGenres; }
             set { iGenres = value; }
@@ -56,22 +84,22 @@ namespace TallerProgramacion2020.MediaManager.Domain
             get { return iRuntimeInMin; }
             set { iRuntimeInMin = value; }
         }
-        public IList<Person> Director
+        public ICollection<Director> Director
         {
             get { return iDirector; }
             set { iDirector = value; }
         }
-        public IList<Person> Writer
+        public ICollection<Writer> Writer
         {
             get { return iWriter; }
             set { iWriter = value; }
         }
-        public IList<Person> Cast
+        public ICollection<Actor> Cast
         {
             get { return iCast; }
             set { iCast = value; }
         }
-        public IList<Country> Origin
+        public ICollection<Country> Origin
         {
             get { return iOrigin; }
             set { iOrigin = value; }

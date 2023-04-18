@@ -1,21 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Xml.Linq;
 
 namespace TallerProgramacion2020.MediaManager.Domain
 {
-    internal abstract class Person
+    internal class WatchListItem
     {
         protected int? iID;
         protected DateTime? iITS;
         protected DateTime? iUTS;
         protected DateTime? iDTS;
-        private string iFullName;
-
-        public Person(string pFullName)
-        {
-            FullName = pFullName;
-        }
+        protected User iUser;
+        protected Media iMedia;
+        protected Priority iPriority;
 
         public int? ID
         {
@@ -41,15 +37,22 @@ namespace TallerProgramacion2020.MediaManager.Domain
             set { iDTS = value; }
         }
 
-        public string FullName
+        public User User
         {
-            get { return iFullName; }
-            set { iFullName = value; }
+            get { return iUser; }
+            set { iUser = value; }
         }
 
-        public bool Equals(Person other)
+        public Media Media
         {
-            return FullName == other.FullName;
+            get { return iMedia; }
+            set { iMedia = value; }
+        }
+
+        public Priority Priority
+        {
+            get { return iPriority; }
+            set { iPriority = value; }
         }
     }
 }
