@@ -1,13 +1,8 @@
 ﻿namespace TallerProgramacion2020.MediaManager.Domain
 {
-    internal class UserRole : BaseObject
+    internal enum UserRole : byte
     {
-        protected string iName;
-
-        public string Name
-        {
-            get { return iName; }
-            set { iName = value; }
-        }
+        User = 0,
+        Admin
     }
 }

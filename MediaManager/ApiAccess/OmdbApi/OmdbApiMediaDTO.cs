@@ -72,26 +72,26 @@ namespace TallerProgramacion2020.MediaManager.ApiAccess.ImdbApi
                 media.Origin = countries;
 
                 var directorsDTO = Director.Split(iSeparator, StringSplitOptions.RemoveEmptyEntries);
-                var directors = new List<Person>();
+                var directors = new List<Director>();
                 foreach (var directorDTO in directorsDTO)
                 {
-                    directors.Add(new Person(directorDTO));
+                    directors.Add(new Director(directorDTO));
                 }
                 media.Director = directors;
 
                 var writersDTO = Writer.Split(iSeparator, StringSplitOptions.RemoveEmptyEntries);
-                var writers = new List<Person>();
+                var writers = new List<Writer>();
                 foreach (var writerDTO in writersDTO)
                 {
-                    writers.Add(new Person(writerDTO));
+                    writers.Add(new Writer(writerDTO));
                 }
                 media.Writer = writers;
 
                 var castDTO = Actors.Split(iSeparator, StringSplitOptions.RemoveEmptyEntries);
-                var cast = new List<Person>();
+                var cast = new List<Actor>();
                 foreach (var actorDTO in castDTO)
                 {
-                    cast.Add(new Person(actorDTO));
+                    cast.Add(new Actor(actorDTO));
                 }
                 media.Cast = cast;
 
