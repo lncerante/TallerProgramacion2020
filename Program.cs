@@ -1,13 +1,27 @@
-﻿using TallerProgramacion2020.MediaManager.DAL.EntityFramework;
+﻿using System;
+using System.Windows.Forms;
+using TallerProgramacion2020.Forms;
+using TallerProgramacion2020.MediaManager.DAL.EntityFramework;
 
 
 namespace TallerProgramacion2020
 {
     class Program
     {
-        static void Main(string[] args)
+        [STAThread]
+        static void Main()
         {
             var unit = new UnitOfWork(new MediaManagerDbContext());
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            //Application.Run(new FormRegisterAdminUser());
+            
+            Application.Run(new FormSignIn());
+            //if (formSignIn.userSuccessfullyAuthenticated)
+            //{
+              //Application.Run(new FormSignIn());
+            //}
+
         }
     }
 }
