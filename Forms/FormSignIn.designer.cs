@@ -52,7 +52,7 @@
             this.buttonConfirm.FlatAppearance.BorderSize = 0;
             this.buttonConfirm.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
             this.buttonConfirm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonConfirm.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonConfirm.ForeColor = System.Drawing.Color.White;
             this.buttonConfirm.Location = new System.Drawing.Point(375, 217);
             this.buttonConfirm.Name = "buttonConfirm";
@@ -65,11 +65,11 @@
             // labelTitle
             // 
             this.labelTitle.AutoSize = true;
-            this.labelTitle.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTitle.ForeColor = System.Drawing.Color.White;
             this.labelTitle.Location = new System.Drawing.Point(464, 24);
             this.labelTitle.Name = "labelTitle";
-            this.labelTitle.Size = new System.Drawing.Size(111, 33);
+            this.labelTitle.Size = new System.Drawing.Size(116, 31);
             this.labelTitle.TabIndex = 17;
             this.labelTitle.Text = "SIGN IN";
             // 
@@ -77,12 +77,12 @@
             // 
             this.textBoxPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
             this.textBoxPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxPassword.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxPassword.ForeColor = System.Drawing.Color.White;
             this.textBoxPassword.Location = new System.Drawing.Point(444, 161);
             this.textBoxPassword.MaxLength = 15;
             this.textBoxPassword.Name = "textBoxPassword";
-            this.textBoxPassword.Size = new System.Drawing.Size(227, 20);
+            this.textBoxPassword.Size = new System.Drawing.Size(227, 19);
             this.textBoxPassword.TabIndex = 16;
             this.textBoxPassword.UseSystemPasswordChar = true;
             // 
@@ -90,33 +90,33 @@
             // 
             this.textBoxUsername.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
             this.textBoxUsername.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxUsername.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxUsername.ForeColor = System.Drawing.Color.White;
             this.textBoxUsername.Location = new System.Drawing.Point(444, 116);
             this.textBoxUsername.MaxLength = 15;
             this.textBoxUsername.Name = "textBoxUsername";
-            this.textBoxUsername.Size = new System.Drawing.Size(227, 20);
+            this.textBoxUsername.Size = new System.Drawing.Size(227, 19);
             this.textBoxUsername.TabIndex = 15;
             // 
             // labelPassword
             // 
             this.labelPassword.AutoSize = true;
-            this.labelPassword.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPassword.ForeColor = System.Drawing.Color.White;
             this.labelPassword.Location = new System.Drawing.Point(346, 161);
             this.labelPassword.Name = "labelPassword";
-            this.labelPassword.Size = new System.Drawing.Size(86, 21);
+            this.labelPassword.Size = new System.Drawing.Size(82, 20);
             this.labelPassword.TabIndex = 14;
             this.labelPassword.Text = "Password:";
             // 
             // labelUsername
             // 
             this.labelUsername.AutoSize = true;
-            this.labelUsername.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelUsername.ForeColor = System.Drawing.Color.White;
             this.labelUsername.Location = new System.Drawing.Point(346, 116);
             this.labelUsername.Name = "labelUsername";
-            this.labelUsername.Size = new System.Drawing.Size(92, 21);
+            this.labelUsername.Size = new System.Drawing.Size(87, 20);
             this.labelUsername.TabIndex = 13;
             this.labelUsername.Text = "Username:";
             // 
@@ -160,14 +160,14 @@
             // labelErrorMessage
             // 
             this.labelErrorMessage.AutoSize = true;
-            this.labelErrorMessage.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelErrorMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelErrorMessage.ForeColor = System.Drawing.Color.DarkGray;
             this.labelErrorMessage.Image = ((System.Drawing.Image)(resources.GetObject("labelErrorMessage.Image")));
             this.labelErrorMessage.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.labelErrorMessage.Location = new System.Drawing.Point(347, 289);
             this.labelErrorMessage.Name = "labelErrorMessage";
             this.labelErrorMessage.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.labelErrorMessage.Size = new System.Drawing.Size(99, 17);
+            this.labelErrorMessage.Size = new System.Drawing.Size(99, 16);
             this.labelErrorMessage.TabIndex = 24;
             this.labelErrorMessage.Text = "Error Message:";
             this.labelErrorMessage.Visible = false;
@@ -186,7 +186,7 @@
             this.buttonMinimized.Name = "buttonMinimized";
             this.buttonMinimized.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.buttonMinimized.Size = new System.Drawing.Size(35, 20);
-            this.buttonMinimized.TabIndex = 62;
+            this.buttonMinimized.TabIndex = 61;
             this.buttonMinimized.UseVisualStyleBackColor = false;
             this.buttonMinimized.Click += new System.EventHandler(this.ButtonMinimized_Click);
             // 
@@ -204,7 +204,7 @@
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.buttonClose.Size = new System.Drawing.Size(35, 20);
-            this.buttonClose.TabIndex = 61;
+            this.buttonClose.TabIndex = 62;
             this.buttonClose.UseVisualStyleBackColor = false;
             this.buttonClose.Click += new System.EventHandler(this.ButtonClose_Click);
             // 

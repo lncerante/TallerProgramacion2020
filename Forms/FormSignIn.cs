@@ -9,16 +9,19 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TallerProgramacion2020.MediaManager.IO;
 using System.Runtime.InteropServices;
+using TallerProgramacion2020.MediaManager.Controllers;
+using TallerProgramacion2020.WinFormsContextClass;
 
 namespace TallerProgramacion2020.Forms
 {
     public partial class FormSignIn : Form
     {
         public bool userSuccessfullyAuthenticated;
-        public bool adminUser;
+        protected WinFormsContext iContext;
 
         public FormSignIn()
         {
+            iContext = WinFormsContext.GetInstance();
             InitializeComponent();
             userSuccessfullyAuthenticated = false;
         }
@@ -44,20 +47,13 @@ namespace TallerProgramacion2020.Forms
             {
                 textBoxPassword.Focus();
                 ErrorMessage("Please enter your password.");
-            }else
+            }
+            else
             {
-                //Mandar usuario y contraseña y ver si puede ingresar o no
-                UserDTO userDTO = new UserDTO
+                var user = new SignInController().SignIn(textBoxUsername.Text, textBoxPassword.Text);
+                if (user != null)
                 {
-                    UserName = textBoxUsername.Text,
-                    PasswordHash = textBoxPassword.Text,
-                };
-                //Quedaria algo como controlador.ValidSignIn(userDTO);
-                var validSignIn = true;
-                if (validSignIn)
-                {
-                    //Si el usuario es valido lo mando al menu
-                    //Capaz al form menu le tenga que pasar el nombre de usario
+                    iContext.User = user;
                     FormMenu formMenu = new FormMenu();
                     formMenu.Show();
                     formMenu.FormClosed += LogOut;

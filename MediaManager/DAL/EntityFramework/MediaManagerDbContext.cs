@@ -49,6 +49,16 @@ namespace TallerProgramacion2020.MediaManager.DAL.EntityFramework
             modelBuilder.Entity<Media>()
                 .HasMany<Writer>(m => m.Writer)
                 .WithMany(c => c.Media);
+
+            modelBuilder.Entity<User>()
+                .Property(a => a.ProfilePhoto)
+                .HasColumnType("image")
+                .IsMaxLength();
+
+            modelBuilder.Entity<Media>()
+                .Property(a => a.Poster)
+                .HasColumnType("image")
+                .IsMaxLength();
         }
     }
 }

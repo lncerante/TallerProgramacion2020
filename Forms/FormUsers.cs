@@ -8,7 +8,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TallerProgramacion2020.MediaManager.Controllers;
 using TallerProgramacion2020.MediaManager.Domain;
+using TallerProgramacion2020.MediaManager.IO;
+using TallerProgramacion2020.ToolsClass;
+using TallerProgramacion2020.WinFormsContextClass;
 
 namespace TallerProgramacion2020.Forms
 {
@@ -17,17 +21,19 @@ namespace TallerProgramacion2020.Forms
         private string imagePath;
         private byte[] imgByte = null;
         private int idSelected;
-        readonly List<User> usersList = new List<User>();
+        protected WinFormsContext iContext;
+        private IEnumerable<UserDTO> usersList = new List<UserDTO>();
 
         public FormUsers()
         {
+            iContext = WinFormsContext.GetInstance();
             InitializeComponent();
         }
 
 
         private void FormUsers_Load(object sender, EventArgs e)
         {
-            InitializeUsersGrid();
+            GetUserList();
             ShowUsers();
         }
 
@@ -38,8 +44,15 @@ namespace TallerProgramacion2020.Forms
             dataGridViewUsers.Columns["ColumnProfilePicture"].Width = 110;
             foreach (var user in usersList)
             {
-                Image imgProfile = ConvertByteArrayToImage(user.ProfilePhoto);
-                dataGridViewUsers.Rows.Add(user.ID, imgProfile, user.UserName, user.PasswordHash, user.FullName);
+                Image imgProfile = Tools.ConvertByteArrayToImage(user.ProfilePhoto);
+                dataGridViewUsers.Rows.Add
+                (
+                    user.ID, 
+                    imgProfile, 
+                    user.UserName, 
+                    user.UserRole == UserRole.Admin ? "Admin" : "User", 
+                    user.FullName
+                );
             }
         }
 
@@ -48,7 +61,7 @@ namespace TallerProgramacion2020.Forms
             if (openFileDialogUploadPicture.ShowDialog() == DialogResult.OK)
             {
                 imagePath = openFileDialogUploadPicture.FileName;
-                ConvertImageToByteArray(imagePath);
+                imgByte = Tools.ConvertImageToByteArray(imagePath);
             }
             else
             {
@@ -58,52 +71,62 @@ namespace TallerProgramacion2020.Forms
 
         private void ButtonSave_Click(object sender, EventArgs e)
         {
-            if (textBoxFullName.Text.Length == 0 || textBoxPassword.Text.Length == 0 ||
-                textBoxUsername.Text.Length == 0 || imgByte == null)
+            if (labelRegisterOrEdit.Text == "REGISTER NEW USER")
             {
-                ErrorMessage("Please enter all the data");
+                if (textBoxFullName.Text.Length == 0 || textBoxPassword.Text.Length == 0 ||
+                    textBoxUsername.Text.Length == 0 || imgByte == null)
+                {
+                    ErrorMessage("Please enter all the data");
+                    return;
+                }
+                UserDTO user = new UserDTO
+                {
+                    UserName = textBoxUsername.Text,
+                    FullName = textBoxFullName.Text,
+                    Password = textBoxPassword.Text,
+                    ProfilePhoto = imgByte
+                };
+                try
+                {
+                    new UsersController().CreateUser(user);
+                    labelRegisterOrEdit.Text = "REGISTER NEW USER";
+                    MessageBox.Show("User successfully registered.");
+                    CleanForm();
+                }
+                catch (Exception ex)
+                {
+                    ErrorMessage(ex.Message);
+                }
             }
             else
             {
-                if (labelRegisterOrEdit.Text == "REGISTER NEW USER")
+                UserDTO user = new UserDTO
                 {
-                    //Aca deberia registrarse el usuario
-                    User userDTO = new User
-                    {
-                        UserName = textBoxUsername.Text,
-                        PasswordHash = textBoxPassword.Text,
-                        FullName = textBoxFullName.Text,
-                        ProfilePhoto = imgByte,
-                        ID = usersList.Count
-                    };
-                    usersList.Add(userDTO);
-                    //controlador.RegisterNewUser(userDTO);
-                    MessageBox.Show("User successfully registered");
-                    CleanForm();
-                }
-                else
+                    UserName = textBoxUsername.Text,
+                    FullName = textBoxFullName.Text,
+                    Password = textBoxPassword.Text,
+                    ProfilePhoto = imgByte,
+                    ID = idSelected
+                };
+                try
                 {
-                    //ACA DEBERIA EDITARSE EL USUARIO
-                    //controlador.EditUser(userDTO)
-
-                    //PROVISORIO PARA PRUEBAS
-                    usersList.RemoveAt(idSelected - 1);
-
-                    User userDTO = new User
+                    new UsersController().UpdateUser(user);
+                    if (user.ID == iContext.User.ID)
                     {
-                        UserName = textBoxUsername.Text,
-                        PasswordHash = textBoxPassword.Text,
-                        FullName = textBoxFullName.Text,
-                        ProfilePhoto = imgByte,
-                        ID = idSelected,
-                    };
-                    usersList.Insert(idSelected - 1, userDTO);
-                    CleanForm();
+                        if (!string.IsNullOrEmpty(user.UserName)) iContext.User.UserName = user.UserName;
+                        if (!string.IsNullOrEmpty(user.FullName)) iContext.User.FullName = user.FullName;
+                        if (imgByte.Length > 0) iContext.User.ProfilePhoto = imgByte;
+                    }
                     labelRegisterOrEdit.Text = "REGISTER NEW USER";
-                    MessageBox.Show("User successfully edited");
+                    MessageBox.Show("User successfully edited.");
+                    CleanForm();
                 }
-                ShowUsers();
+                catch (Exception ex)
+                {
+                    ErrorMessage(ex.Message);
+                }
             }
+            FormUsers_Load(sender, e);
         }
 
         private void CleanForm()
@@ -129,7 +152,6 @@ namespace TallerProgramacion2020.Forms
                 labelRegisterOrEdit.Text = "EDIT USER";
                 idSelected = Int32.Parse(dataGridViewUsers.CurrentRow.Cells["ColumnId"].Value.ToString());
                 textBoxUsername.Text = dataGridViewUsers.CurrentRow.Cells["ColumnUsername"].Value.ToString();
-                textBoxPassword.Text = dataGridViewUsers.CurrentRow.Cells["ColumnPassword"].Value.ToString();
                 textBoxFullName.Text = dataGridViewUsers.CurrentRow.Cells["ColumnFullName"].Value.ToString();
                 var img = (Image)dataGridViewUsers.CurrentRow.Cells["ColumnProfilePicture"].Value;
                 imgByte = (byte[])(new ImageConverter()).ConvertTo(img, typeof(byte[]));
@@ -154,59 +176,16 @@ namespace TallerProgramacion2020.Forms
             }
         }
 
-        //IMPORTANTE VER
-        //Esto capaz lo tendria que hacer el controlador. yo deberia enviar la imagen?
-        private void ConvertImageToByteArray(string imagePath)
+        private void GetUserList()
         {
-            if (imagePath != null)
+            try
             {
-                Image img = Image.FromFile(imagePath);
-                imgByte = (byte[])(new ImageConverter()).ConvertTo(img, typeof(byte[]));
+                usersList = new UsersController().GetUsers();
             }
-
-        }
-
-        private Image ConvertByteArrayToImage(byte[] profilePhoto)
-        {
-            if (profilePhoto == null) return null;
-            MemoryStream ms = new MemoryStream(profilePhoto);
-            Bitmap bm = new Bitmap(ms);
-            return bm;
-        }
-
-        //METODOS QUE DESPUES HAY QUE ELIMINAR
-        private void InitializeUsersGrid()
-        { ///Convierto la foto a byte[]
-            Image img = Image.FromFile("D:\\Downloads\\foto.jpeg");
-            byte[] imgByte = (byte[])(new ImageConverter()).ConvertTo(img, typeof(byte[]));
-
-            User user1 = new User
+            catch (Exception ex)
             {
-                ID = 1,
-                FullName = "Pepito",
-                UserName = "pepito123456999",
-                PasswordHash = "sjsj8",
-                ProfilePhoto = imgByte
-            };
-            User user2 = new User
-            {
-                ID = 2,
-                FullName = "Pepito perez",
-                UserName = "pepito2",
-                PasswordHash = "sjsj89",
-                ProfilePhoto = imgByte
-            };
-            User user3 = new User
-            {
-                ID = 3,
-                FullName = "Juan perez",
-                UserName = "pepito3",
-                PasswordHash = "fde3sjsj89",
-                ProfilePhoto = imgByte
-            };
-            usersList.Add(user1);
-            usersList.Add(user2);
-            usersList.Add(user3);
+                ErrorMessage(ex.Message);
+            }
         }
     }
 }

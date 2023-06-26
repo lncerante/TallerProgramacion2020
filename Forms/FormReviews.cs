@@ -8,13 +8,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TallerProgramacion2020.MediaManager.IO;
 using TallerProgramacion2020.MediaManager.Domain;
 
 namespace TallerProgramacion2020.Forms
 {
     public partial class FormReviews : Form
     {
-        private List<Media> mediaList;
+        private List<MediaDTO> mediaList;
         public FormReviews()
         {
             InitializeComponent();
@@ -39,14 +40,14 @@ namespace TallerProgramacion2020.Forms
         //eliminar despues
         private void InitializeReviews()
         {
-            Media media1 = new Media
+            MediaDTO media1 = new MediaDTO
             {
                 ImdbID = "tt0088939",
                 Title = "The Color Purple",
                 Year = "1985",
                 MediaType = MediaType.Movie,
             };
-            var media = new List<Media>
+            var media = new List<MediaDTO>
             {
                 media1, media1, media1, media1, media1
             };

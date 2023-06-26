@@ -4,13 +4,13 @@ using System.Xml.Linq;
 
 namespace TallerProgramacion2020.MediaManager.Domain
 {
-    internal abstract class Person
+    public abstract class Person
     {
         protected int? iID;
         protected DateTime? iITS;
         protected DateTime? iUTS;
         protected DateTime? iDTS;
-        private string iFullName;
+        protected string iFullName;
 
         public Person(string pFullName)
         {
@@ -49,7 +49,7 @@ namespace TallerProgramacion2020.MediaManager.Domain
 
         public bool Equals(Person other)
         {
-            return FullName == other.FullName;
+            return FullName.ToLower().Trim() == other.FullName.ToLower().Trim();
         }
     }
 }

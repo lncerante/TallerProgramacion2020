@@ -4,17 +4,17 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TallerProgramacion2020.MediaManager.Domain
 {
-    internal class User
+    public class User
     {
         protected int? iID;
         protected DateTime? iITS;
         protected DateTime? iUTS;
         protected DateTime? iDTS;
         protected string iUserName;
-        protected string iPasswordHash;
+        protected int? iPasswordHash;
         protected UserRole iUserRole;
         protected string iFullName;
-        protected string iProfilePhoto;
+        protected byte[] iProfilePhoto;
         protected ICollection<Review> iReviews;
         protected ICollection<WatchListItem> iWatchListItems;
 
@@ -47,7 +47,7 @@ namespace TallerProgramacion2020.MediaManager.Domain
             get { return iUserName; }
             set { iUserName = value; }
         }
-        public string PasswordHash
+        public int? PasswordHash
         {
             get { return iPasswordHash; }
             set { iPasswordHash = value; }
@@ -62,7 +62,7 @@ namespace TallerProgramacion2020.MediaManager.Domain
             get { return iFullName; }
             set { iFullName = value; }
         }
-        public string ProfilePhoto
+        public byte[] ProfilePhoto
         {
             get { return iProfilePhoto; }
             set { iProfilePhoto = value; }

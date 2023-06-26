@@ -74,13 +74,13 @@
             this.buttonSave.FlatAppearance.BorderSize = 0;
             this.buttonSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
             this.buttonSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSave.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSave.ForeColor = System.Drawing.Color.White;
             this.buttonSave.Location = new System.Drawing.Point(458, 384);
             this.buttonSave.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(333, 35);
-            this.buttonSave.TabIndex = 51;
+            this.buttonSave.TabIndex = 52;
             this.buttonSave.Text = "Save";
             this.buttonSave.UseVisualStyleBackColor = false;
             this.buttonSave.Click += new System.EventHandler(this.ButtonSave_Click);
@@ -88,14 +88,14 @@
             // labelErrorMessage
             // 
             this.labelErrorMessage.AutoSize = true;
-            this.labelErrorMessage.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelErrorMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelErrorMessage.ForeColor = System.Drawing.Color.DarkGray;
             this.labelErrorMessage.Image = ((System.Drawing.Image)(resources.GetObject("labelErrorMessage.Image")));
             this.labelErrorMessage.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.labelErrorMessage.Location = new System.Drawing.Point(455, 346);
             this.labelErrorMessage.Name = "labelErrorMessage";
             this.labelErrorMessage.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.labelErrorMessage.Size = new System.Drawing.Size(99, 17);
+            this.labelErrorMessage.Size = new System.Drawing.Size(99, 16);
             this.labelErrorMessage.TabIndex = 54;
             this.labelErrorMessage.Text = "Error Message:";
             this.labelErrorMessage.Visible = false;
@@ -103,12 +103,12 @@
             // labelUsername
             // 
             this.labelUsername.AutoSize = true;
-            this.labelUsername.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelUsername.ForeColor = System.Drawing.Color.White;
             this.labelUsername.Location = new System.Drawing.Point(454, 108);
             this.labelUsername.Margin = new System.Windows.Forms.Padding(3, 40, 3, 0);
             this.labelUsername.Name = "labelUsername";
-            this.labelUsername.Size = new System.Drawing.Size(87, 20);
+            this.labelUsername.Size = new System.Drawing.Size(81, 18);
             this.labelUsername.TabIndex = 42;
             this.labelUsername.Text = "Username:";
             // 
@@ -124,12 +124,12 @@
             // labelPassword
             // 
             this.labelPassword.AutoSize = true;
-            this.labelPassword.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPassword.ForeColor = System.Drawing.Color.White;
             this.labelPassword.Location = new System.Drawing.Point(454, 168);
             this.labelPassword.Margin = new System.Windows.Forms.Padding(3, 40, 3, 0);
             this.labelPassword.Name = "labelPassword";
-            this.labelPassword.Size = new System.Drawing.Size(83, 20);
+            this.labelPassword.Size = new System.Drawing.Size(79, 18);
             this.labelPassword.TabIndex = 43;
             this.labelPassword.Text = "Password:";
             // 
@@ -139,13 +139,13 @@
             this.buttonUploadPicture.FlatAppearance.BorderSize = 0;
             this.buttonUploadPicture.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
             this.buttonUploadPicture.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonUploadPicture.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonUploadPicture.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonUploadPicture.ForeColor = System.Drawing.Color.White;
             this.buttonUploadPicture.Location = new System.Drawing.Point(571, 298);
             this.buttonUploadPicture.Margin = new System.Windows.Forms.Padding(3, 40, 3, 2);
             this.buttonUploadPicture.Name = "buttonUploadPicture";
             this.buttonUploadPicture.Size = new System.Drawing.Size(220, 26);
-            this.buttonUploadPicture.TabIndex = 52;
+            this.buttonUploadPicture.TabIndex = 51;
             this.buttonUploadPicture.Text = "Upload Picture";
             this.buttonUploadPicture.UseVisualStyleBackColor = false;
             this.buttonUploadPicture.Click += new System.EventHandler(this.ButtonUploadPicture_Click);
@@ -153,12 +153,12 @@
             // labelFullName
             // 
             this.labelFullName.AutoSize = true;
-            this.labelFullName.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelFullName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelFullName.ForeColor = System.Drawing.Color.White;
             this.labelFullName.Location = new System.Drawing.Point(454, 228);
             this.labelFullName.Margin = new System.Windows.Forms.Padding(3, 40, 3, 0);
             this.labelFullName.Name = "labelFullName";
-            this.labelFullName.Size = new System.Drawing.Size(83, 20);
+            this.labelFullName.Size = new System.Drawing.Size(79, 18);
             this.labelFullName.TabIndex = 44;
             this.labelFullName.Text = "Full Name:";
             // 
@@ -166,13 +166,13 @@
             // 
             this.textBoxUsername.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
             this.textBoxUsername.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxUsername.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxUsername.ForeColor = System.Drawing.Color.White;
             this.textBoxUsername.Location = new System.Drawing.Point(571, 108);
             this.textBoxUsername.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxUsername.MaxLength = 15;
             this.textBoxUsername.Name = "textBoxUsername";
-            this.textBoxUsername.Size = new System.Drawing.Size(220, 19);
+            this.textBoxUsername.Size = new System.Drawing.Size(220, 17);
             this.textBoxUsername.TabIndex = 45;
             // 
             // panelPassword
@@ -188,49 +188,49 @@
             // 
             this.textBoxFullName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
             this.textBoxFullName.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxFullName.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxFullName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxFullName.ForeColor = System.Drawing.Color.White;
-            this.textBoxFullName.Location = new System.Drawing.Point(571, 228);
+            this.textBoxFullName.Location = new System.Drawing.Point(574, 231);
             this.textBoxFullName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxFullName.MaxLength = 50;
             this.textBoxFullName.Name = "textBoxFullName";
-            this.textBoxFullName.Size = new System.Drawing.Size(220, 19);
-            this.textBoxFullName.TabIndex = 46;
+            this.textBoxFullName.Size = new System.Drawing.Size(220, 17);
+            this.textBoxFullName.TabIndex = 47;
             // 
             // textBoxPassword
             // 
             this.textBoxPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
             this.textBoxPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxPassword.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxPassword.ForeColor = System.Drawing.Color.White;
             this.textBoxPassword.Location = new System.Drawing.Point(571, 168);
             this.textBoxPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxPassword.MaxLength = 8;
             this.textBoxPassword.Name = "textBoxPassword";
-            this.textBoxPassword.Size = new System.Drawing.Size(220, 19);
-            this.textBoxPassword.TabIndex = 47;
+            this.textBoxPassword.Size = new System.Drawing.Size(220, 17);
+            this.textBoxPassword.TabIndex = 46;
             this.textBoxPassword.UseSystemPasswordChar = true;
             // 
             // labelProfilePicture
             // 
             this.labelProfilePicture.AutoSize = true;
-            this.labelProfilePicture.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelProfilePicture.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelProfilePicture.ForeColor = System.Drawing.Color.White;
             this.labelProfilePicture.Location = new System.Drawing.Point(454, 300);
             this.labelProfilePicture.Margin = new System.Windows.Forms.Padding(3, 40, 3, 0);
             this.labelProfilePicture.Name = "labelProfilePicture";
-            this.labelProfilePicture.Size = new System.Drawing.Size(113, 20);
+            this.labelProfilePicture.Size = new System.Drawing.Size(104, 18);
             this.labelProfilePicture.TabIndex = 49;
             this.labelProfilePicture.Text = "Profile Picture:";
             // 
             // labelRegisterOrEdit
             // 
             this.labelRegisterOrEdit.AutoSize = true;
-            this.labelRegisterOrEdit.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelRegisterOrEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelRegisterOrEdit.ForeColor = System.Drawing.Color.White;
             this.labelRegisterOrEdit.Location = new System.Drawing.Point(454, 44);
             this.labelRegisterOrEdit.Name = "labelRegisterOrEdit";
-            this.labelRegisterOrEdit.Size = new System.Drawing.Size(221, 23);
+            this.labelRegisterOrEdit.Size = new System.Drawing.Size(239, 25);
             this.labelRegisterOrEdit.TabIndex = 48;
             this.labelRegisterOrEdit.Text = "REGISTER ADMIN USER";
             this.labelRegisterOrEdit.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -250,10 +250,10 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(21, 372);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(376, 16);
+            this.label3.Size = new System.Drawing.Size(353, 16);
             this.label3.TabIndex = 59;
             this.label3.Text = "To start using our service, please register an administrator.\r\n";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -261,10 +261,10 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(117, 404);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(157, 16);
+            this.label2.Size = new System.Drawing.Size(152, 15);
             this.label2.TabIndex = 58;
             this.label2.Text = "Thank you for choosing us!";
             // 
@@ -291,7 +291,7 @@
             this.buttonMinimized.Name = "buttonMinimized";
             this.buttonMinimized.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.buttonMinimized.Size = new System.Drawing.Size(35, 20);
-            this.buttonMinimized.TabIndex = 60;
+            this.buttonMinimized.TabIndex = 59;
             this.buttonMinimized.UseVisualStyleBackColor = false;
             this.buttonMinimized.Click += new System.EventHandler(this.ButtonMinimized_Click);
             // 
@@ -309,7 +309,7 @@
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.buttonClose.Size = new System.Drawing.Size(35, 20);
-            this.buttonClose.TabIndex = 59;
+            this.buttonClose.TabIndex = 60;
             this.buttonClose.UseVisualStyleBackColor = false;
             this.buttonClose.Click += new System.EventHandler(this.ButtonClose_Click);
             // 

@@ -9,7 +9,9 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TallerProgramacion2020.WinFormsContextClass;
 using TallerProgramacion2020.MediaManager.Domain;
+using TallerProgramacion2020.MediaManager.IO;
 
 namespace TallerProgramacion2020.Forms
 {
@@ -18,10 +20,12 @@ namespace TallerProgramacion2020.Forms
         private Form activeForm = null;
         private int LX, LY;
         private Button currentButton;
+        protected WinFormsContext iContext;
 
 
         public FormMenu()
         {
+            iContext = WinFormsContext.GetInstance();
             InitializeComponent();
             this.DoubleBuffered = true;
         }
@@ -29,11 +33,10 @@ namespace TallerProgramacion2020.Forms
         private void FormMenu_Load(object sender, EventArgs e)
         {
             labelTodayDate.Text = DateTime.Today.ToString("D");
-            //Aca vamos a tener que preguntar por el rol del usuario que haya iniciado sesion
-            bool admin = true;
-            if (!admin)
+            if (iContext.User.UserRole != UserRole.Admin)
             {
                 buttonManageUsers.Visible = false;
+                panelDecoManageUsers.Visible = false;
             }                                 
         }
 
@@ -204,46 +207,6 @@ namespace TallerProgramacion2020.Forms
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
-
-        #region Metodos que despues hay que eliminar
-        private Media CrearMediaDePrueba()
-        {
-            Person person1 = new Person("Steven Spielberg");
-            List<Person> directors = new List<Person> { person1 };
-
-            Person person2 = new Person("Menno Meyjes");
-            Person person3 = new Person("Alice Walker");
-            List<Person> writers = new List<Person> { person2, person3 };
-
-            Person person4 = new Person("Danny Glover");
-            Person person5 = new Person("Whoopi Goldberg");
-            Person person6 = new Person("Oprah Winfrey");
-            List<Person> cast = new List<Person> { person4, person5, person6 };
-
-            Country country = new Country("United States");
-            Country country2 = new Country("France");
-            Country country3 = new Country("England");
-            Country country4 = new Country("Argentina");
-            List<Country> countries = new List<Country> { country, country2, country3, country4 };
-
-            Media media1 = new Media
-            {
-                ImdbID = "tt0088939",
-                Title = "The Color Purple",
-                Year = "1985",
-                MediaType = MediaType.Movie,
-                ReleaseDate = new DateTime(1986, 2, 7),
-                RuntimeInMin = 154,
-                Director = directors,
-                Writer = writers,
-                Cast = cast,
-                Origin = countries,
-                ImdbRating = 7.7f
-            };
-            return media1;
-        }
-        #endregion
-
 
     }
 }

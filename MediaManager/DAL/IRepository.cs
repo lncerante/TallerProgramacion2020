@@ -2,7 +2,7 @@
 
 namespace TallerProgramacion2020.MediaManager.DAL
 {
-    internal interface IRepository<TEntity>
+    public interface IRepository<TEntity>
     {
         void Create(TEntity pEntity);
         void Update(TEntity pEntity);
