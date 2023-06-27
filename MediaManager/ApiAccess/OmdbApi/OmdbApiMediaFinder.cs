@@ -23,7 +23,7 @@ namespace TallerProgramacion2020.MediaManager.ApiAccess.ImdbApi
             iHttpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("text/plain"));
         }
 
-        public IList<Media> FindMedia(string pTitle, MediaType? pType = null, Genre pGenre = null, int pPage = 1)
+        public IList<Media> FindMedia(string pTitle, Genre pGenre = null, MediaType? pType = null, int pPage = 1)
         {
             var parameters = iApiKey + "&s=" + pTitle + "&page=" + pPage;
 
@@ -47,7 +47,7 @@ namespace TallerProgramacion2020.MediaManager.ApiAccess.ImdbApi
                 foreach (var mediaDTO in mediaSearch.Search)
                 {
                     var media = GetMediaByImdbID(mediaDTO.imdbID);
-                    if (pGenre != null && media.Genres.Any(genre => genre.Equals(pGenre)))
+                    if (pGenre == null || media.Genres.Any(genre => genre.Equals(pGenre)))
                     {
                         mediaResponse.Add(media);
                     }

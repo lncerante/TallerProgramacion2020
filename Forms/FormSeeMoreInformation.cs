@@ -77,17 +77,17 @@ namespace TallerProgramacion2020.Forms
 
         private Media CrearMediaDePrueba()
         {
-            Person person1 = new Person("Steven Spielberg");
-            List<Person> directors = new List<Person> { person1 };
+            Director person1 = new Director("Steven Spielberg");
+            List<Director> directors = new List<Director> { person1 };
 
-            Person person2 = new Person("Menno Meyjes");
-            Person person3 = new Person("Alice Walker");
-            List<Person> writers = new List<Person> { person2, person3 };
+            Writer person2 = new Writer("Menno Meyjes");
+            Writer person3 = new Writer("Alice Walker");
+            List<Writer> writers = new List<Writer> { person2, person3 };
 
-            Person person4 = new Person("Danny Glover");
-            Person person5 = new Person("Whoopi Goldberg");
-            Person person6 = new Person("Oprah Winfrey");
-            List<Person> cast = new List<Person> { person4, person5, person6 };
+            Actor person4 = new Actor("Danny Glover");
+            Actor person5 = new Actor("Whoopi Goldberg");
+            Actor person6 = new Actor("Oprah Winfrey");
+            List<Actor> cast = new List<Actor> { person4, person5, person6 };
 
             Country country = new Country("United States");
             Country country2 = new Country("France");

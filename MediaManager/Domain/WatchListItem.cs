@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace TallerProgramacion2020.MediaManager.Domain
 {
-    internal class WatchListItem
+    public class WatchListItem
     {
         protected int? iID;
         protected DateTime? iITS;

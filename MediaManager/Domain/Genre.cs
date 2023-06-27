@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace TallerProgramacion2020.MediaManager.Domain
 {
-    internal class Genre
+    public class Genre
     {
         protected int? iID;
         protected DateTime? iITS;
@@ -50,7 +50,7 @@ namespace TallerProgramacion2020.MediaManager.Domain
 
         public bool Equals(Genre other)
         {
-            return Name == other.Name;
+            return Name.ToLower().Trim() == other.Name.ToLower().Trim();
         }
     }
 }

@@ -1,52 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Xml.Linq;
+using TallerProgramacion2020.MediaManager.Domain;
 
-namespace TallerProgramacion2020.MediaManager.Domain
+namespace TallerProgramacion2020.MediaManager.IO
 {
-    public class Media
+    public class MediaDTO : BaseObjectDTO
     {
-        protected int? iID;
-        protected DateTime? iITS;
-        protected DateTime? iUTS;
-        protected DateTime? iDTS;
         protected string iImdbID;
         protected string iTitle;
         protected string iYear;
         protected MediaType iMediaType;
         protected DateTime iReleaseDate;
-        protected ICollection<Genre> iGenres;
+        protected IEnumerable<GenreDTO> iGenres;
         protected int iRuntimeInMin;
-        protected ICollection<Director> iDirector;
-        protected ICollection<Writer> iWriter;
-        protected ICollection<Actor> iCast;
-        protected ICollection<Country> iOrigin;
+        protected IEnumerable<DirectorDTO> iDirector;
+        protected IEnumerable<WriterDTO> iWriter;
+        protected IEnumerable<ActorDTO> iCast;
+        protected IEnumerable<CountryDTO> iOrigin;
         protected byte[] iPoster;
         protected float iImdbRating;
 
-        public int? ID
-        {
-            get { return iID; }
-            set { iID = value; }
-        }
-
-        public DateTime? ITS
-        {
-            get { return iITS; }
-            set { iITS = value; }
-        }
-
-        public DateTime? UTS
-        {
-            get { return iUTS; }
-            set { iUTS = value; }
-        }
-
-        public DateTime? DTS
-        {
-            get { return iDTS; }
-            set { iDTS = value; }
-        }
 
         public string ImdbID
         {
@@ -73,7 +47,7 @@ namespace TallerProgramacion2020.MediaManager.Domain
             get { return iReleaseDate; }
             set { iReleaseDate = value; }
         }
-        public ICollection<Genre> Genres
+        public IEnumerable<GenreDTO> Genres
         {
             get { return iGenres; }
             set { iGenres = value; }
@@ -83,22 +57,22 @@ namespace TallerProgramacion2020.MediaManager.Domain
             get { return iRuntimeInMin; }
             set { iRuntimeInMin = value; }
         }
-        public ICollection<Director> Director
+        public IEnumerable<DirectorDTO> Director
         {
             get { return iDirector; }
             set { iDirector = value; }
         }
-        public ICollection<Writer> Writer
+        public IEnumerable<WriterDTO> Writer
         {
             get { return iWriter; }
             set { iWriter = value; }
         }
-        public ICollection<Actor> Cast
+        public IEnumerable<ActorDTO> Cast
         {
             get { return iCast; }
             set { iCast = value; }
         }
-        public ICollection<Country> Origin
+        public IEnumerable<CountryDTO> Origin
         {
             get { return iOrigin; }
             set { iOrigin = value; }
@@ -114,7 +88,7 @@ namespace TallerProgramacion2020.MediaManager.Domain
             set { iImdbRating = value; }
         }
 
-        public bool Equals(Media other)
+        public bool Equals(MediaDTO other)
         {
             return ImdbID == other.ImdbID;
         }

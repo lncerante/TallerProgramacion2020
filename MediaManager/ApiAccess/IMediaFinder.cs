@@ -7,9 +7,9 @@ using TallerProgramacion2020.MediaManager.Domain;
 
 namespace TallerProgramacion2020.MediaManager.ApiAccess
 {
-    internal interface IMediaFinder
+    public interface IMediaFinder
     {
-        IList<Media> FindMedia(string pTitle, MediaType? pType = null, Genre pGenre = null, int pPage = 1);
+        IList<Media> FindMedia(string pTitle, Genre pGenre = null, MediaType? pType = null, int pPage = 1);
         Media GetMediaByImdbID(string pImdbID);
     }
 }

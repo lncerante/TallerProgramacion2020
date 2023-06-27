@@ -4,13 +4,16 @@
     {
         protected readonly MediaManagerDbContext iDbContext;
         protected IUserRepository iUserRepository;
+        protected IMediaRepository iMediaRepository;
 
         public IUserRepository UserRepository => iUserRepository;
+        public IMediaRepository MediaRepository => iMediaRepository;
 
         public UnitOfWork(MediaManagerDbContext pContext)
         {
             iDbContext = pContext;
             iUserRepository = new UserRepository(pContext);
+            iMediaRepository = new MediaRepository(pContext);
         }
 
         public void Complete()

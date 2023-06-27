@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace TallerProgramacion2020.MediaManager.Domain
 {
-    internal class Review
+    public class Review
     {
         protected int? iID;
         protected DateTime? iITS;

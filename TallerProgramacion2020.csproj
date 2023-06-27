@@ -45,6 +45,9 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="EntityFramework.SqlServerCompact, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.SqlServerCompact.6.4.4\lib\net45\EntityFramework.SqlServerCompact.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -52,12 +55,25 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Data.Entity.Design" />
+    <Reference Include="System.Data.SqlServerCe, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.SqlServer.Compact.4.0.8876.1\lib\net40\System.Data.SqlServerCe.dll</HintPath>
+    </Reference>
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Context\WinFormsContext.cs" />
+    <Compile Include="MediaManager\Context\Context.cs" />
+    <Compile Include="MediaManager\Controllers\MediaController.cs" />
+    <Compile Include="MediaManager\Controllers\UsersController.cs" />
+    <Compile Include="MediaManager\Controllers\ProfileController.cs" />
+    <Compile Include="MediaManager\Controllers\SignInController.cs" />
     <Compile Include="Forms\FormMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,36 +140,55 @@
     <Compile Include="Forms\FormWatchList.Designer.cs">
       <DependentUpon>FormWatchList.cs</DependentUpon>
     </Compile>
+    <Compile Include="MediaManager\ApiAccess\IMediaFinder.cs" />
+    <Compile Include="MediaManager\ApiAccess\OmdbApi\OmdbApiMediaDTO.cs" />
+    <Compile Include="MediaManager\ApiAccess\OmdbApi\OmdbApiMediaFinder.cs" />
+    <Compile Include="MediaManager\ApiAccess\OmdbApi\OmdbApiMediaSearch.cs" />
     <Compile Include="MediaManager\DAL\EntityFramework\MediaManagerDbContext.cs" />
     <Compile Include="MediaManager\DAL\EntityFramework\Repository.cs" />
     <Compile Include="MediaManager\DAL\EntityFramework\UnitOfWork.cs" />
+    <Compile Include="MediaManager\DAL\EntityFramework\MediaRepository.cs" />
     <Compile Include="MediaManager\DAL\EntityFramework\UserRepository.cs" />
     <Compile Include="MediaManager\DAL\IRepository.cs" />
     <Compile Include="MediaManager\DAL\IUnitOfWork.cs" />
+    <Compile Include="MediaManager\DAL\IMediaRepository.cs" />
     <Compile Include="MediaManager\DAL\IUserRepository.cs" />
-    <Compile Include="MediaManager\Domain\BaseObject.cs" />
+    <Compile Include="MediaManager\Domain\Actor.cs" />
     <Compile Include="MediaManager\Domain\Country.cs" />
+    <Compile Include="MediaManager\Domain\Director.cs" />
     <Compile Include="MediaManager\Domain\Genre.cs" />
     <Compile Include="MediaManager\Domain\Media.cs" />
     <Compile Include="MediaManager\Domain\MediaType.cs" />
     <Compile Include="MediaManager\Domain\Person.cs" />
     <Compile Include="MediaManager\Domain\Priority.cs" />
     <Compile Include="MediaManager\Domain\Rating.cs" />
+    <Compile Include="MediaManager\Domain\Review.cs" />
     <Compile Include="MediaManager\Domain\User.cs" />
     <Compile Include="MediaManager\Domain\UserRole.cs" />
+    <Compile Include="MediaManager\Domain\WatchListItem.cs" />
+    <Compile Include="MediaManager\Domain\Writer.cs" />
+    <Compile Include="MediaManager\IO\ActorDTO.cs" />
     <Compile Include="MediaManager\IO\BaseObjectDTO.cs" />
+    <Compile Include="MediaManager\IO\CountryDTO.cs" />
+    <Compile Include="MediaManager\IO\DirectorDTO.cs" />
+    <Compile Include="MediaManager\IO\DTOService.cs" />
+    <Compile Include="MediaManager\IO\GenreDTO.cs" />
+    <Compile Include="MediaManager\IO\MediaDTO.cs" />
+    <Compile Include="MediaManager\IO\PersonDTO.cs" />
     <Compile Include="MediaManager\IO\UserDTO.cs" />
-    <Compile Include="MediaManager\MediaManagerBack.cs" />
+    <Compile Include="MediaManager\IO\WriterDTO.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Tools\Tools.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+    <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Forms\FormMenu.resx">
@@ -182,6 +217,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormSignIn.resx">
       <DependentUpon>FormSignIn.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormUsers.resx">
       <DependentUpon>FormUsers.cs</DependentUpon>
@@ -194,6 +230,12 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include=".gitattributes" />
+    <Content Include=".gitignore" />
+    <Content Include="LICENSE.txt" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSHARP.Targets" />
   <ProjectExtensions>
     <VisualStudio AllowExistingFolder="true" />
@@ -206,4 +248,11 @@
     <Error Condition="!Exists('packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
   </Target>
   <Import Project="packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    if not exist "$(TargetDir)x86" md "$(TargetDir)x86"
+    xcopy /s /y "$(SolutionDir)packages\Microsoft.SqlServer.Compact.4.0.8876.1\NativeBinaries\x86\*.*" "$(TargetDir)x86"
+    if not exist "$(TargetDir)amd64" md "$(TargetDir)amd64"
+    xcopy /s /y "$(SolutionDir)packages\Microsoft.SqlServer.Compact.4.0.8876.1\NativeBinaries\amd64\*.*" "$(TargetDir)amd64"</PostBuildEvent>
+  </PropertyGroup>
 </Project>

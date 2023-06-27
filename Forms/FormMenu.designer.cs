@@ -39,7 +39,7 @@
             this.buttonLogOut = new System.Windows.Forms.Button();
             this.panelDeco4 = new System.Windows.Forms.Panel();
             this.buttonProfile = new System.Windows.Forms.Button();
-            this.panelDeco5 = new System.Windows.Forms.Panel();
+            this.panelDecoManageUsers = new System.Windows.Forms.Panel();
             this.panelDeco3 = new System.Windows.Forms.Panel();
             this.panelDeco2 = new System.Windows.Forms.Panel();
             this.panelDeco1 = new System.Windows.Forms.Panel();
@@ -52,8 +52,8 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.labelTitle = new System.Windows.Forms.Label();
             this.panelFormsContainer = new System.Windows.Forms.Panel();
-            this.labelTodayDate = new System.Windows.Forms.Label();
             this.labelDescription = new System.Windows.Forms.Label();
+            this.labelTodayDate = new System.Windows.Forms.Label();
             this.panelControls.SuspendLayout();
             this.panelMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.buttonHome)).BeginInit();
@@ -155,7 +155,7 @@
             this.panelMenu.Controls.Add(this.buttonLogOut);
             this.panelMenu.Controls.Add(this.panelDeco4);
             this.panelMenu.Controls.Add(this.buttonProfile);
-            this.panelMenu.Controls.Add(this.panelDeco5);
+            this.panelMenu.Controls.Add(this.panelDecoManageUsers);
             this.panelMenu.Controls.Add(this.panelDeco3);
             this.panelMenu.Controls.Add(this.panelDeco2);
             this.panelMenu.Controls.Add(this.panelDeco1);
@@ -187,7 +187,7 @@
             this.buttonLogOut.FlatAppearance.BorderSize = 0;
             this.buttonLogOut.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
             this.buttonLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonLogOut.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonLogOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonLogOut.ForeColor = System.Drawing.Color.White;
             this.buttonLogOut.Image = ((System.Drawing.Image)(resources.GetObject("buttonLogOut.Image")));
             this.buttonLogOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -213,7 +213,7 @@
             this.buttonProfile.FlatAppearance.BorderSize = 0;
             this.buttonProfile.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
             this.buttonProfile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonProfile.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonProfile.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonProfile.ForeColor = System.Drawing.Color.White;
             this.buttonProfile.Image = ((System.Drawing.Image)(resources.GetObject("buttonProfile.Image")));
             this.buttonProfile.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -228,14 +228,14 @@
             this.buttonProfile.UseVisualStyleBackColor = true;
             this.buttonProfile.Click += new System.EventHandler(this.ButtonProfile_Click);
             // 
-            // panelDeco5
+            // panelDecoManageUsers
             // 
-            this.panelDeco5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            this.panelDeco5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.panelDeco5.Location = new System.Drawing.Point(0, 390);
-            this.panelDeco5.Name = "panelDeco5";
-            this.panelDeco5.Size = new System.Drawing.Size(5, 50);
-            this.panelDeco5.TabIndex = 11;
+            this.panelDecoManageUsers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.panelDecoManageUsers.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.panelDecoManageUsers.Location = new System.Drawing.Point(0, 390);
+            this.panelDecoManageUsers.Name = "panelDecoManageUsers";
+            this.panelDecoManageUsers.Size = new System.Drawing.Size(5, 50);
+            this.panelDecoManageUsers.TabIndex = 11;
             // 
             // panelDeco3
             // 
@@ -269,7 +269,7 @@
             this.buttonAddToList.FlatAppearance.BorderSize = 0;
             this.buttonAddToList.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
             this.buttonAddToList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonAddToList.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAddToList.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonAddToList.ForeColor = System.Drawing.Color.White;
             this.buttonAddToList.Image = ((System.Drawing.Image)(resources.GetObject("buttonAddToList.Image")));
             this.buttonAddToList.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -290,7 +290,7 @@
             this.buttonSeeWatchList.FlatAppearance.BorderSize = 0;
             this.buttonSeeWatchList.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
             this.buttonSeeWatchList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSeeWatchList.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSeeWatchList.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSeeWatchList.ForeColor = System.Drawing.Color.White;
             this.buttonSeeWatchList.Image = ((System.Drawing.Image)(resources.GetObject("buttonSeeWatchList.Image")));
             this.buttonSeeWatchList.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -310,7 +310,7 @@
             this.buttonManageUsers.FlatAppearance.BorderSize = 0;
             this.buttonManageUsers.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
             this.buttonManageUsers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonManageUsers.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonManageUsers.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonManageUsers.ForeColor = System.Drawing.Color.White;
             this.buttonManageUsers.Image = ((System.Drawing.Image)(resources.GetObject("buttonManageUsers.Image")));
             this.buttonManageUsers.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -330,7 +330,7 @@
             this.buttonSeeReviews.FlatAppearance.BorderSize = 0;
             this.buttonSeeReviews.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
             this.buttonSeeReviews.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSeeReviews.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSeeReviews.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSeeReviews.ForeColor = System.Drawing.Color.White;
             this.buttonSeeReviews.Image = ((System.Drawing.Image)(resources.GetObject("buttonSeeReviews.Image")));
             this.buttonSeeReviews.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -381,11 +381,11 @@
             // labelTitle
             // 
             this.labelTitle.AutoSize = true;
-            this.labelTitle.Font = new System.Drawing.Font("Century Gothic", 18F);
+            this.labelTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
             this.labelTitle.ForeColor = System.Drawing.Color.White;
             this.labelTitle.Location = new System.Drawing.Point(3, 15);
             this.labelTitle.Name = "labelTitle";
-            this.labelTitle.Size = new System.Drawing.Size(99, 30);
+            this.labelTitle.Size = new System.Drawing.Size(90, 29);
             this.labelTitle.TabIndex = 29;
             this.labelTitle.Text = "  Home";
             // 
@@ -401,29 +401,29 @@
             this.panelFormsContainer.Size = new System.Drawing.Size(1080, 565);
             this.panelFormsContainer.TabIndex = 42;
             // 
-            // labelTodayDate
-            // 
-            this.labelTodayDate.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.labelTodayDate.AutoSize = true;
-            this.labelTodayDate.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTodayDate.ForeColor = System.Drawing.Color.White;
-            this.labelTodayDate.Location = new System.Drawing.Point(347, 384);
-            this.labelTodayDate.Name = "labelTodayDate";
-            this.labelTodayDate.Size = new System.Drawing.Size(98, 21);
-            this.labelTodayDate.TabIndex = 10;
-            this.labelTodayDate.Text = "TodayDate";
-            // 
             // labelDescription
             // 
             this.labelDescription.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelDescription.AutoSize = true;
-            this.labelDescription.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelDescription.ForeColor = System.Drawing.Color.White;
             this.labelDescription.Location = new System.Drawing.Point(138, 315);
             this.labelDescription.Name = "labelDescription";
-            this.labelDescription.Size = new System.Drawing.Size(816, 24);
+            this.labelDescription.Size = new System.Drawing.Size(761, 25);
             this.labelDescription.TabIndex = 11;
             this.labelDescription.Text = "Your personalized application for voting and recommending movies and series";
+            // 
+            // labelTodayDate
+            // 
+            this.labelTodayDate.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.labelTodayDate.AutoSize = true;
+            this.labelTodayDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTodayDate.ForeColor = System.Drawing.Color.White;
+            this.labelTodayDate.Location = new System.Drawing.Point(347, 384);
+            this.labelTodayDate.Name = "labelTodayDate";
+            this.labelTodayDate.Size = new System.Drawing.Size(87, 20);
+            this.labelTodayDate.TabIndex = 10;
+            this.labelTodayDate.Text = "TodayDate";
             // 
             // FormMenu
             // 
@@ -457,7 +457,7 @@
         private System.Windows.Forms.Panel panelMenu;
         private System.Windows.Forms.Panel panelDeco4;
         private System.Windows.Forms.Button buttonProfile;
-        private System.Windows.Forms.Panel panelDeco5;
+        private System.Windows.Forms.Panel panelDecoManageUsers;
         private System.Windows.Forms.Panel panelDeco3;
         private System.Windows.Forms.Panel panelDeco2;
         private System.Windows.Forms.Panel panelDeco1;

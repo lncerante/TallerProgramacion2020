@@ -8,8 +8,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TallerProgramacion2020.MediaManager.Controllers;
 using TallerProgramacion2020.MediaManager.Domain;
 using TallerProgramacion2020.MediaManager.IO;
+using TallerProgramacion2020.ToolsClass;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace TallerProgramacion2020.Forms
 {
@@ -38,24 +41,12 @@ namespace TallerProgramacion2020.Forms
             if (openFileDialogUploadPicture.ShowDialog() == DialogResult.OK)
             {
                 imagePath = openFileDialogUploadPicture.FileName;
-                ConvertImageToByteArray(imagePath);
+                imgByte = Tools.ConvertImageToByteArray(imagePath);
             }
             else
             {
                 MessageBox.Show("Something went wrong.");
             }
-        }
-
-        //IMPORTANTE VER
-        //Esto capaz lo tendria que hacer el controlador. yo deberia enviar la imagen?
-        private void ConvertImageToByteArray(string imagePath)
-        {
-            if (imagePath != null)
-            {
-                Image img = Image.FromFile(imagePath);
-                imgByte = (byte[])(new ImageConverter()).ConvertTo(img, typeof(byte[]));
-            }
-
         }
 
         private void ButtonSave_Click(object sender, EventArgs e)
@@ -67,17 +58,26 @@ namespace TallerProgramacion2020.Forms
             }
             else
             {
-                //Aca deberia registrarse el administrador
-                User userDTO = new User
+                UserDTO userDTO = new UserDTO
                 {
                     UserName = textBoxUsername.Text,
-                    PasswordHash = textBoxPassword.Text,
+                    Password = textBoxPassword.Text,
                     FullName = textBoxFullName.Text,
-                    ProfilePhoto = imgByte,
-                    // UserRoles = administrador
+                    ProfilePhoto = imgByte
                 };
-                //controlador.RegisterNewUser(userDTO);
-                MessageBox.Show("Administrator successfully registered");
+
+                try
+                {
+                    new SignInController().RegisterAdmin(userDTO);
+                    FormSignIn formSignIn = new FormSignIn();
+                    formSignIn.Show();
+                    Hide();
+                    MessageBox.Show("Administrator successfully registered");
+                }
+                catch (Exception ex)
+                {
+                    ErrorMessage(ex.Message);
+                }
             }
         }
 

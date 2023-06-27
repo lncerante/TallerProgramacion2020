@@ -3,7 +3,7 @@
 
 namespace TallerProgramacion2020.MediaManager.DAL
 {
-    public interface IUserRepository : IRepository<User>
+    public interface IMediaRepository : IRepository<Media>
     {
     }
 }

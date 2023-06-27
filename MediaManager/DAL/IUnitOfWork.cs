@@ -2,9 +2,10 @@
 
 namespace TallerProgramacion2020.MediaManager.DAL
 {
-    internal interface IUnitOfWork : IDisposable
+    public interface IUnitOfWork : IDisposable
     {
         IUserRepository UserRepository { get; }
+        IMediaRepository MediaRepository { get; }
 
         void Complete();
 

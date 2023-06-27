@@ -9,91 +9,61 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TallerProgramacion2020.MediaManager.Domain;
+using TallerProgramacion2020.MediaManager.IO;
+using TallerProgramacion2020.MediaManager.Controllers;
+using TallerProgramacion2020.ToolsClass;
+using TallerProgramacion2020.WinFormsContextClass;
 
 namespace TallerProgramacion2020.Forms
 {
     public partial class FormProfile : Form
     {
-        private User user;
         private string imagePath;
         private byte[] imgByte = null;
+        protected WinFormsContext iContext;
 
         public FormProfile()
         {
+            iContext = WinFormsContext.GetInstance();
             InitializeComponent();
-        }
-
-        private void UsuarioDePrueba()
-        {
-            Image img = Image.FromFile("D:\\Downloads\\foto.jpeg");
-            imgByte = (byte[])(new ImageConverter()).ConvertTo(img, typeof(byte[]));
-
-            user = new User
-            {
-                ID = 1,
-                FullName = "Pepito",
-                UserName = "pepito123456999",
-                PasswordHash = "sjsj8",
-                ProfilePhoto = imgByte
-            };
         }
 
         private void FormProfile_Load(object sender, EventArgs e)
         {
-            UsuarioDePrueba();
             ShowUser();
-            
         }
 
         private void ShowUser()
         {
-            pictureBoxProfile.Image = ConvertByteArrayToImage(user.ProfilePhoto);
-            labelUserFullName.Text = user.FullName;
-            labelUserPassword.Text = user.PasswordHash;
-            labelUserUsername.Text = user.UserName;
+            pictureBoxProfile.Image = Tools.ConvertByteArrayToImage(iContext.User.ProfilePhoto);
+            labelUserFullName.Text = iContext.User.FullName;
+            labelUserUsername.Text = iContext.User.UserName;
             labelUserFullName.Visible = true;
-            labelUserPassword.Visible = true;
             labelUserUsername.Visible = true;
-        }
-        
-        //IMPORTANTE VER
-        //Esto capaz lo tendria que hacer el controlador. yo deberia enviar la imagen?
-        private Image ConvertByteArrayToImage(byte[] profilePhoto)
-        {
-            if (profilePhoto == null) return null;
-            MemoryStream ms = new MemoryStream(profilePhoto);
-            Bitmap bm = new Bitmap(ms);
-            return bm;
-        }
-        
-        private void ConvertImageToByteArray(string imagePath)
-        {
-            if (imagePath != null)
-            {
-                Image img = Image.FromFile(imagePath);
-                imgByte = (byte[])(new ImageConverter()).ConvertTo(img, typeof(byte[]));
-            }
         }
 
         private void ButtonEdit_Click(object sender, EventArgs e)
         {
             labelUserFullName.Visible = false;
-            labelUserPassword.Visible = false;
             labelUserUsername.Visible = false;
             buttonEdit.Visible = false;
             panelUsername.Visible = true;
             panelPassword.Visible = true;
+            panelOldPassword.Visible = true;
             panelFullName.Visible = true;
             textBoxFullName.Visible = true;
             textBoxPassword.Visible = true;
+            textBoxOldPassword.Visible = true;
             textBoxUsername.Visible = true;
-            textBoxFullName.Text = user.FullName;
-            textBoxPassword.Text = user.PasswordHash;
-            textBoxUsername.Text = user.UserName; 
-            //imgByte = user.ProfilePhoto;
+            textBoxFullName.Text = iContext.User.FullName;
+            textBoxUsername.Text = iContext.User.UserName;
+            imgByte = iContext.User.ProfilePhoto;
             labelProfilePicture.Visible = true;
+            labelPassword.Visible = true;
+            labelOldPassword.Visible = true;
             buttonUploadPicture.Visible = true;
             buttonSaveChanges.Visible = true;
+            buttonCancel.Visible = true;
         }
 
         private void ButtonUploadPicture_Click(object sender, EventArgs e)
@@ -101,7 +71,14 @@ namespace TallerProgramacion2020.Forms
             if (openFileDialogUploadPicture.ShowDialog() == DialogResult.OK)
             {
                 imagePath = openFileDialogUploadPicture.FileName;
-                ConvertImageToByteArray(imagePath);
+                try
+                {
+                    imgByte = Tools.ConvertImageToByteArray(imagePath);
+                }
+                catch
+                {
+                    MessageBox.Show("Error while processing image.");
+                }
             }
             else
             {
@@ -111,34 +88,56 @@ namespace TallerProgramacion2020.Forms
 
         private void ButtonSaveChanges_Click(object sender, EventArgs e)
         {
-            if (textBoxFullName.Text.Length == 0 || textBoxPassword.Text.Length == 0 ||
-                textBoxUsername.Text.Length == 0 || imgByte == null)
+            if
+            (
+                textBoxPassword.Text.Length > 0 &&
+                textBoxOldPassword.Text.Length == 0
+            )
             {
-                ErrorMessage("Please enter all the data");
+                ErrorMessage("Please enter your old password.");
             }
             else
             {
                 labelErrorMessage.Visible = false;
-                user = new User
+                UserDTO user = new UserDTO
                 {
                     UserName = textBoxUsername.Text,
-                    PasswordHash = textBoxPassword.Text,
                     FullName = textBoxFullName.Text,
+                    Password = textBoxPassword.Text,
                     ProfilePhoto = imgByte,
+                    ID = iContext.User.ID
                 };
-                //controlador.EditUser(userDTO)
-                buttonSaveChanges.Visible = false;
-                panelUsername.Visible = false;
-                panelPassword.Visible = false;
-                panelFullName.Visible = false;
-                textBoxFullName.Visible = false;
-                textBoxPassword.Visible = false;
-                textBoxUsername.Visible = false;
-                labelProfilePicture.Visible = false;
-                buttonUploadPicture.Visible =false;
-                labelErrorMessage.Visible = false;
-                buttonEdit.Visible = true;
-                ShowUser();
+                try
+                {
+                    new ProfileController().UpdateUser(user, textBoxOldPassword.Text);
+
+                    if (!string.IsNullOrEmpty(user.UserName)) iContext.User.UserName = user.UserName;
+                    if (!string.IsNullOrEmpty(user.FullName)) iContext.User.FullName = user.FullName;
+                    if (imgByte.Length > 0) iContext.User.ProfilePhoto = imgByte;
+
+                    buttonSaveChanges.Visible = false;
+                    buttonCancel.Visible = false;
+                    panelUsername.Visible = false;
+                    panelPassword.Visible = false;
+                    panelOldPassword.Visible = false;
+                    panelFullName.Visible = false;
+                    textBoxFullName.Visible = false;
+                    textBoxPassword.Visible = false;
+                    textBoxOldPassword.Visible = false;
+                    textBoxUsername.Visible = false;
+                    labelProfilePicture.Visible = false;
+                    labelPassword.Visible = false;
+                    labelOldPassword.Visible = false;
+                    buttonUploadPicture.Visible = false;
+                    labelErrorMessage.Visible = false;
+                    buttonEdit.Visible = true;
+                    ShowUser();
+                }
+                catch (Exception ex)
+                {
+                    
+                    ErrorMessage(ex.Message);
+                }
             }
         }
 
@@ -150,8 +149,22 @@ namespace TallerProgramacion2020.Forms
 
         private void ButtonCancel_Click(object sender, EventArgs e)
         {
-
+            labelUserFullName.Visible = true;
+            labelUserUsername.Visible = true;
+            buttonEdit.Visible = true;
+            panelUsername.Visible = false;
+            panelPassword.Visible = false;
+            panelOldPassword.Visible = false;
+            panelFullName.Visible = false;
+            textBoxFullName.Visible = false;
+            textBoxPassword.Visible = false;
+            textBoxOldPassword.Visible = false;
+            textBoxUsername.Visible = false;
+            labelProfilePicture.Visible = false;
+            labelPassword.Visible = false;
+            labelOldPassword.Visible = false;
+            buttonUploadPicture.Visible = false;
+            buttonSaveChanges.Visible = false;
         }
-
     }
 }

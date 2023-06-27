@@ -63,16 +63,17 @@
             this.comboBoxType.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(86)))), ((int)(((byte)(115)))));
             this.comboBoxType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBoxType.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxType.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxType.ForeColor = System.Drawing.Color.White;
             this.comboBoxType.FormattingEnabled = true;
+            this.comboBoxType.ItemHeight = 18;
             this.comboBoxType.Items.AddRange(new object[] {
             "All",
             "Movie",
             "Series"});
             this.comboBoxType.Location = new System.Drawing.Point(735, 35);
             this.comboBoxType.Name = "comboBoxType";
-            this.comboBoxType.Size = new System.Drawing.Size(131, 28);
+            this.comboBoxType.Size = new System.Drawing.Size(131, 26);
             this.comboBoxType.Sorted = true;
             this.comboBoxType.TabIndex = 17;
             // 
@@ -81,23 +82,23 @@
             this.textBoxSearchTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textBoxSearchTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(86)))), ((int)(((byte)(115)))));
             this.textBoxSearchTitle.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxSearchTitle.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxSearchTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxSearchTitle.ForeColor = System.Drawing.Color.White;
             this.textBoxSearchTitle.Location = new System.Drawing.Point(78, 38);
             this.textBoxSearchTitle.MaxLength = 100;
             this.textBoxSearchTitle.Name = "textBoxSearchTitle";
-            this.textBoxSearchTitle.Size = new System.Drawing.Size(326, 19);
+            this.textBoxSearchTitle.Size = new System.Drawing.Size(326, 17);
             this.textBoxSearchTitle.TabIndex = 16;
             // 
             // labelTitle
             // 
             this.labelTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelTitle.AutoSize = true;
-            this.labelTitle.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTitle.ForeColor = System.Drawing.Color.White;
             this.labelTitle.Location = new System.Drawing.Point(27, 37);
             this.labelTitle.Name = "labelTitle";
-            this.labelTitle.Size = new System.Drawing.Size(45, 21);
+            this.labelTitle.Size = new System.Drawing.Size(42, 20);
             this.labelTitle.TabIndex = 15;
             this.labelTitle.Text = "Title:";
             // 
@@ -105,11 +106,11 @@
             // 
             this.labelGenre.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelGenre.AutoSize = true;
-            this.labelGenre.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelGenre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelGenre.ForeColor = System.Drawing.Color.White;
             this.labelGenre.Location = new System.Drawing.Point(422, 37);
             this.labelGenre.Name = "labelGenre";
-            this.labelGenre.Size = new System.Drawing.Size(63, 21);
+            this.labelGenre.Size = new System.Drawing.Size(58, 20);
             this.labelGenre.TabIndex = 14;
             this.labelGenre.Text = "Genre:";
             // 
@@ -117,11 +118,11 @@
             // 
             this.labelType.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelType.AutoSize = true;
-            this.labelType.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelType.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelType.ForeColor = System.Drawing.Color.White;
             this.labelType.Location = new System.Drawing.Point(678, 37);
             this.labelType.Name = "labelType";
-            this.labelType.Size = new System.Drawing.Size(51, 21);
+            this.labelType.Size = new System.Drawing.Size(47, 20);
             this.labelType.TabIndex = 12;
             this.labelType.Text = "Type:";
             // 
@@ -141,7 +142,7 @@
             this.dataGridViewMedia.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(86)))), ((int)(((byte)(115)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(86)))), ((int)(((byte)(115)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
@@ -164,7 +165,7 @@
             this.dataGridViewMedia.ReadOnly = true;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
@@ -172,7 +173,7 @@
             this.dataGridViewMedia.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewMedia.RowHeadersVisible = false;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
@@ -208,14 +209,14 @@
             this.ColumnType.HeaderText = "Type";
             this.ColumnType.Name = "ColumnType";
             this.ColumnType.ReadOnly = true;
-            this.ColumnType.Width = 59;
+            this.ColumnType.Width = 62;
             // 
             // ColumnGenre
             // 
             this.ColumnGenre.HeaderText = "Genre";
             this.ColumnGenre.Name = "ColumnGenre";
             this.ColumnGenre.ReadOnly = true;
-            this.ColumnGenre.Width = 70;
+            this.ColumnGenre.Width = 67;
             // 
             // ColumnImdbRating
             // 
@@ -230,12 +231,12 @@
             this.textBoxGenre.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textBoxGenre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(86)))), ((int)(((byte)(115)))));
             this.textBoxGenre.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxGenre.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxGenre.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxGenre.ForeColor = System.Drawing.Color.White;
             this.textBoxGenre.Location = new System.Drawing.Point(491, 39);
             this.textBoxGenre.Name = "textBoxGenre";
-            this.textBoxGenre.Size = new System.Drawing.Size(166, 19);
-            this.textBoxGenre.TabIndex = 20;
+            this.textBoxGenre.Size = new System.Drawing.Size(166, 17);
+            this.textBoxGenre.TabIndex = 17;
             // 
             // panelDecoTitle
             // 
@@ -263,12 +264,12 @@
             this.buttonRate.FlatAppearance.BorderSize = 0;
             this.buttonRate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
             this.buttonRate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonRate.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonRate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonRate.ForeColor = System.Drawing.Color.White;
             this.buttonRate.Location = new System.Drawing.Point(115, 523);
             this.buttonRate.Name = "buttonRate";
             this.buttonRate.Size = new System.Drawing.Size(125, 30);
-            this.buttonRate.TabIndex = 31;
+            this.buttonRate.TabIndex = 32;
             this.buttonRate.Text = "Rate";
             this.buttonRate.UseVisualStyleBackColor = false;
             this.buttonRate.Visible = false;
@@ -282,12 +283,12 @@
             this.buttonAddToMyList.FlatAppearance.BorderSize = 0;
             this.buttonAddToMyList.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
             this.buttonAddToMyList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonAddToMyList.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAddToMyList.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonAddToMyList.ForeColor = System.Drawing.Color.White;
             this.buttonAddToMyList.Location = new System.Drawing.Point(872, 523);
             this.buttonAddToMyList.Name = "buttonAddToMyList";
             this.buttonAddToMyList.Size = new System.Drawing.Size(125, 30);
-            this.buttonAddToMyList.TabIndex = 32;
+            this.buttonAddToMyList.TabIndex = 34;
             this.buttonAddToMyList.Text = "Add to my list";
             this.buttonAddToMyList.UseVisualStyleBackColor = false;
             this.buttonAddToMyList.Visible = false;
@@ -301,7 +302,7 @@
             this.buttonSeeMoreInformation.FlatAppearance.BorderSize = 0;
             this.buttonSeeMoreInformation.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
             this.buttonSeeMoreInformation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSeeMoreInformation.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSeeMoreInformation.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSeeMoreInformation.ForeColor = System.Drawing.Color.White;
             this.buttonSeeMoreInformation.Location = new System.Drawing.Point(493, 523);
             this.buttonSeeMoreInformation.Name = "buttonSeeMoreInformation";
@@ -336,14 +337,14 @@
             // 
             this.labelErrorMessage.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelErrorMessage.AutoSize = true;
-            this.labelErrorMessage.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelErrorMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelErrorMessage.ForeColor = System.Drawing.Color.DarkGray;
             this.labelErrorMessage.Image = ((System.Drawing.Image)(resources.GetObject("labelErrorMessage.Image")));
             this.labelErrorMessage.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.labelErrorMessage.Location = new System.Drawing.Point(28, 77);
             this.labelErrorMessage.Name = "labelErrorMessage";
             this.labelErrorMessage.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.labelErrorMessage.Size = new System.Drawing.Size(99, 17);
+            this.labelErrorMessage.Size = new System.Drawing.Size(99, 16);
             this.labelErrorMessage.TabIndex = 41;
             this.labelErrorMessage.Text = "Error Message:";
             this.labelErrorMessage.Visible = false;
@@ -355,12 +356,12 @@
             this.buttonSearch.FlatAppearance.BorderSize = 0;
             this.buttonSearch.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
             this.buttonSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSearch.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSearch.ForeColor = System.Drawing.Color.White;
             this.buttonSearch.Location = new System.Drawing.Point(921, 34);
             this.buttonSearch.Name = "buttonSearch";
             this.buttonSearch.Size = new System.Drawing.Size(147, 30);
-            this.buttonSearch.TabIndex = 34;
+            this.buttonSearch.TabIndex = 31;
             this.buttonSearch.Text = "Search";
             this.buttonSearch.UseVisualStyleBackColor = false;
             this.buttonSearch.Click += new System.EventHandler(this.ButtonSearch_Click);

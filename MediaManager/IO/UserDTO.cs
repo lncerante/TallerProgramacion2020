@@ -1,4 +1,5 @@
 ﻿using System;
+using TallerProgramacion2020.MediaManager.Domain;
 
 namespace TallerProgramacion2020.MediaManager.IO
 {
@@ -7,14 +8,15 @@ namespace TallerProgramacion2020.MediaManager.IO
         protected string iUserName;
         protected string iPassword;
         protected string iFullName;
-        protected Byte[] iProfilePhoto;
+        protected byte[] iProfilePhoto;
+        protected UserRole iUserRole;
 
         public string UserName
         {
             get { return iUserName; }
             set { iUserName = value; }
         }
-        public string PasswordHash
+        public string Password
         {
             get { return iPassword; }
             set { iPassword = value; }
@@ -24,10 +26,15 @@ namespace TallerProgramacion2020.MediaManager.IO
             get { return iFullName; }
             set { iFullName = value; }
         }
-        public Byte[] ProfilePhoto
+        public byte[] ProfilePhoto
         {
             get { return iProfilePhoto; }
             set { iProfilePhoto = value; }
+        }
+        public UserRole UserRole
+        {
+            get { return iUserRole; }
+            set { iUserRole = value; }
         }
     }
 }
