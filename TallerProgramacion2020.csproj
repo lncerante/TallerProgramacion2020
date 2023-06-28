@@ -6,13 +6,28 @@
     <ProjectGuid>{592F761E-7FC9-4041-ADBB-79C29F86B2E8}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <NoStandardLibraries>false</NoStandardLibraries>
-    <AssemblyName>WindowsApplication</AssemblyName>
+    <AssemblyName>Movie Affinity</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <DebugSymbols>true</DebugSymbols>
@@ -37,6 +52,24 @@
   </PropertyGroup>
   <PropertyGroup>
     <RootNamespace>TallerProgramacion2020</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Exe64|x86'">
+    <OutputPath>bin\x86\Exe64\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>bin\x64\Release\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Exe64|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>bin\x64\Exe64\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>MovieAffinity.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -71,6 +104,8 @@
     <Compile Include="Context\WinFormsContext.cs" />
     <Compile Include="MediaManager\Context\Context.cs" />
     <Compile Include="MediaManager\Controllers\MediaController.cs" />
+    <Compile Include="MediaManager\Controllers\WatchListController.cs" />
+    <Compile Include="MediaManager\Controllers\ReviewController.cs" />
     <Compile Include="MediaManager\Controllers\UsersController.cs" />
     <Compile Include="MediaManager\Controllers\ProfileController.cs" />
     <Compile Include="MediaManager\Controllers\SignInController.cs" />
@@ -146,12 +181,16 @@
     <Compile Include="MediaManager\ApiAccess\OmdbApi\OmdbApiMediaSearch.cs" />
     <Compile Include="MediaManager\DAL\EntityFramework\MediaManagerDbContext.cs" />
     <Compile Include="MediaManager\DAL\EntityFramework\Repository.cs" />
+    <Compile Include="MediaManager\DAL\EntityFramework\WatchListRepository.cs" />
     <Compile Include="MediaManager\DAL\EntityFramework\UnitOfWork.cs" />
     <Compile Include="MediaManager\DAL\EntityFramework\MediaRepository.cs" />
+    <Compile Include="MediaManager\DAL\EntityFramework\ReviewRepository.cs" />
     <Compile Include="MediaManager\DAL\EntityFramework\UserRepository.cs" />
     <Compile Include="MediaManager\DAL\IRepository.cs" />
+    <Compile Include="MediaManager\DAL\IWatchListRepository.cs" />
     <Compile Include="MediaManager\DAL\IUnitOfWork.cs" />
     <Compile Include="MediaManager\DAL\IMediaRepository.cs" />
+    <Compile Include="MediaManager\DAL\IReviewRepository.cs" />
     <Compile Include="MediaManager\DAL\IUserRepository.cs" />
     <Compile Include="MediaManager\Domain\Actor.cs" />
     <Compile Include="MediaManager\Domain\Country.cs" />
@@ -172,12 +211,15 @@
     <Compile Include="MediaManager\IO\CountryDTO.cs" />
     <Compile Include="MediaManager\IO\DirectorDTO.cs" />
     <Compile Include="MediaManager\IO\DTOService.cs" />
+    <Compile Include="MediaManager\IO\WatchListItemDTO.cs" />
+    <Compile Include="MediaManager\IO\ReviewDTO.cs" />
     <Compile Include="MediaManager\IO\GenreDTO.cs" />
     <Compile Include="MediaManager\IO\MediaDTO.cs" />
     <Compile Include="MediaManager\IO\PersonDTO.cs" />
     <Compile Include="MediaManager\IO\UserDTO.cs" />
     <Compile Include="MediaManager\IO\WriterDTO.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -234,8 +276,20 @@
     <Content Include=".gitattributes" />
     <Content Include=".gitignore" />
     <Content Include="LICENSE.txt" />
+    <Content Include="MovieAffinity.ico" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.8">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.8 %28x86 y x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSHARP.Targets" />
   <ProjectExtensions>
     <VisualStudio AllowExistingFolder="true" />

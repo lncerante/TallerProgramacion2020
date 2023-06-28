@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -16,7 +17,7 @@ namespace TallerProgramacion2020.Forms
 {
     public partial class FormSearchMoviesOrSeries : Form
     {
-        private IEnumerable<MediaDTO> mediaList;
+        protected IEnumerable<MediaDTO> mediaList;
         protected WinFormsContext iContext;
 
         public FormSearchMoviesOrSeries()
@@ -27,13 +28,28 @@ namespace TallerProgramacion2020.Forms
 
         private void FormSearchMoviesOrSeries_Load(object sender, EventArgs e)
         {
+            Loading(false);
             dataGridViewMedia.Visible = false;
-            GetMediaList();
+            mediaList = iContext.CurrentMedia;
+            ShowMedia();
+        }
+        public void Loading(bool isLoading)
+        {
+            panelLoading.BackColor = Color.FromArgb(20, Color.Blue);
+            if (isLoading)
+            {
+                panelLoading.BringToFront();
+                panelLoading.Show();
+            }
+            else
+            {
+                panelLoading.Hide();
+                panelLoading.SendToBack();
+            }
         }
 
-        private void ButtonSearch_Click(object sender, EventArgs e)
+        private void SearchMedia(bool forceApiSearch = false)
         {
-            
             if (textBoxSearchTitle.Text.Length == 0 && textBoxGenre.Text.Length == 0 && comboBoxType.Text.Length == 0)
             {
                 ErrorMessage("Please enter a title to search, a genre, or a type.");
@@ -50,39 +66,45 @@ namespace TallerProgramacion2020.Forms
                     mediaType = MediaType.Series;
                 }
 
-                mediaList = new MediaController().SearchMedia
-                (
-                    textBoxSearchTitle.Text,
-                    textBoxGenre.Text,
-                    mediaType
-                );
-
-                if(mediaList != null)
+                Loading(true);
+                try
                 {
-                    labelErrorMessage.Visible = false;
-                    dataGridViewMedia.Rows.Clear();
-                    dataGridViewMedia.Visible = true;
-                    buttonAddToMyList.Visible = true;
-                    buttonRate.Visible = true;
-                    buttonSeeMoreInformation.Visible = true;
-                    foreach (var media in mediaList)
-                    {
-                        dataGridViewMedia.Rows.Add
-                        (
-                            media.ImdbID,
-                            media.Title,
-                            media.Year,
-                            media.MediaType,
-                            string.Join(", ", media.Genres.Select(genre => genre.Name)),
-                            media.ImdbRating
-                        );
-                    }
+                    mediaList = new MediaController().SearchMedia
+                    (
+                        textBoxSearchTitle.Text,
+                        textBoxGenre.Text,
+                        mediaType,
+                        forceApiSearch
+                    );
+                }
+                catch
+                {
+                    MessageBox.Show("Error trying to call media API. Please try again or modify your search parameters.");
+                    mediaList = null;
+                }
+
+                dataGridViewMedia.Rows.Clear();
+                Loading(false);
+                if (mediaList != null)
+                {
+                    iContext.CurrentMedia = mediaList;
+                    ShowMedia();
                 }
                 else
                 {
-                    ErrorMessage("There are no exact results for the words entered. Try again!");
-                }                
+                    ErrorMessage("There are no results for the words entered. Try again!");
+                }
             }
+        }
+
+        private void ButtonSearch_Click(object sender, EventArgs e)
+        {
+            SearchMedia(false);
+        }
+
+        private void buttonOnlineSearch_Click(object sender, EventArgs e)
+        {
+            SearchMedia(true);
         }
 
         private void ErrorMessage(string txt)
@@ -94,10 +116,18 @@ namespace TallerProgramacion2020.Forms
         private void ButtonRate_Click(object sender, EventArgs e)
         {
             if (dataGridViewMedia.SelectedRows.Count == 1)
-            { 
+            {
                 var idIMDB = dataGridViewMedia.CurrentRow.Cells["ColumnImdbID"].Value.ToString();
-                FormRateMovieOrSeries formRateMoviesOrSeries = new FormRateMovieOrSeries(idIMDB);
-                formRateMoviesOrSeries.ShowDialog();
+                var media = mediaList.FirstOrDefault(m => m.ImdbID == idIMDB);
+                if (media != null && media.ID != null)
+                {
+                    FormRateMovieOrSeries formRateMoviesOrSeries = new FormRateMovieOrSeries((int)media.ID);
+                    formRateMoviesOrSeries.ShowDialog();
+                }
+                else
+                {
+                    ErrorMessage("Error trying to open media.");
+                }
             }
         }
 
@@ -106,8 +136,16 @@ namespace TallerProgramacion2020.Forms
             if (dataGridViewMedia.SelectedRows.Count == 1)
             {
                 var idIMDB = dataGridViewMedia.CurrentRow.Cells["ColumnImdbID"].Value.ToString();
-                FormSeeMoreInformation formSeeMoreInformation = new FormSeeMoreInformation(idIMDB);
-                formSeeMoreInformation.ShowDialog();
+                var media = mediaList.FirstOrDefault(m => m.ImdbID == idIMDB);
+                if (media != null)
+                {
+                    FormSeeMoreInformation formSeeMoreInformation = new FormSeeMoreInformation(media);
+                    formSeeMoreInformation.ShowDialog();
+                }
+                else
+                {
+                    ErrorMessage("Error trying to open media.");
+                }
             }
         }
 
@@ -116,31 +154,40 @@ namespace TallerProgramacion2020.Forms
             if (dataGridViewMedia.SelectedRows.Count == 1)
             {
                 var idIMDB = dataGridViewMedia.CurrentRow.Cells["ColumnImdbID"].Value.ToString();
-                //var exist = controlador.MediaAlreadyExist(idIMDB);
-                var exist = false;
-                if (exist)
+                var media = mediaList.FirstOrDefault(m => m.ImdbID == idIMDB);
+                if (media != null && media.ID != null)
                 {
-                    MessageBox.Show("This media already exists in your watchlist");
+                    FormMediaPriority formMediaPriority = new FormMediaPriority((int)media.ID);
+                    formMediaPriority.ShowDialog();
                 }
                 else
                 {
-                    FormMediaPriority formMediaPriority = new FormMediaPriority(idIMDB);
-                    formMediaPriority.ShowDialog();
+                    ErrorMessage("Error trying to open media.");
                 }
-                
             }
         }
 
-        //Metodos que hay que eliminar despues
-        private void GetMediaList()
+        private void ShowMedia()
         {
-            try
+            if (mediaList != null)
             {
-                mediaList = new MediaController().GetMedia();
-            }
-            catch (Exception ex)
-            {
-                ErrorMessage(ex.Message);
+                labelErrorMessage.Visible = false;
+                dataGridViewMedia.Visible = true;
+                buttonAddToMyList.Visible = true;
+                buttonRate.Visible = true;
+                buttonSeeMoreInformation.Visible = true;
+                foreach (var media in mediaList)
+                {
+                    dataGridViewMedia.Rows.Add
+                    (
+                        media.ImdbID,
+                        media.Title,
+                        media.Year,
+                        media.MediaType,
+                        string.Join(", ", media.Genres.Select(genre => genre.Name)),
+                        media.ImdbRating
+                    );
+                }
             }
         }
     }

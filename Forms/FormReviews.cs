@@ -10,12 +10,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TallerProgramacion2020.MediaManager.IO;
 using TallerProgramacion2020.MediaManager.Domain;
+using TallerProgramacion2020.MediaManager.Controllers;
 
 namespace TallerProgramacion2020.Forms
 {
     public partial class FormReviews : Form
     {
-        private List<MediaDTO> mediaList;
+        private IEnumerable<ReviewDTO> reviewList;
         public FormReviews()
         {
             InitializeComponent();
@@ -23,36 +24,37 @@ namespace TallerProgramacion2020.Forms
 
         private void FormReviews_Load(object sender, EventArgs e)
         {
-            InitializeReviews();
-            //List<string> mediaList = controlador.Reviews(iduser)
-            if(mediaList != null)
-            {
-                buttonEdit.Visible = true;
-                foreach (var media in mediaList)
-                {
-                    dataGridViewMedia.Rows.Add(media.ImdbID, media.Title, media.Year, media.MediaType, "Terrible",
-                        "Muy buen la peli, me gusto muuuuuuuuuuuuuuuuuuuuuuuuuuucho"
-                    );
-                }
-            }
+            GetReviews();
         }
 
-        //eliminar despues
-        private void InitializeReviews()
+        private void GetReviews()
         {
-            MediaDTO media1 = new MediaDTO
+            try
             {
-                ImdbID = "tt0088939",
-                Title = "The Color Purple",
-                Year = "1985",
-                MediaType = MediaType.Movie,
-            };
-            var media = new List<MediaDTO>
+                reviewList = new ReviewController().GetReviews();
+                if (reviewList != null)
+                {
+                    dataGridViewMedia.Rows.Clear();
+                    buttonEdit.Visible = true;
+                    foreach (var review in reviewList)
+                    {
+                        dataGridViewMedia.Rows.Add
+                        (
+                            review.Media.ImdbID,
+                            review.Media.Title,
+                            review.Media.Year,
+                            review.Media.MediaType,
+                            review.Rating.ToString(),
+                            review.Comment,
+                            review.ITS?.ToShortDateString()
+                        );
+                    }
+                }
+            }
+            catch (Exception ex)
             {
-                media1, media1, media1, media1, media1
-            };
-            mediaList = media;
-            
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void ButtonEdit_Click(object sender, EventArgs e)
@@ -60,8 +62,46 @@ namespace TallerProgramacion2020.Forms
             if (dataGridViewMedia.SelectedRows.Count == 1)
             {
                 var idIMDB = dataGridViewMedia.CurrentRow.Cells["ColumnImdbID"].Value.ToString();
-                FormRateMovieOrSeries formRateMoviesOrSeries = new FormRateMovieOrSeries(idIMDB);
-                formRateMoviesOrSeries.ShowDialog();
+                var review = reviewList.FirstOrDefault(r => r.Media.ImdbID == idIMDB);
+                if (review != null && review.Media.ID != null)
+                {
+                    FormRateMovieOrSeries formRateMovieOrSeries = new FormRateMovieOrSeries((int)review.Media.ID, review);
+                    formRateMovieOrSeries.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Error trying to open review.");
+                }
+                GetReviews();
+            }
+        }
+
+        private void ButtonDelete_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewMedia.SelectedRows.Count == 1)
+            {
+                var idIMDB = dataGridViewMedia.CurrentRow.Cells["ColumnImdbID"].Value.ToString();
+                var review = reviewList.FirstOrDefault(r => r.Media.ImdbID == idIMDB);
+                if (review != null && review.ID != null)
+                {
+                    var confirmResult = MessageBox.Show("Are you sure to delete this review?", "Delete review", MessageBoxButtons.YesNo);
+                    if (confirmResult == DialogResult.Yes)
+                    {
+                        try
+                        {
+                            new ReviewController().DeleteReview((int)review.ID);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message);
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Please select a review to delete.");
+                }
+                GetReviews();
             }
         }
     }

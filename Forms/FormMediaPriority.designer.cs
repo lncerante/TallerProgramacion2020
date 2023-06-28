@@ -41,11 +41,11 @@
             // labelPriority
             // 
             this.labelPriority.AutoSize = true;
-            this.labelPriority.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPriority.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPriority.Location = new System.Drawing.Point(56, 125);
             this.labelPriority.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.labelPriority.Name = "labelPriority";
-            this.labelPriority.Size = new System.Drawing.Size(61, 20);
+            this.labelPriority.Size = new System.Drawing.Size(58, 18);
             this.labelPriority.TabIndex = 0;
             this.labelPriority.Text = "Priority:";
             // 
@@ -64,17 +64,17 @@
             this.comboBoxPriority.Location = new System.Drawing.Point(143, 123);
             this.comboBoxPriority.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.comboBoxPriority.Name = "comboBoxPriority";
-            this.comboBoxPriority.Size = new System.Drawing.Size(259, 25);
-            this.comboBoxPriority.TabIndex = 2;
+            this.comboBoxPriority.Size = new System.Drawing.Size(259, 24);
+            this.comboBoxPriority.TabIndex = 200;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(63, 58);
             this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(339, 22);
+            this.label2.Size = new System.Drawing.Size(318, 24);
             this.label2.TabIndex = 3;
             this.label2.Text = "Set a priority for your movie or series:";
             // 
@@ -84,12 +84,12 @@
             this.buttonSave.FlatAppearance.BorderSize = 0;
             this.buttonSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
             this.buttonSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSave.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSave.ForeColor = System.Drawing.Color.White;
             this.buttonSave.Location = new System.Drawing.Point(150, 194);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(165, 33);
-            this.buttonSave.TabIndex = 35;
+            this.buttonSave.TabIndex = 201;
             this.buttonSave.Text = "Save";
             this.buttonSave.UseVisualStyleBackColor = false;
             this.buttonSave.Click += new System.EventHandler(this.ButtonSave_Click);
@@ -119,13 +119,13 @@
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.buttonClose.Size = new System.Drawing.Size(43, 25);
-            this.buttonClose.TabIndex = 30;
+            this.buttonClose.TabIndex = 202;
             this.buttonClose.UseVisualStyleBackColor = false;
             this.buttonClose.Click += new System.EventHandler(this.ButtonClose_Click);
             // 
             // FormMediaPriority
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
             this.ClientSize = new System.Drawing.Size(471, 256);
@@ -134,7 +134,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.comboBoxPriority);
             this.Controls.Add(this.labelPriority);
-            this.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);

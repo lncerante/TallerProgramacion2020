@@ -8,21 +8,40 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TallerProgramacion2020.MediaManager.Controllers;
+using TallerProgramacion2020.MediaManager.Domain;
+using TallerProgramacion2020.MediaManager.IO;
 
 namespace TallerProgramacion2020.Forms
 {
     public partial class FormRateMovieOrSeries : Form
     {
-        readonly string idMedia;
+        protected int idMedia { get; }
+        protected ReviewDTO iReview { get; }
 
-        public FormRateMovieOrSeries(string imdbID)
+        public FormRateMovieOrSeries(int pIdMedia, ReviewDTO pReview = null)
         {
-            idMedia = imdbID;
+            idMedia = pIdMedia;
+            iReview = pReview;
             InitializeComponent();
         }
-        //IMPORTANTE
-        //LOS VALORES DEL COMBOBOX DEBERIAN OBTENERSE DE LA BASE DE DATOS
-        //POR SI EN ALGUN MOMENTO SE QUIEREN MODIFICAR 
+        private void FormRateMovieOrSeries_Load(object sender, EventArgs e)
+        {
+            if (iReview != null)
+            {
+                var rating = "";
+                switch (iReview.Rating)
+                {
+                    case Rating.Terrible: rating = "1 - Terrible"; break;
+                    case Rating.Bad: rating = "2 - Bad"; break;
+                    case Rating.Medium: rating = "3 - Medium"; break;
+                    case Rating.Good: rating = "4 - Good"; break;
+                    case Rating.Great: rating = "5 - Great"; break;
+                }
+                comboBoxRating.Text = rating;
+                richTextBox1.Text = iReview.Comment;
+            }
+        }
 
         //Allows to drag a form
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -37,11 +56,42 @@ namespace TallerProgramacion2020.Forms
 
         private void ButtonSave_Click(object sender, EventArgs e)
         {
-            if(comboBoxRating.Text.Length != 0 && richTextBox1!= null)
+            Rating rating;
+            try
             {
-                //va a tener que existir algo como GuardarComentario(idMedia,comboBoxType.Text,richTextBox1);
-                MessageBox.Show("Comentario guardado");
+                switch (comboBoxRating.Text)
+                {
+                    case "1 - Terrible": rating = Rating.Terrible; break;
+                    case "2 - Bad": rating = Rating.Bad; break;
+                    case "3 - Medium": rating = Rating.Medium; break;
+                    case "4 - Good": rating = Rating.Good; break;
+                    case "5 - Great": rating = Rating.Great; break;
+                    default: throw new Exception("Please pick a rating.");
+                }
+                if (iReview != null)
+                {
+                    new ReviewController().UpdateReview
+                    (
+                        (int)iReview.ID,
+                        rating,
+                        richTextBox1.Text
+                    );
+                }
+                else
+                {
+                    new ReviewController().CreateReview
+                    (
+                        idMedia,
+                        rating,
+                        richTextBox1.Text
+                    );
+                }
+                MessageBox.Show("Review saved.");
                 Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 

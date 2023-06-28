@@ -12,6 +12,7 @@ namespace TallerProgramacion2020.MediaManager.Domain
         protected DateTime? iDTS;
         protected string iFullName;
 
+        public Person() { }
         public Person(string pFullName)
         {
             FullName = pFullName;

@@ -57,7 +57,7 @@
             this.buttonConfirm.Location = new System.Drawing.Point(375, 217);
             this.buttonConfirm.Name = "buttonConfirm";
             this.buttonConfirm.Size = new System.Drawing.Size(278, 35);
-            this.buttonConfirm.TabIndex = 18;
+            this.buttonConfirm.TabIndex = 2;
             this.buttonConfirm.Text = "Sign In";
             this.buttonConfirm.UseVisualStyleBackColor = false;
             this.buttonConfirm.Click += new System.EventHandler(this.ButtonConfirm_Click);
@@ -83,7 +83,7 @@
             this.textBoxPassword.MaxLength = 15;
             this.textBoxPassword.Name = "textBoxPassword";
             this.textBoxPassword.Size = new System.Drawing.Size(227, 19);
-            this.textBoxPassword.TabIndex = 16;
+            this.textBoxPassword.TabIndex = 1;
             this.textBoxPassword.UseSystemPasswordChar = true;
             // 
             // textBoxUsername
@@ -96,7 +96,7 @@
             this.textBoxUsername.MaxLength = 15;
             this.textBoxUsername.Name = "textBoxUsername";
             this.textBoxUsername.Size = new System.Drawing.Size(227, 19);
-            this.textBoxUsername.TabIndex = 15;
+            this.textBoxUsername.TabIndex = 0;
             // 
             // labelPassword
             // 
@@ -228,7 +228,6 @@
             this.Controls.Add(this.labelUsername);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormSignIn";
-            this.Opacity = 0.95D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sign In";
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FormSignIn_MouseDown);

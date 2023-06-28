@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSearchMoviesOrSeries));
             this.comboBoxType = new System.Windows.Forms.ComboBox();
             this.textBoxSearchTitle = new System.Windows.Forms.TextBox();
@@ -51,10 +51,15 @@
             this.buttonAddToMyList = new System.Windows.Forms.Button();
             this.buttonSeeMoreInformation = new System.Windows.Forms.Button();
             this.panelSearch = new System.Windows.Forms.Panel();
+            this.buttonOnlineSearch = new System.Windows.Forms.Button();
             this.labelErrorMessage = new System.Windows.Forms.Label();
             this.buttonSearch = new System.Windows.Forms.Button();
+            this.panelLoading = new System.Windows.Forms.Panel();
+            this.sqlCeCommand1 = new System.Data.SqlServerCe.SqlCeCommand();
+            this.labelLoading = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMedia)).BeginInit();
             this.panelSearch.SuspendLayout();
+            this.panelLoading.SuspendLayout();
             this.SuspendLayout();
             // 
             // comboBoxType
@@ -75,7 +80,7 @@
             this.comboBoxType.Name = "comboBoxType";
             this.comboBoxType.Size = new System.Drawing.Size(131, 26);
             this.comboBoxType.Sorted = true;
-            this.comboBoxType.TabIndex = 17;
+            this.comboBoxType.TabIndex = 102;
             // 
             // textBoxSearchTitle
             // 
@@ -88,7 +93,7 @@
             this.textBoxSearchTitle.MaxLength = 100;
             this.textBoxSearchTitle.Name = "textBoxSearchTitle";
             this.textBoxSearchTitle.Size = new System.Drawing.Size(326, 17);
-            this.textBoxSearchTitle.TabIndex = 16;
+            this.textBoxSearchTitle.TabIndex = 100;
             // 
             // labelTitle
             // 
@@ -140,14 +145,14 @@
             this.dataGridViewMedia.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridViewMedia.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dataGridViewMedia.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(86)))), ((int)(((byte)(115)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(86)))), ((int)(((byte)(115)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewMedia.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(86)))), ((int)(((byte)(115)))));
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle22.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(86)))), ((int)(((byte)(115)))));
+            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewMedia.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
             this.dataGridViewMedia.ColumnHeadersHeight = 40;
             this.dataGridViewMedia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridViewMedia.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -163,24 +168,24 @@
             this.dataGridViewMedia.MultiSelect = false;
             this.dataGridViewMedia.Name = "dataGridViewMedia";
             this.dataGridViewMedia.ReadOnly = true;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewMedia.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle23.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewMedia.RowHeadersDefaultCellStyle = dataGridViewCellStyle23;
             this.dataGridViewMedia.RowHeadersVisible = false;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
-            this.dataGridViewMedia.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle24.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.Color.White;
+            this.dataGridViewMedia.RowsDefaultCellStyle = dataGridViewCellStyle24;
             this.dataGridViewMedia.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewMedia.Size = new System.Drawing.Size(882, 365);
-            this.dataGridViewMedia.TabIndex = 19;
+            this.dataGridViewMedia.TabIndex = 105;
             // 
             // ColumnImdbID
             // 
@@ -236,7 +241,7 @@
             this.textBoxGenre.Location = new System.Drawing.Point(491, 39);
             this.textBoxGenre.Name = "textBoxGenre";
             this.textBoxGenre.Size = new System.Drawing.Size(166, 17);
-            this.textBoxGenre.TabIndex = 17;
+            this.textBoxGenre.TabIndex = 101;
             // 
             // panelDecoTitle
             // 
@@ -269,7 +274,7 @@
             this.buttonRate.Location = new System.Drawing.Point(115, 523);
             this.buttonRate.Name = "buttonRate";
             this.buttonRate.Size = new System.Drawing.Size(125, 30);
-            this.buttonRate.TabIndex = 32;
+            this.buttonRate.TabIndex = 106;
             this.buttonRate.Text = "Rate";
             this.buttonRate.UseVisualStyleBackColor = false;
             this.buttonRate.Visible = false;
@@ -288,7 +293,7 @@
             this.buttonAddToMyList.Location = new System.Drawing.Point(872, 523);
             this.buttonAddToMyList.Name = "buttonAddToMyList";
             this.buttonAddToMyList.Size = new System.Drawing.Size(125, 30);
-            this.buttonAddToMyList.TabIndex = 34;
+            this.buttonAddToMyList.TabIndex = 108;
             this.buttonAddToMyList.Text = "Add to my list";
             this.buttonAddToMyList.UseVisualStyleBackColor = false;
             this.buttonAddToMyList.Visible = false;
@@ -307,7 +312,7 @@
             this.buttonSeeMoreInformation.Location = new System.Drawing.Point(493, 523);
             this.buttonSeeMoreInformation.Name = "buttonSeeMoreInformation";
             this.buttonSeeMoreInformation.Size = new System.Drawing.Size(125, 30);
-            this.buttonSeeMoreInformation.TabIndex = 33;
+            this.buttonSeeMoreInformation.TabIndex = 107;
             this.buttonSeeMoreInformation.Text = "See more info";
             this.buttonSeeMoreInformation.UseVisualStyleBackColor = false;
             this.buttonSeeMoreInformation.Visible = false;
@@ -316,6 +321,7 @@
             // panelSearch
             // 
             this.panelSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(86)))), ((int)(((byte)(115)))));
+            this.panelSearch.Controls.Add(this.buttonOnlineSearch);
             this.panelSearch.Controls.Add(this.labelErrorMessage);
             this.panelSearch.Controls.Add(this.buttonSearch);
             this.panelSearch.Controls.Add(this.labelTitle);
@@ -332,6 +338,23 @@
             this.panelSearch.Name = "panelSearch";
             this.panelSearch.Size = new System.Drawing.Size(1080, 109);
             this.panelSearch.TabIndex = 43;
+            // 
+            // buttonOnlineSearch
+            // 
+            this.buttonOnlineSearch.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonOnlineSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(110)))), ((int)(((byte)(200)))));
+            this.buttonOnlineSearch.FlatAppearance.BorderSize = 0;
+            this.buttonOnlineSearch.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.buttonOnlineSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonOnlineSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonOnlineSearch.ForeColor = System.Drawing.Color.White;
+            this.buttonOnlineSearch.Location = new System.Drawing.Point(921, 63);
+            this.buttonOnlineSearch.Name = "buttonOnlineSearch";
+            this.buttonOnlineSearch.Size = new System.Drawing.Size(147, 30);
+            this.buttonOnlineSearch.TabIndex = 104;
+            this.buttonOnlineSearch.Text = "Online Search";
+            this.buttonOnlineSearch.UseVisualStyleBackColor = false;
+            this.buttonOnlineSearch.Click += new System.EventHandler(this.buttonOnlineSearch_Click);
             // 
             // labelErrorMessage
             // 
@@ -358,13 +381,44 @@
             this.buttonSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSearch.ForeColor = System.Drawing.Color.White;
-            this.buttonSearch.Location = new System.Drawing.Point(921, 34);
+            this.buttonSearch.Location = new System.Drawing.Point(921, 12);
             this.buttonSearch.Name = "buttonSearch";
             this.buttonSearch.Size = new System.Drawing.Size(147, 30);
-            this.buttonSearch.TabIndex = 31;
+            this.buttonSearch.TabIndex = 103;
             this.buttonSearch.Text = "Search";
             this.buttonSearch.UseVisualStyleBackColor = false;
             this.buttonSearch.Click += new System.EventHandler(this.ButtonSearch_Click);
+            // 
+            // panelLoading
+            // 
+            this.panelLoading.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
+            this.panelLoading.Controls.Add(this.labelLoading);
+            this.panelLoading.Enabled = false;
+            this.panelLoading.Location = new System.Drawing.Point(0, 0);
+            this.panelLoading.Name = "panelLoading";
+            this.panelLoading.Size = new System.Drawing.Size(1080, 566);
+            this.panelLoading.TabIndex = 109;
+            this.panelLoading.Visible = false;
+            // 
+            // sqlCeCommand1
+            // 
+            this.sqlCeCommand1.CommandTimeout = 0;
+            this.sqlCeCommand1.Connection = null;
+            this.sqlCeCommand1.IndexName = null;
+            this.sqlCeCommand1.Transaction = null;
+            // 
+            // labelLoading
+            // 
+            this.labelLoading.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.labelLoading.AutoSize = true;
+            this.labelLoading.BackColor = System.Drawing.Color.Transparent;
+            this.labelLoading.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelLoading.ForeColor = System.Drawing.Color.White;
+            this.labelLoading.Location = new System.Drawing.Point(509, 267);
+            this.labelLoading.Name = "labelLoading";
+            this.labelLoading.Size = new System.Drawing.Size(78, 20);
+            this.labelLoading.TabIndex = 13;
+            this.labelLoading.Text = "Loading...";
             // 
             // FormSearchMoviesOrSeries
             // 
@@ -377,6 +431,7 @@
             this.Controls.Add(this.buttonSeeMoreInformation);
             this.Controls.Add(this.buttonRate);
             this.Controls.Add(this.buttonAddToMyList);
+            this.Controls.Add(this.panelLoading);
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormSearchMoviesOrSeries";
@@ -385,6 +440,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMedia)).EndInit();
             this.panelSearch.ResumeLayout(false);
             this.panelSearch.PerformLayout();
+            this.panelLoading.ResumeLayout(false);
+            this.panelLoading.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -411,5 +468,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnType;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnGenre;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnImdbRating;
+        private System.Windows.Forms.Button buttonOnlineSearch;
+        private System.Windows.Forms.Panel panelLoading;
+        private System.Data.SqlServerCe.SqlCeCommand sqlCeCommand1;
+        private System.Windows.Forms.Label labelLoading;
     }
 }

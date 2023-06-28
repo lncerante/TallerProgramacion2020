@@ -5,20 +5,29 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.UI.WebControls;
 using System.Windows.Forms;
+using TallerProgramacion2020.MediaManager.Controllers;
+using TallerProgramacion2020.MediaManager.Domain;
+using TallerProgramacion2020.MediaManager.IO;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace TallerProgramacion2020.Forms
 {
     public partial class FormMediaPriority : Form
     {
-        private string idIMDB;
+        private int idMedia;
+        protected WatchListItemDTO iWatchListItem { get; }
 
-        public FormMediaPriority(string idIMDB)  
+        public FormMediaPriority(int pIdMedia, WatchListItemDTO pWatchListItem = null)
         {
+            idMedia = pIdMedia;
+            iWatchListItem = pWatchListItem;
             InitializeComponent();
-            this.idIMDB = idIMDB;
         }
 
         //Allows to drag a form
@@ -34,13 +43,49 @@ namespace TallerProgramacion2020.Forms
 
         private void FormMediaPriority_Load(object sender, EventArgs e)
         {
-
+            if (iWatchListItem != null)
+            {
+                var priority = iWatchListItem.Priority.ToString();
+                comboBoxPriority.Text = priority;
+            }
         }
         
         private void ButtonSave_Click(object sender, EventArgs e)
         {
-            //Acá vamos a mandar la priority del usuario a la db
-            Close();
+            Priority priority;
+            try
+            {
+                switch (comboBoxPriority.Text)
+                {
+                    case "Low": priority = Priority.Low; break;
+                    case "Normal": priority = Priority.Normal; break;
+                    case "High": priority = Priority.High; break;
+                    case "Highest": priority = Priority.Highest; break;
+                    default: throw new Exception("Please pick a priority.");
+                }
+                if (iWatchListItem != null)
+                {
+                    new WatchListController().UpdateWatchListItem
+                    (
+                        (int)iWatchListItem.ID,
+                        priority
+                    );
+                }
+                else
+                {
+                    new WatchListController().CreateWatchListItem
+                    (
+                        idMedia,
+                        priority
+                    );
+                }
+                MessageBox.Show("WatchList item saved.");
+                Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void ButtonClose_Click(object sender, EventArgs e)

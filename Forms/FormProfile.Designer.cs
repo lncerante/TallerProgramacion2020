@@ -80,7 +80,7 @@
             this.buttonCancel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(121, 35);
-            this.buttonCancel.TabIndex = 64;
+            this.buttonCancel.TabIndex = 107;
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = false;
             this.buttonCancel.Visible = false;
@@ -108,7 +108,7 @@
             this.buttonEdit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonEdit.Name = "buttonEdit";
             this.buttonEdit.Size = new System.Drawing.Size(121, 35);
-            this.buttonEdit.TabIndex = 57;
+            this.buttonEdit.TabIndex = 106;
             this.buttonEdit.Text = "Edit";
             this.buttonEdit.UseVisualStyleBackColor = false;
             this.buttonEdit.Click += new System.EventHandler(this.ButtonEdit_Click);
@@ -175,7 +175,7 @@
             this.buttonUploadPicture.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonUploadPicture.Name = "buttonUploadPicture";
             this.buttonUploadPicture.Size = new System.Drawing.Size(220, 26);
-            this.buttonUploadPicture.TabIndex = 53;
+            this.buttonUploadPicture.TabIndex = 105;
             this.buttonUploadPicture.Text = "Upload Picture";
             this.buttonUploadPicture.UseVisualStyleBackColor = false;
             this.buttonUploadPicture.Visible = false;
@@ -204,7 +204,7 @@
             this.textBoxUsername.MaxLength = 15;
             this.textBoxUsername.Name = "textBoxUsername";
             this.textBoxUsername.Size = new System.Drawing.Size(220, 17);
-            this.textBoxUsername.TabIndex = 47;
+            this.textBoxUsername.TabIndex = 100;
             this.textBoxUsername.Visible = false;
             // 
             // panelPassword
@@ -228,7 +228,7 @@
             this.textBoxFullName.MaxLength = 50;
             this.textBoxFullName.Name = "textBoxFullName";
             this.textBoxFullName.Size = new System.Drawing.Size(220, 17);
-            this.textBoxFullName.TabIndex = 48;
+            this.textBoxFullName.TabIndex = 102;
             this.textBoxFullName.Visible = false;
             // 
             // textBoxPassword
@@ -242,7 +242,7 @@
             this.textBoxPassword.MaxLength = 8;
             this.textBoxPassword.Name = "textBoxPassword";
             this.textBoxPassword.Size = new System.Drawing.Size(220, 17);
-            this.textBoxPassword.TabIndex = 49;
+            this.textBoxPassword.TabIndex = 103;
             this.textBoxPassword.UseSystemPasswordChar = true;
             this.textBoxPassword.Visible = false;
             // 
@@ -262,6 +262,7 @@
             // openFileDialogUploadPicture
             // 
             this.openFileDialogUploadPicture.FileName = "openFileDialogUploadPicture";
+            this.openFileDialogUploadPicture.Filter = "Image Files | *.jpg; *.jpeg; *.png; *.jfif; *.gif; *.tiff; *.tif; *.webp";
             // 
             // buttonSaveChanges
             // 
@@ -370,7 +371,7 @@
             this.textBoxOldPassword.MaxLength = 8;
             this.textBoxOldPassword.Name = "textBoxOldPassword";
             this.textBoxOldPassword.Size = new System.Drawing.Size(220, 17);
-            this.textBoxOldPassword.TabIndex = 52;
+            this.textBoxOldPassword.TabIndex = 104;
             this.textBoxOldPassword.UseSystemPasswordChar = true;
             this.textBoxOldPassword.Visible = false;
             // 

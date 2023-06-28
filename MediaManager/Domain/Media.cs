@@ -14,7 +14,7 @@ namespace TallerProgramacion2020.MediaManager.Domain
         protected string iTitle;
         protected string iYear;
         protected MediaType iMediaType;
-        protected DateTime iReleaseDate;
+        protected DateTime? iReleaseDate;
         protected ICollection<Genre> iGenres;
         protected int iRuntimeInMin;
         protected ICollection<Director> iDirector;
@@ -68,7 +68,7 @@ namespace TallerProgramacion2020.MediaManager.Domain
             get { return iMediaType; }
             set { iMediaType = value; }
         }
-        public DateTime ReleaseDate
+        public DateTime? ReleaseDate
         {
             get { return iReleaseDate; }
             set { iReleaseDate = value; }

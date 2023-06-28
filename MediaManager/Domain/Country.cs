@@ -12,6 +12,7 @@ namespace TallerProgramacion2020.MediaManager.Domain
         protected string iName;
         public virtual ICollection<Media> Media { get; set; }
 
+        public Country() { }
         public Country(string pName)
         {
             Name = pName;

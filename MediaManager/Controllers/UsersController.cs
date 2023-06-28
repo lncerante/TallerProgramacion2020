@@ -72,5 +72,22 @@ namespace TallerProgramacion2020.MediaManager.Controllers
             iContext.UnitOfWork.UserRepository.Update(user);
             iContext.UnitOfWork.Complete();
         }
+
+        public void DeleteUser(int pUserId)
+        {
+            if (iContext.User.UserRole != UserRole.Admin)
+            {
+                throw new Exception("Permission denied.");
+            }
+            if (iContext.User.ID == pUserId)
+            {
+                throw new Exception("You cannot delete your own user.");
+            }
+
+            User user = iContext.UnitOfWork.UserRepository.Get(pUserId) ?? throw new Exception("User could not be found.");
+
+            iContext.UnitOfWork.UserRepository.Delete(user);
+            iContext.UnitOfWork.Complete();
+        }
     }
 }

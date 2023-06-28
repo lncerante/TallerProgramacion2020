@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing.Printing;
+using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -42,14 +43,20 @@ namespace TallerProgramacion2020.MediaManager.ApiAccess.ImdbApi
             if (response.IsSuccessStatusCode)
             {
                 var jsonString = response.Content.ReadAsStringAsync().Result;
+                /*var writer = new StreamWriter("C:/Users/User/Documents/TallerDeProgramacion/mediaFinderResults.txt", true);
+                writer.WriteLine(jsonString);
+                writer.Dispose();*/
                 var jsSerializer = new JavaScriptSerializer();
                 var mediaSearch = jsSerializer.Deserialize<OmdbApiMediaSearch>(jsonString);
-                foreach (var mediaDTO in mediaSearch.Search)
+                if (mediaSearch.Response == true)
                 {
-                    var media = GetMediaByImdbID(mediaDTO.imdbID);
-                    if (pGenre == null || media.Genres.Any(genre => genre.Equals(pGenre)))
+                    foreach (var mediaDTO in mediaSearch.Search)
                     {
-                        mediaResponse.Add(media);
+                        var media = GetMediaByImdbID(mediaDTO.imdbID);
+                        if (pGenre == null || media.Genres.Any(genre => genre.Equals(pGenre)))
+                        {
+                            mediaResponse.Add(media);
+                        }
                     }
                 }
             }
@@ -63,6 +70,9 @@ namespace TallerProgramacion2020.MediaManager.ApiAccess.ImdbApi
             if (response.IsSuccessStatusCode)
             {
                 var jsonString = response.Content.ReadAsStringAsync().Result;
+                /*var writer = new StreamWriter("C:/Users/User/Documents/TallerDeProgramacion/mediaFinderResults.txt", true);
+                writer.WriteLine(jsonString);
+                writer.Dispose();*/
                 var jsSerializer = new JavaScriptSerializer();
                 var mediaDTO = jsSerializer.Deserialize<OmdbApiMediaDTO>(jsonString);
                 mediaResponse = mediaDTO.AsMedia;

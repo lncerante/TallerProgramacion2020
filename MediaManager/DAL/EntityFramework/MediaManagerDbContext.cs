@@ -16,6 +16,8 @@ namespace TallerProgramacion2020.MediaManager.DAL.EntityFramework
         protected DbSet<Director> iDirectors;
         protected DbSet<Writer> iWriters;
         protected DbSet<User> iUsers;
+        protected DbSet<Review> iReviews;
+        protected DbSet<WatchListItem> iWatchListItems;
 
         public MediaManagerDbContext() : base("MediaManagerDb")
         { }
@@ -27,6 +29,8 @@ namespace TallerProgramacion2020.MediaManager.DAL.EntityFramework
         public DbSet<Director> Directors { get => iDirectors; set => iDirectors = value; }
         public DbSet<Writer> Writers { get => iWriters; set => iWriters = value; }
         public DbSet<User> Users { get => iUsers; set => iUsers = value; }
+        public DbSet<Review> Reviews { get => iReviews; set => iReviews = value; }
+        public DbSet<WatchListItem> WatchListItems { get => iWatchListItems; set => iWatchListItems = value; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

@@ -42,22 +42,22 @@
             // labelRating
             // 
             this.labelRating.AutoSize = true;
-            this.labelRating.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelRating.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelRating.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
             this.labelRating.Location = new System.Drawing.Point(57, 55);
             this.labelRating.Name = "labelRating";
-            this.labelRating.Size = new System.Drawing.Size(55, 20);
+            this.labelRating.Size = new System.Drawing.Size(50, 18);
             this.labelRating.TabIndex = 0;
             this.labelRating.Text = "Rating";
             // 
             // labelComments
             // 
             this.labelComments.AutoSize = true;
-            this.labelComments.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelComments.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelComments.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
             this.labelComments.Location = new System.Drawing.Point(25, 102);
             this.labelComments.Name = "labelComments";
-            this.labelComments.Size = new System.Drawing.Size(87, 20);
+            this.labelComments.Size = new System.Drawing.Size(82, 18);
             this.labelComments.TabIndex = 1;
             this.labelComments.Text = "Comments";
             // 
@@ -66,7 +66,7 @@
             this.comboBoxRating.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
             this.comboBoxRating.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxRating.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBoxRating.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxRating.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxRating.ForeColor = System.Drawing.Color.White;
             this.comboBoxRating.FormattingEnabled = true;
             this.comboBoxRating.Items.AddRange(new object[] {
@@ -77,20 +77,20 @@
             "5 - Great"});
             this.comboBoxRating.Location = new System.Drawing.Point(130, 50);
             this.comboBoxRating.Name = "comboBoxRating";
-            this.comboBoxRating.Size = new System.Drawing.Size(305, 25);
+            this.comboBoxRating.Size = new System.Drawing.Size(305, 24);
             this.comboBoxRating.Sorted = true;
-            this.comboBoxRating.TabIndex = 18;
+            this.comboBoxRating.TabIndex = 200;
             // 
             // richTextBox1
             // 
             this.richTextBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.richTextBox1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richTextBox1.ForeColor = System.Drawing.Color.White;
             this.richTextBox1.Location = new System.Drawing.Point(130, 102);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
             this.richTextBox1.Size = new System.Drawing.Size(305, 96);
-            this.richTextBox1.TabIndex = 20;
+            this.richTextBox1.TabIndex = 201;
             this.richTextBox1.Text = "";
             // 
             // panelControls
@@ -118,7 +118,7 @@
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.buttonClose.Size = new System.Drawing.Size(43, 25);
-            this.buttonClose.TabIndex = 30;
+            this.buttonClose.TabIndex = 203;
             this.buttonClose.UseVisualStyleBackColor = false;
             this.buttonClose.Click += new System.EventHandler(this.ButtonClose_Click);
             // 
@@ -128,12 +128,12 @@
             this.buttonSave.FlatAppearance.BorderSize = 0;
             this.buttonSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
             this.buttonSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSave.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSave.ForeColor = System.Drawing.Color.White;
             this.buttonSave.Location = new System.Drawing.Point(270, 221);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(165, 33);
-            this.buttonSave.TabIndex = 38;
+            this.buttonSave.TabIndex = 202;
             this.buttonSave.Text = "Save";
             this.buttonSave.UseVisualStyleBackColor = false;
             this.buttonSave.Click += new System.EventHandler(this.ButtonSave_Click);
@@ -155,6 +155,7 @@
             this.Name = "FormRateMovieOrSeries";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormRateMovieOrSerie";
+            this.Load += new System.EventHandler(this.FormRateMovieOrSeries_Load);
             this.panelControls.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

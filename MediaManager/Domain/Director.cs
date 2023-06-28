@@ -6,6 +6,7 @@ namespace TallerProgramacion2020.MediaManager.Domain
 {
     public class Director : Person
     {
+        public Director() : base() { }
         public Director(string pFullName) : base(pFullName) { }
         public virtual ICollection<Media> Media { get; set; }
     }
