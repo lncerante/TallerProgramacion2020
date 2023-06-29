@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using TallerProgramacion2020.WinFormsContextClass;
 using TallerProgramacion2020.MediaManager.Domain;
 using TallerProgramacion2020.MediaManager.IO;
+using TallerProgramacion2020.ToolsClass;
 
 namespace TallerProgramacion2020.Forms
 {
@@ -29,15 +30,21 @@ namespace TallerProgramacion2020.Forms
             InitializeComponent();
             this.DoubleBuffered = true;
         }
-
-        private void FormMenu_Load(object sender, EventArgs e)
+        public void Reset()
         {
-            labelTodayDate.Text = DateTime.Today.ToString("D");
             if (iContext.User.UserRole != UserRole.Admin)
             {
                 buttonManageUsers.Visible = false;
                 panelDecoManageUsers.Visible = false;
-            }                                 
+            }
+            richTextBoxUserName.Text = iContext.User.FullName;
+            pictureBoxUser.Image = Tools.ConvertByteArrayToImage(iContext.User.ProfilePhoto);
+        }
+
+        private void FormMenu_Load(object sender, EventArgs e)
+        {
+            labelTodayDate.Text = DateTime.Today.ToString("D");
+            Reset();
         }
 
         private void ActiveButton(object buttonSender)
@@ -89,45 +96,13 @@ namespace TallerProgramacion2020.Forms
             childForm.Show();
         }
 
-        //método que nos permitirá abrir varios formularios
-        //dentro del panel contenedor de formularios.
-        //private void OpenFormInPanel<MyForm>() where MyForm : Form, new()
-        //{
-        //    Form form;            
-        //    form = panelFormsContainer.Controls.OfType<MyForm>().FirstOrDefault();
-        //    //Busca en la colecion el form
-        //    //si el form/instancia no existe
-        //    if (form == null)
-        //    {
-        //        form = new MyForm();
-        //        form.TopLevel = false;
-        //        form.FormBorderStyle = FormBorderStyle.None;
-        //        form.Dock = DockStyle.Fill;
-        //        panelFormsContainer.Controls.Add(form);
-        //        panelFormsContainer.Tag = form;
-        //        form.Show();
-        //        form.BringToFront();
-        //    }
-        //    //si el form/instancia existe
-        //    else
-        //    {
-        //        form.BringToFront();
-        //    }
-        //}
-
         private void ButtonSeeWatchList_Click(object sender, EventArgs e)
         {
-            //Aca tiene que aparecer la lista de seguimiento del usuario
-            //y tiene que haber una columna donde se pueda eliminar de la lista
-            // y una columna para la prioridad
             OpenChildForm(new FormWatchList(), sender);
         }
 
         private void ButtonSeeReviews_Click(object sender, EventArgs e)
         {
-            //Aca tienen que aparecer las peliculas que califique con su comentario, el comentario
-            //deberia poder editarse desde aca
-            // creo que con mostrar el titulo, tipo, comentario y calificacion  estaria
             OpenChildForm(new FormReviews(), sender);
         }
 

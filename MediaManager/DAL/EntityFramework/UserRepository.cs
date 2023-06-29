@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity.Migrations;
+using System.Linq;
 using System.Security.Cryptography;
 using TallerProgramacion2020.MediaManager.Domain;
 
@@ -33,6 +34,18 @@ namespace TallerProgramacion2020.MediaManager.DAL.EntityFramework
 
         public override void Delete(User pUser)
         {
+            var reviews = iDbContext.Reviews.Where(r => r.User.ID == pUser.ID);
+            foreach (var item in reviews)
+            {
+                iDbContext.Reviews.Remove(item);
+            }
+
+            var watchList = iDbContext.WatchListItems.Where(r => r.User.ID == pUser.ID);
+            foreach (var item in watchList)
+            {
+                iDbContext.WatchListItems.Remove(item);
+            }
+
             iDbContext.Users.Remove(pUser);
         }
 

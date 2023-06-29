@@ -55,6 +55,7 @@ namespace TallerProgramacion2020.Forms
                 {
                     iContext.User = user;
                     FormMenu formMenu = new FormMenu();
+                    iContext.RootForm = formMenu;
                     formMenu.Show();
                     formMenu.FormClosed += LogOut;
                     this.Hide();

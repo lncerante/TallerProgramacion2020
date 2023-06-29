@@ -4,6 +4,7 @@ using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Security.Cryptography;
 using TallerProgramacion2020.MediaManager.Domain;
+using TallerProgramacion2020.ToolsClass;
 
 namespace TallerProgramacion2020.MediaManager.DAL.EntityFramework
 {
@@ -16,75 +17,85 @@ namespace TallerProgramacion2020.MediaManager.DAL.EntityFramework
         {
             pMedia.ITS = DateTime.Now;
 
-            foreach (var item in pMedia.Cast)
+            var cast = new List<Actor>();
+            foreach (Actor item in pMedia.Cast)
             {
-                var dbItem = iDbContext.Actors.FirstOrDefault(i => i == item);
-                if (dbItem != null)
+                var dbItem = iDbContext.Actors.Where(i => Tools.Equals(i.FullName, item.FullName)).AsEnumerable();
+                if (dbItem.Count() > 0)
                 {
-                    item.ID = dbItem.ID;
+                    cast.Add(dbItem.First());
                 }
                 else
                 {
                     item.ITS = DateTime.Now;
-                    iDbContext.Actors.Add(item);
+                    cast.Add(item);
                 }
             }
+            pMedia.Cast = cast;
 
+            var director = new List<Director>();
             foreach (var item in pMedia.Director)
             {
-                var dbItem = iDbContext.Directors.FirstOrDefault(i => i == item);
-                if (dbItem != null)
+                var dbItem = iDbContext.Directors.Where(i => Tools.Equals(i.FullName, item.FullName)).AsEnumerable();
+                if (dbItem.Count() > 0)
                 {
-                    item.ID = dbItem.ID;
+                    director.Add(dbItem.First());
                 }
                 else
                 {
                     item.ITS = DateTime.Now;
-                    iDbContext.Directors.Add(item);
+                    director.Add(item);
                 }
             }
+            pMedia.Director = director;
 
+            var genres = new List<Genre>();
             foreach (var item in pMedia.Genres)
             {
-                var dbItem = iDbContext.Genres.FirstOrDefault(i => i == item);
-                if (dbItem != null)
+                var dbItem = iDbContext.Genres.Where(i => Tools.Equals(i.Name, item.Name)).AsEnumerable();
+                if (dbItem.Count() > 0)
                 {
-                    item.ID = dbItem.ID;
+                    genres.Add(dbItem.First());
                 }
                 else
                 {
                     item.ITS = DateTime.Now;
-                    iDbContext.Genres.Add(item);
+                    genres.Add(item);
                 }
             }
+            pMedia.Genres = genres;
 
+            var origin = new List<Country>();
             foreach (var item in pMedia.Origin)
             {
-                var dbItem = iDbContext.Countries.FirstOrDefault(i => i == item);
-                if (dbItem != null)
+                var dbItem = iDbContext.Countries.Where(i => Tools.Equals(i.Name, item.Name)).AsEnumerable();
+                if (dbItem.Count() > 0)
                 {
-                    item.ID = dbItem.ID;
+                    origin.Add(dbItem.First());
                 }
                 else
                 {
                     item.ITS = DateTime.Now;
-                    iDbContext.Countries.Add(item);
+                    origin.Add(item);
                 }
             }
+            pMedia.Origin = origin;
 
+            var writer = new List<Writer>();
             foreach (var item in pMedia.Writer)
             {
-                var dbItem = iDbContext.Writers.FirstOrDefault(i => i == item);
-                if (dbItem != null)
+                var dbItem = iDbContext.Writers.Where(i => Tools.Equals(i.FullName, item.FullName)).AsEnumerable();
+                if (dbItem.Count() > 0)
                 {
-                    item.ID = dbItem.ID;
+                    writer.Add(dbItem.First());
                 }
                 else
                 {
                     item.ITS = DateTime.Now;
-                    iDbContext.Writers.Add(item);
+                    writer.Add(item);
                 }
             }
+            pMedia.Writer = writer;
 
             iDbContext.Media.Add(pMedia);
         }
@@ -106,7 +117,12 @@ namespace TallerProgramacion2020.MediaManager.DAL.EntityFramework
 
         public override IEnumerable<Media> GetAll()
         {
-            return iDbContext.Media;
+            return iDbContext.Media
+                .Include("Cast")
+                .Include("Director")
+                .Include("Genres")
+                .Include("Origin")
+                .Include("Writer");
         }
     }
 }

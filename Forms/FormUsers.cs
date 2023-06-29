@@ -33,12 +33,12 @@ namespace TallerProgramacion2020.Forms
 
         private void FormUsers_Load(object sender, EventArgs e)
         {
-            GetUserList();
             ShowUsers();
         }
 
         private void ShowUsers()
         {
+            GetUserList();
             dataGridViewUsers.Rows.Clear();
             dataGridViewUsers.Visible = true;
             dataGridViewUsers.Columns["ColumnProfilePicture"].Width = 110;
@@ -116,6 +116,7 @@ namespace TallerProgramacion2020.Forms
                         if (!string.IsNullOrEmpty(user.UserName)) iContext.User.UserName = user.UserName;
                         if (!string.IsNullOrEmpty(user.FullName)) iContext.User.FullName = user.FullName;
                         if (imgByte.Length > 0) iContext.User.ProfilePhoto = imgByte;
+                        iContext.RootForm.Reset();
                     }
                     labelRegisterOrEdit.Text = "REGISTER NEW USER";
                     MessageBox.Show("User successfully edited.");
@@ -169,10 +170,25 @@ namespace TallerProgramacion2020.Forms
         {
             if (dataGridViewUsers.SelectedRows.Count == 1)
             {
-                idSelected = Int32.Parse(dataGridViewUsers.CurrentRow.Cells["columnId"].Value.ToString());
-                //contolador.DeleteUser(idSelected);
-                MessageBox.Show("User successfully deleted");
-                ShowUsers();
+                idSelected = int.Parse(dataGridViewUsers.CurrentRow.Cells["columnId"].Value.ToString());
+                var confirmResult = MessageBox.Show("Are you sure to delete this user?", "Delete user", MessageBoxButtons.YesNo);
+                if (confirmResult == DialogResult.Yes)
+                {
+                    try
+                    {
+                        new UsersController().DeleteUser(idSelected);
+                        MessageBox.Show("User successfully deleted.");
+                        ShowUsers();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a review to delete.");
             }
         }
 

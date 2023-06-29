@@ -61,7 +61,7 @@ namespace TallerProgramacion2020.MediaManager.Controllers
                 }
             }
 
-            media = iContext.UnitOfWork.MediaRepository.GetAll();
+            media = iContext.UnitOfWork.MediaRepository.GetAll().AsEnumerable();
 
             media = media.Where(m => m.Title.ToLower().Trim().Contains(pTitle.ToLower().Trim()));
 
@@ -72,7 +72,7 @@ namespace TallerProgramacion2020.MediaManager.Controllers
 
             if (!string.IsNullOrEmpty(pGenreName))
             {
-                media = media.Where(m => m.Genres.Any(g => g == new Genre(pGenreName)));
+                media = media.Where(m => m.Genres.Any(g => g.Equals(new Genre(pGenreName))));
             }
 
             if (media.Count() > 0)

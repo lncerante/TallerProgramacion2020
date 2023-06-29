@@ -114,6 +114,7 @@ namespace TallerProgramacion2020.Forms
                     if (!string.IsNullOrEmpty(user.UserName)) iContext.User.UserName = user.UserName;
                     if (!string.IsNullOrEmpty(user.FullName)) iContext.User.FullName = user.FullName;
                     if (imgByte.Length > 0) iContext.User.ProfilePhoto = imgByte;
+                    iContext.RootForm.Reset();
 
                     buttonSaveChanges.Visible = false;
                     buttonCancel.Visible = false;

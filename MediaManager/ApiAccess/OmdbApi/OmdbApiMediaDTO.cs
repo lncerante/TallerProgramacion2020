@@ -28,24 +28,28 @@ namespace TallerProgramacion2020.MediaManager.ApiAccess.ImdbApi
         {
             get
             {
-                var media = new Media();
+                var media = new Media
+                {
+                    ImdbID = imdbID,
+                    Title = Title,
+                    Year = Year
+                };
 
-                media.ImdbID = imdbID;
-                media.Title = Title;
-                media.Year = Year;
-
-                if (Released != "N/A")
+                if (!string.IsNullOrEmpty(Released) && Released != "N/A")
                     media.ReleaseDate = DateTime.Parse(Released);
-                if (Runtime != "N/A")
-                    media.RuntimeInMin = int.Parse(new String(Runtime.TakeWhile(Char.IsDigit).ToArray()));
-                if (imdbRating != "N/A")
+                if (!string.IsNullOrEmpty(Runtime) && Runtime != "N/A")
+                    media.RuntimeInMin = int.Parse(new string(Runtime.TakeWhile(char.IsDigit).ToArray()));
+                if (!string.IsNullOrEmpty(imdbRating) && imdbRating != "N/A")
                     media.ImdbRating = float.Parse(imdbRating, CultureInfo.InvariantCulture);
-                if (Poster != "N/A")
-                    media.Poster = (new WebClient()).DownloadData(Poster);
-                // Para guardar la imagen en un archivo:
-                // var writer = new BinaryWriter(File.OpenWrite("C:\\Users\\BOM-038\\Documents\\Dune.png"));
-                // writer.Write(media.Poster);
-
+                if (!string.IsNullOrEmpty(Poster) && Poster != "N/A")
+                    try
+                    {
+                        media.Poster = new WebClient().DownloadData(Poster);
+                    }
+                    catch
+                    {
+                        
+                    }
                 if (Type == "movie")
                 {
                     media.MediaType = MediaType.Movie;

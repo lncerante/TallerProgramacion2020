@@ -47,7 +47,7 @@ namespace TallerProgramacion2020.MediaManager.IO
             return dto;
         }
 
-        public static MediaDTO AsDTO(Media pMedia)
+        public static MediaDTO AsDTO(Media pMedia, bool pDeep = true)
         {
             MediaDTO dto = new MediaDTO();
             dto.ID = pMedia.ID;
@@ -61,11 +61,14 @@ namespace TallerProgramacion2020.MediaManager.IO
             dto.MediaType = pMedia.MediaType;
             dto.ReleaseDate = pMedia.ReleaseDate;
             dto.RuntimeInMin = pMedia.RuntimeInMin;
-            dto.Cast = pMedia.Cast.Select(actor => AsDTO(actor));
-            dto.Writer = pMedia.Writer.Select(writer => AsDTO(writer));
-            dto.Director = pMedia.Director.Select(director => AsDTO(director));
-            dto.Genres = pMedia.Genres.Select(genre => AsDTO(genre));
-            dto.Origin = pMedia.Origin.Select(country => AsDTO(country));
+            if (pDeep)
+            {
+                dto.Cast = pMedia.Cast.Select(actor => AsDTO(actor));
+                dto.Writer = pMedia.Writer.Select(writer => AsDTO(writer));
+                dto.Director = pMedia.Director.Select(director => AsDTO(director));
+                dto.Genres = pMedia.Genres.Select(genre => AsDTO(genre));
+                dto.Origin = pMedia.Origin.Select(country => AsDTO(country));
+            }
             return dto;
         }
 
@@ -116,6 +119,31 @@ namespace TallerProgramacion2020.MediaManager.IO
             dto.ITS = pCountry.ITS;
             dto.UTS = pCountry.UTS;
             dto.Name = pCountry.Name;
+            return dto;
+        }
+
+        public static ReviewDTO AsDTO(Review pReview)
+        {
+            ReviewDTO dto = new ReviewDTO();
+            dto.ID = pReview.ID;
+            dto.ITS = pReview.ITS;
+            dto.UTS = pReview.UTS;
+            dto.Rating = pReview.Rating;
+            dto.Comment = pReview.Comment;
+            dto.User = AsDTO(pReview.User);
+            dto.Media = AsDTO(pReview.Media);
+            return dto;
+        }
+
+        public static WatchListItemDTO AsDTO(WatchListItem pWatchListItem)
+        {
+            WatchListItemDTO dto = new WatchListItemDTO();
+            dto.ID = pWatchListItem.ID;
+            dto.ITS = pWatchListItem.ITS;
+            dto.UTS = pWatchListItem.UTS;
+            dto.Priority = pWatchListItem.Priority;
+            dto.User = AsDTO(pWatchListItem.User);
+            dto.Media = AsDTO(pWatchListItem.Media);
             return dto;
         }
     }

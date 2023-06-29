@@ -40,17 +40,17 @@
             this.labelCastTitle = new System.Windows.Forms.Label();
             this.labelCountryTitle = new System.Windows.Forms.Label();
             this.labelType = new System.Windows.Forms.Label();
-            this.labelRelaseDate = new System.Windows.Forms.Label();
+            this.labelReleaseDate = new System.Windows.Forms.Label();
             this.labelRuntime = new System.Windows.Forms.Label();
-            this.labelCountry = new System.Windows.Forms.Label();
             this.labelImdbRating = new System.Windows.Forms.Label();
             this.labelImdb = new System.Windows.Forms.Label();
-            this.richTextBoxGenre = new System.Windows.Forms.RichTextBox();
+            this.richTextBoxGenres = new System.Windows.Forms.RichTextBox();
             this.richTextBoxDirector = new System.Windows.Forms.RichTextBox();
             this.richTextBoxCast = new System.Windows.Forms.RichTextBox();
             this.richTextBoxWriter = new System.Windows.Forms.RichTextBox();
             this.panelControls = new System.Windows.Forms.Panel();
             this.buttonClose = new System.Windows.Forms.Button();
+            this.richTextBoxOrigin = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPoster)).BeginInit();
             this.panelControls.SuspendLayout();
             this.SuspendLayout();
@@ -58,11 +58,11 @@
             // labelTitle
             // 
             this.labelTitle.AutoSize = true;
-            this.labelTitle.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTitle.Location = new System.Drawing.Point(374, 42);
             this.labelTitle.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.labelTitle.Name = "labelTitle";
-            this.labelTitle.Size = new System.Drawing.Size(65, 30);
+            this.labelTitle.Size = new System.Drawing.Size(80, 29);
             this.labelTitle.TabIndex = 0;
             this.labelTitle.Text = "TITLE";
             // 
@@ -81,172 +81,161 @@
             // labelTypeTitle
             // 
             this.labelTypeTitle.AutoSize = true;
-            this.labelTypeTitle.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTypeTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTypeTitle.Location = new System.Drawing.Point(376, 101);
             this.labelTypeTitle.Margin = new System.Windows.Forms.Padding(5, 0, 10, 20);
             this.labelTypeTitle.Name = "labelTypeTitle";
-            this.labelTypeTitle.Size = new System.Drawing.Size(46, 20);
+            this.labelTypeTitle.Size = new System.Drawing.Size(44, 18);
             this.labelTypeTitle.TabIndex = 5;
             this.labelTypeTitle.Text = "Type:";
             // 
             // labelReleaseDateTitle
             // 
             this.labelReleaseDateTitle.AutoSize = true;
-            this.labelReleaseDateTitle.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelReleaseDateTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelReleaseDateTitle.Location = new System.Drawing.Point(376, 181);
             this.labelReleaseDateTitle.Margin = new System.Windows.Forms.Padding(5, 0, 10, 20);
             this.labelReleaseDateTitle.Name = "labelReleaseDateTitle";
-            this.labelReleaseDateTitle.Size = new System.Drawing.Size(111, 20);
+            this.labelReleaseDateTitle.Size = new System.Drawing.Size(101, 18);
             this.labelReleaseDateTitle.TabIndex = 6;
             this.labelReleaseDateTitle.Text = "Release Date:";
             // 
             // labelGenresTitle
             // 
             this.labelGenresTitle.AutoSize = true;
-            this.labelGenresTitle.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelGenresTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelGenresTitle.ForeColor = System.Drawing.Color.White;
             this.labelGenresTitle.Location = new System.Drawing.Point(376, 301);
             this.labelGenresTitle.Margin = new System.Windows.Forms.Padding(5, 0, 10, 20);
             this.labelGenresTitle.Name = "labelGenresTitle";
-            this.labelGenresTitle.Size = new System.Drawing.Size(60, 20);
+            this.labelGenresTitle.Size = new System.Drawing.Size(53, 18);
             this.labelGenresTitle.TabIndex = 7;
             this.labelGenresTitle.Text = "Genre:";
             // 
             // labelDirectorTitle
             // 
             this.labelDirectorTitle.AutoSize = true;
-            this.labelDirectorTitle.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDirectorTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelDirectorTitle.Location = new System.Drawing.Point(376, 341);
             this.labelDirectorTitle.Margin = new System.Windows.Forms.Padding(5, 0, 10, 20);
             this.labelDirectorTitle.Name = "labelDirectorTitle";
-            this.labelDirectorTitle.Size = new System.Drawing.Size(72, 20);
+            this.labelDirectorTitle.Size = new System.Drawing.Size(65, 18);
             this.labelDirectorTitle.TabIndex = 8;
             this.labelDirectorTitle.Text = "Director:";
             // 
             // labelRuntimeTitle
             // 
             this.labelRuntimeTitle.AutoSize = true;
-            this.labelRuntimeTitle.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelRuntimeTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelRuntimeTitle.Location = new System.Drawing.Point(376, 221);
             this.labelRuntimeTitle.Margin = new System.Windows.Forms.Padding(5, 0, 10, 20);
             this.labelRuntimeTitle.Name = "labelRuntimeTitle";
-            this.labelRuntimeTitle.Size = new System.Drawing.Size(71, 20);
+            this.labelRuntimeTitle.Size = new System.Drawing.Size(67, 18);
             this.labelRuntimeTitle.TabIndex = 9;
             this.labelRuntimeTitle.Text = "Runtime:";
             // 
             // labelWriterTitle
             // 
             this.labelWriterTitle.AutoSize = true;
-            this.labelWriterTitle.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelWriterTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelWriterTitle.Location = new System.Drawing.Point(375, 381);
             this.labelWriterTitle.Margin = new System.Windows.Forms.Padding(5, 0, 10, 20);
             this.labelWriterTitle.Name = "labelWriterTitle";
-            this.labelWriterTitle.Size = new System.Drawing.Size(56, 20);
+            this.labelWriterTitle.Size = new System.Drawing.Size(52, 18);
             this.labelWriterTitle.TabIndex = 10;
             this.labelWriterTitle.Text = "Writer:";
             // 
             // labelCastTitle
             // 
             this.labelCastTitle.AutoSize = true;
-            this.labelCastTitle.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCastTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelCastTitle.Location = new System.Drawing.Point(376, 421);
             this.labelCastTitle.Margin = new System.Windows.Forms.Padding(5, 0, 10, 20);
             this.labelCastTitle.Name = "labelCastTitle";
-            this.labelCastTitle.Size = new System.Drawing.Size(46, 20);
+            this.labelCastTitle.Size = new System.Drawing.Size(43, 18);
             this.labelCastTitle.TabIndex = 11;
             this.labelCastTitle.Text = "Cast:";
             // 
             // labelCountryTitle
             // 
             this.labelCountryTitle.AutoSize = true;
-            this.labelCountryTitle.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCountryTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelCountryTitle.Location = new System.Drawing.Point(376, 261);
             this.labelCountryTitle.Margin = new System.Windows.Forms.Padding(5, 0, 10, 20);
             this.labelCountryTitle.Name = "labelCountryTitle";
-            this.labelCountryTitle.Size = new System.Drawing.Size(71, 20);
+            this.labelCountryTitle.Size = new System.Drawing.Size(64, 18);
             this.labelCountryTitle.TabIndex = 12;
             this.labelCountryTitle.Text = "Country:";
             // 
             // labelType
             // 
             this.labelType.AutoSize = true;
-            this.labelType.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelType.Location = new System.Drawing.Point(437, 101);
+            this.labelType.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelType.Location = new System.Drawing.Point(436, 101);
             this.labelType.Margin = new System.Windows.Forms.Padding(5, 0, 5, 10);
             this.labelType.Name = "labelType";
-            this.labelType.Size = new System.Drawing.Size(73, 20);
+            this.labelType.Size = new System.Drawing.Size(62, 18);
             this.labelType.TabIndex = 13;
             this.labelType.Text = "text type";
             // 
-            // labelRelaseDate
+            // labelReleaseDate
             // 
-            this.labelRelaseDate.AutoSize = true;
-            this.labelRelaseDate.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelRelaseDate.Location = new System.Drawing.Point(502, 181);
-            this.labelRelaseDate.Margin = new System.Windows.Forms.Padding(5, 0, 5, 10);
-            this.labelRelaseDate.Name = "labelRelaseDate";
-            this.labelRelaseDate.Size = new System.Drawing.Size(123, 20);
-            this.labelRelaseDate.TabIndex = 14;
-            this.labelRelaseDate.Text = "text relase date";
+            this.labelReleaseDate.AutoSize = true;
+            this.labelReleaseDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelReleaseDate.Location = new System.Drawing.Point(492, 181);
+            this.labelReleaseDate.Margin = new System.Windows.Forms.Padding(5, 0, 5, 10);
+            this.labelReleaseDate.Name = "labelReleaseDate";
+            this.labelReleaseDate.Size = new System.Drawing.Size(107, 18);
+            this.labelReleaseDate.TabIndex = 14;
+            this.labelReleaseDate.Text = "text relase date";
             // 
             // labelRuntime
             // 
             this.labelRuntime.AutoSize = true;
-            this.labelRuntime.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelRuntime.Location = new System.Drawing.Point(462, 221);
+            this.labelRuntime.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelRuntime.Location = new System.Drawing.Point(458, 221);
             this.labelRuntime.Margin = new System.Windows.Forms.Padding(5, 0, 5, 10);
             this.labelRuntime.Name = "labelRuntime";
-            this.labelRuntime.Size = new System.Drawing.Size(94, 20);
+            this.labelRuntime.Size = new System.Drawing.Size(84, 18);
             this.labelRuntime.TabIndex = 15;
             this.labelRuntime.Text = "text runtime";
-            // 
-            // labelCountry
-            // 
-            this.labelCountry.AutoSize = true;
-            this.labelCountry.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCountry.Location = new System.Drawing.Point(462, 261);
-            this.labelCountry.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.labelCountry.Name = "labelCountry";
-            this.labelCountry.Size = new System.Drawing.Size(96, 20);
-            this.labelCountry.TabIndex = 16;
-            this.labelCountry.Text = "text country";
             // 
             // labelImdbRating
             // 
             this.labelImdbRating.AutoSize = true;
-            this.labelImdbRating.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelImdbRating.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelImdbRating.Location = new System.Drawing.Point(375, 141);
             this.labelImdbRating.Margin = new System.Windows.Forms.Padding(5, 0, 10, 20);
             this.labelImdbRating.Name = "labelImdbRating";
-            this.labelImdbRating.Size = new System.Drawing.Size(101, 20);
+            this.labelImdbRating.Size = new System.Drawing.Size(90, 18);
             this.labelImdbRating.TabIndex = 21;
             this.labelImdbRating.Text = "Imdb Rating:";
             // 
             // labelImdb
             // 
             this.labelImdb.AutoSize = true;
-            this.labelImdb.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelImdb.Location = new System.Drawing.Point(491, 141);
+            this.labelImdb.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelImdb.Location = new System.Drawing.Point(480, 141);
             this.labelImdb.Margin = new System.Windows.Forms.Padding(5, 0, 5, 10);
             this.labelImdb.Name = "labelImdb";
-            this.labelImdb.Size = new System.Drawing.Size(25, 20);
+            this.labelImdb.Size = new System.Drawing.Size(24, 18);
             this.labelImdb.TabIndex = 22;
             this.labelImdb.Text = "10";
             // 
-            // richTextBoxGenre
+            // richTextBoxGenres
             // 
-            this.richTextBoxGenre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(57)))), ((int)(((byte)(75)))));
-            this.richTextBoxGenre.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBoxGenre.Cursor = System.Windows.Forms.Cursors.Default;
-            this.richTextBoxGenre.ForeColor = System.Drawing.Color.White;
-            this.richTextBoxGenre.Location = new System.Drawing.Point(449, 301);
-            this.richTextBoxGenre.Name = "richTextBoxGenre";
-            this.richTextBoxGenre.ReadOnly = true;
-            this.richTextBoxGenre.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.richTextBoxGenre.Size = new System.Drawing.Size(465, 24);
-            this.richTextBoxGenre.TabIndex = 31;
-            this.richTextBoxGenre.TabStop = false;
-            this.richTextBoxGenre.Text = "text genres";
+            this.richTextBoxGenres.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(57)))), ((int)(((byte)(75)))));
+            this.richTextBoxGenres.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBoxGenres.Cursor = System.Windows.Forms.Cursors.Default;
+            this.richTextBoxGenres.ForeColor = System.Drawing.Color.White;
+            this.richTextBoxGenres.Location = new System.Drawing.Point(442, 301);
+            this.richTextBoxGenres.Name = "richTextBoxGenres";
+            this.richTextBoxGenres.ReadOnly = true;
+            this.richTextBoxGenres.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
+            this.richTextBoxGenres.Size = new System.Drawing.Size(476, 24);
+            this.richTextBoxGenres.TabIndex = 31;
+            this.richTextBoxGenres.TabStop = false;
+            this.richTextBoxGenres.Text = "text genres";
             // 
             // richTextBoxDirector
             // 
@@ -254,11 +243,11 @@
             this.richTextBoxDirector.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.richTextBoxDirector.Cursor = System.Windows.Forms.Cursors.Default;
             this.richTextBoxDirector.ForeColor = System.Drawing.Color.White;
-            this.richTextBoxDirector.Location = new System.Drawing.Point(461, 341);
+            this.richTextBoxDirector.Location = new System.Drawing.Point(454, 341);
             this.richTextBoxDirector.Name = "richTextBoxDirector";
             this.richTextBoxDirector.ReadOnly = true;
             this.richTextBoxDirector.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.richTextBoxDirector.Size = new System.Drawing.Size(458, 20);
+            this.richTextBoxDirector.Size = new System.Drawing.Size(464, 20);
             this.richTextBoxDirector.TabIndex = 30;
             this.richTextBoxDirector.TabStop = false;
             this.richTextBoxDirector.Text = "text directors";
@@ -275,7 +264,7 @@
             this.richTextBoxCast.ReadOnly = true;
             this.richTextBoxCast.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
             this.richTextBoxCast.ShortcutsEnabled = false;
-            this.richTextBoxCast.Size = new System.Drawing.Size(479, 84);
+            this.richTextBoxCast.Size = new System.Drawing.Size(483, 84);
             this.richTextBoxCast.TabIndex = 29;
             this.richTextBoxCast.TabStop = false;
             this.richTextBoxCast.Text = "text cast";
@@ -286,11 +275,11 @@
             this.richTextBoxWriter.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.richTextBoxWriter.Cursor = System.Windows.Forms.Cursors.Default;
             this.richTextBoxWriter.ForeColor = System.Drawing.Color.White;
-            this.richTextBoxWriter.Location = new System.Drawing.Point(444, 381);
+            this.richTextBoxWriter.Location = new System.Drawing.Point(440, 381);
             this.richTextBoxWriter.Name = "richTextBoxWriter";
             this.richTextBoxWriter.ReadOnly = true;
             this.richTextBoxWriter.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.richTextBoxWriter.Size = new System.Drawing.Size(475, 20);
+            this.richTextBoxWriter.Size = new System.Drawing.Size(478, 20);
             this.richTextBoxWriter.TabIndex = 28;
             this.richTextBoxWriter.TabStop = false;
             this.richTextBoxWriter.Text = "text writers";
@@ -320,26 +309,41 @@
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.buttonClose.Size = new System.Drawing.Size(43, 25);
-            this.buttonClose.TabIndex = 30;
+            this.buttonClose.TabIndex = 200;
             this.buttonClose.UseVisualStyleBackColor = false;
             this.buttonClose.Click += new System.EventHandler(this.ButtonClose_Click);
             // 
+            // richTextBoxOrigin
+            // 
+            this.richTextBoxOrigin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(57)))), ((int)(((byte)(75)))));
+            this.richTextBoxOrigin.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBoxOrigin.Cursor = System.Windows.Forms.Cursors.Default;
+            this.richTextBoxOrigin.ForeColor = System.Drawing.Color.White;
+            this.richTextBoxOrigin.Location = new System.Drawing.Point(453, 261);
+            this.richTextBoxOrigin.Name = "richTextBoxOrigin";
+            this.richTextBoxOrigin.ReadOnly = true;
+            this.richTextBoxOrigin.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
+            this.richTextBoxOrigin.Size = new System.Drawing.Size(465, 24);
+            this.richTextBoxOrigin.TabIndex = 65;
+            this.richTextBoxOrigin.TabStop = false;
+            this.richTextBoxOrigin.Text = "text genres";
+            // 
             // FormSeeMoreInformation
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(57)))), ((int)(((byte)(75)))));
             this.ClientSize = new System.Drawing.Size(939, 519);
+            this.Controls.Add(this.richTextBoxOrigin);
             this.Controls.Add(this.panelControls);
             this.Controls.Add(this.richTextBoxWriter);
             this.Controls.Add(this.richTextBoxCast);
             this.Controls.Add(this.richTextBoxDirector);
-            this.Controls.Add(this.richTextBoxGenre);
+            this.Controls.Add(this.richTextBoxGenres);
             this.Controls.Add(this.labelImdb);
             this.Controls.Add(this.labelImdbRating);
-            this.Controls.Add(this.labelCountry);
             this.Controls.Add(this.labelRuntime);
-            this.Controls.Add(this.labelRelaseDate);
+            this.Controls.Add(this.labelReleaseDate);
             this.Controls.Add(this.labelType);
             this.Controls.Add(this.labelCountryTitle);
             this.Controls.Add(this.labelCastTitle);
@@ -351,7 +355,7 @@
             this.Controls.Add(this.labelTypeTitle);
             this.Controls.Add(this.pictureBoxPoster);
             this.Controls.Add(this.labelTitle);
-            this.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(5);
@@ -379,16 +383,16 @@
         private System.Windows.Forms.Label labelCastTitle;
         private System.Windows.Forms.Label labelCountryTitle;
         private System.Windows.Forms.Label labelType;
-        private System.Windows.Forms.Label labelRelaseDate;
+        private System.Windows.Forms.Label labelReleaseDate;
         private System.Windows.Forms.Label labelRuntime;
-        private System.Windows.Forms.Label labelCountry;
         private System.Windows.Forms.Label labelImdbRating;
         private System.Windows.Forms.Label labelImdb;
-        private System.Windows.Forms.RichTextBox richTextBoxGenre;
+        private System.Windows.Forms.RichTextBox richTextBoxGenres;
         private System.Windows.Forms.RichTextBox richTextBoxDirector;
         private System.Windows.Forms.RichTextBox richTextBoxCast;
         private System.Windows.Forms.RichTextBox richTextBoxWriter;
         private System.Windows.Forms.Panel panelControls;
         private System.Windows.Forms.Button buttonClose;
+        private System.Windows.Forms.RichTextBox richTextBoxOrigin;
     }
 }

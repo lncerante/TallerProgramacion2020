@@ -50,6 +50,8 @@
             this.buttonHome = new System.Windows.Forms.PictureBox();
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.richTextBoxUserName = new System.Windows.Forms.RichTextBox();
+            this.pictureBoxUser = new System.Windows.Forms.PictureBox();
             this.labelTitle = new System.Windows.Forms.Label();
             this.panelFormsContainer = new System.Windows.Forms.Panel();
             this.labelDescription = new System.Windows.Forms.Label();
@@ -59,6 +61,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.buttonHome)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUser)).BeginInit();
             this.panelFormsContainer.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -90,7 +93,7 @@
             this.buttonMinimized.Name = "buttonMinimized";
             this.buttonMinimized.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.buttonMinimized.Size = new System.Drawing.Size(43, 25);
-            this.buttonMinimized.TabIndex = 31;
+            this.buttonMinimized.TabIndex = 300;
             this.buttonMinimized.UseVisualStyleBackColor = false;
             this.buttonMinimized.Click += new System.EventHandler(this.ButtonMinimized_Click);
             // 
@@ -108,7 +111,7 @@
             this.buttonMaximized.Name = "buttonMaximized";
             this.buttonMaximized.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.buttonMaximized.Size = new System.Drawing.Size(43, 25);
-            this.buttonMaximized.TabIndex = 32;
+            this.buttonMaximized.TabIndex = 301;
             this.buttonMaximized.UseVisualStyleBackColor = false;
             this.buttonMaximized.Click += new System.EventHandler(this.ButtonMaximized_Click);
             // 
@@ -144,7 +147,7 @@
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.buttonClose.Size = new System.Drawing.Size(43, 25);
-            this.buttonClose.TabIndex = 30;
+            this.buttonClose.TabIndex = 302;
             this.buttonClose.UseVisualStyleBackColor = false;
             this.buttonClose.Click += new System.EventHandler(this.ButtonClose_Click);
             // 
@@ -221,7 +224,7 @@
             this.buttonProfile.Name = "buttonProfile";
             this.buttonProfile.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.buttonProfile.Size = new System.Drawing.Size(220, 50);
-            this.buttonProfile.TabIndex = 13;
+            this.buttonProfile.TabIndex = 3;
             this.buttonProfile.Text = "  Profile";
             this.buttonProfile.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonProfile.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -277,7 +280,7 @@
             this.buttonAddToList.Name = "buttonAddToList";
             this.buttonAddToList.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.buttonAddToList.Size = new System.Drawing.Size(220, 50);
-            this.buttonAddToList.TabIndex = 1;
+            this.buttonAddToList.TabIndex = 2;
             this.buttonAddToList.Text = "  Search media";
             this.buttonAddToList.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonAddToList.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -318,7 +321,7 @@
             this.buttonManageUsers.Name = "buttonManageUsers";
             this.buttonManageUsers.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.buttonManageUsers.Size = new System.Drawing.Size(220, 50);
-            this.buttonManageUsers.TabIndex = 8;
+            this.buttonManageUsers.TabIndex = 4;
             this.buttonManageUsers.Text = "  Users";
             this.buttonManageUsers.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonManageUsers.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -339,7 +342,7 @@
             this.buttonSeeReviews.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.buttonSeeReviews.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.buttonSeeReviews.Size = new System.Drawing.Size(220, 50);
-            this.buttonSeeReviews.TabIndex = 3;
+            this.buttonSeeReviews.TabIndex = 1;
             this.buttonSeeReviews.Text = "  My reviews";
             this.buttonSeeReviews.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonSeeReviews.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -371,12 +374,43 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(57)))), ((int)(((byte)(75)))));
+            this.panel2.Controls.Add(this.richTextBoxUserName);
+            this.panel2.Controls.Add(this.pictureBoxUser);
             this.panel2.Controls.Add(this.labelTitle);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(220, 25);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1080, 60);
             this.panel2.TabIndex = 41;
+            // 
+            // richTextBoxUserName
+            // 
+            this.richTextBoxUserName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.richTextBoxUserName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(57)))), ((int)(((byte)(75)))));
+            this.richTextBoxUserName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBoxUserName.Cursor = System.Windows.Forms.Cursors.Default;
+            this.richTextBoxUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBoxUserName.ForeColor = System.Drawing.Color.White;
+            this.richTextBoxUserName.Location = new System.Drawing.Point(492, 20);
+            this.richTextBoxUserName.Multiline = false;
+            this.richTextBoxUserName.Name = "richTextBoxUserName";
+            this.richTextBoxUserName.ReadOnly = true;
+            this.richTextBoxUserName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.richTextBoxUserName.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
+            this.richTextBoxUserName.Size = new System.Drawing.Size(521, 24);
+            this.richTextBoxUserName.TabIndex = 66;
+            this.richTextBoxUserName.TabStop = false;
+            this.richTextBoxUserName.Text = "username";
+            // 
+            // pictureBoxUser
+            // 
+            this.pictureBoxUser.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxUser.Image")));
+            this.pictureBoxUser.Location = new System.Drawing.Point(1019, 3);
+            this.pictureBoxUser.Name = "pictureBoxUser";
+            this.pictureBoxUser.Size = new System.Drawing.Size(57, 54);
+            this.pictureBoxUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxUser.TabIndex = 17;
+            this.pictureBoxUser.TabStop = false;
             // 
             // labelTitle
             // 
@@ -407,11 +441,11 @@
             this.labelDescription.AutoSize = true;
             this.labelDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelDescription.ForeColor = System.Drawing.Color.White;
-            this.labelDescription.Location = new System.Drawing.Point(138, 315);
+            this.labelDescription.Location = new System.Drawing.Point(156, 313);
             this.labelDescription.Name = "labelDescription";
-            this.labelDescription.Size = new System.Drawing.Size(761, 25);
+            this.labelDescription.Size = new System.Drawing.Size(768, 25);
             this.labelDescription.TabIndex = 11;
-            this.labelDescription.Text = "Your personalized application for voting and recommending movies and series";
+            this.labelDescription.Text = "Your personalized application for finding, tracking and rating movies and series";
             // 
             // labelTodayDate
             // 
@@ -419,11 +453,12 @@
             this.labelTodayDate.AutoSize = true;
             this.labelTodayDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTodayDate.ForeColor = System.Drawing.Color.White;
-            this.labelTodayDate.Location = new System.Drawing.Point(347, 384);
+            this.labelTodayDate.Location = new System.Drawing.Point(30, 521);
             this.labelTodayDate.Name = "labelTodayDate";
             this.labelTodayDate.Size = new System.Drawing.Size(87, 20);
             this.labelTodayDate.TabIndex = 10;
             this.labelTodayDate.Text = "TodayDate";
+            this.labelTodayDate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // FormMenu
             // 
@@ -445,6 +480,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUser)).EndInit();
             this.panelFormsContainer.ResumeLayout(false);
             this.panelFormsContainer.PerformLayout();
             this.ResumeLayout(false);
@@ -478,5 +514,7 @@
         private System.Windows.Forms.Button buttonMinimized;
         private System.Windows.Forms.Button buttonRestore;
         private System.Windows.Forms.Label labelDescription;
+        private System.Windows.Forms.PictureBox pictureBoxUser;
+        private System.Windows.Forms.RichTextBox richTextBoxUserName;
     }
 }
