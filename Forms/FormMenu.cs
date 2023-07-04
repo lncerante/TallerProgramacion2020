@@ -56,7 +56,7 @@ namespace TallerProgramacion2020.Forms
                     DisableButton();
                     currentButton = (Button)buttonSender;
                     currentButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-                    currentButton.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                    currentButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                     labelTitle.Text = currentButton.Text;
                 }
             }
@@ -69,7 +69,7 @@ namespace TallerProgramacion2020.Forms
                 if (previousBtn.GetType() == typeof(Button))
                 {
                     previousBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-                    previousBtn.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                    previousBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                 }
             }
         }
@@ -78,8 +78,6 @@ namespace TallerProgramacion2020.Forms
         {
             DisableButton();
             labelTitle.Text = "  Home";
-            //labelTodayDate.Visible = true;
-            //pictureBox1.Visible = true;
             activeForm?.Close();
         }
 
@@ -143,16 +141,6 @@ namespace TallerProgramacion2020.Forms
             this.Location = Screen.PrimaryScreen.WorkingArea.Location;
             buttonMaximized.Visible = false;
             buttonRestore.Visible = true;
-
-            //PROBAR ESTO
-            //if(WindowState == FormWindowState.Normal)
-            //{
-            //    WindowState = FormWindowState.Maximized;
-            //}
-            //else
-            //{
-            //    WindowState = FormWindowState.Normal;
-            //}
         }
 
         private void ButtonClose_Click(object sender, EventArgs e)
