@@ -21,21 +21,39 @@ namespace TallerProgramacion2020.Forms
         private string imagePath;
         private byte[] imgByte = null;
 
+        /// <summary>
+        /// Formulario que permite registrar un usuario administrador.
+        /// </summary>
         public FormRegisterAdminUser()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Cierra la aplicación.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonClose_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
+        /// <summary>
+        /// Minimiza la ventana.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonMinimized_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
         }
 
+        /// <summary>
+        /// Permite cargar una foto de perfil.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonUploadPicture_Click(object sender, EventArgs e)
         {
             if (openFileDialogUploadPicture.ShowDialog() == DialogResult.OK)
@@ -49,6 +67,11 @@ namespace TallerProgramacion2020.Forms
             }
         }
 
+        /// <summary>
+        /// Registra el usuario administrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonSave_Click(object sender, EventArgs e)
         {
             if (textBoxFullName.Text.Length == 0 || textBoxPassword.Text.Length == 0 ||
@@ -81,6 +104,10 @@ namespace TallerProgramacion2020.Forms
             }
         }
 
+        /// <summary>
+        /// Etiqueta que muestra mensaje de error.
+        /// </summary>
+        /// <param name="txt"></param>
         private void ErrorMessage(string txt)
         {
             labelErrorMessage.Text = "      " + txt;

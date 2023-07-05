@@ -19,6 +19,9 @@ namespace TallerProgramacion2020.Forms
         public bool userSuccessfullyAuthenticated;
         protected WinFormsContext iContext;
 
+        /// <summary>
+        /// Formulario que permite a un usuario iniciar sesión.
+        /// </summary>
         public FormSignIn()
         {
             iContext = WinFormsContext.GetInstance();
@@ -26,11 +29,27 @@ namespace TallerProgramacion2020.Forms
             userSuccessfullyAuthenticated = false;
         }
 
+        //Allows to drag a form
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int IParam);
+        private void FormSignIn_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+        private void PictureBoxLogo_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
 
+        /// <summary>
+        /// Determina si el usuario puede ingresar o no a la aplicación.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonConfirm_Click(object sender, EventArgs e)
         {
             if(textBoxUsername.Text.Length == 0 && textBoxPassword.Text.Length == 0)
@@ -70,41 +89,48 @@ namespace TallerProgramacion2020.Forms
             }
         }
 
+        /// <summary>
+        /// Etiqueta que muestra un mensjae de error.
+        /// </summary>
+        /// <param name="txt"></param>
         private void ErrorMessage(string txt)
         {
             labelErrorMessage.Text = "      "+txt;
             labelErrorMessage.Visible = true;
         }
 
+        /// <summary>
+        /// Minimiza la ventana.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonMinimized_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
         }
 
+        /// <summary>
+        /// Cierra la aplicación.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonClose_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
-        //Esto me permite mover la ventana
-        private void FormSignIn_MouseDown(object sender, MouseEventArgs e)
-        {
-            ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
-        }
-
-        private void PictureBoxLogo_MouseDown(object sender, MouseEventArgs e)
-        {
-            ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
-        }
-
+        /// <summary>
+        /// Limpia la pantalla luego de que un usuario cierra sesión.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void LogOut(object sender, FormClosedEventArgs e)
         {
             labelErrorMessage.Visible = false;
             textBoxPassword.Clear();
             textBoxUsername.Clear();
             textBoxUsername.Focus();
+            iContext.CurrentMedia = null;
             this.Show();
         }
     }

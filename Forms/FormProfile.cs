@@ -22,6 +22,9 @@ namespace TallerProgramacion2020.Forms
         private byte[] imgByte = null;
         protected WinFormsContext iContext;
 
+        /// <summary>
+        /// Formulario que permite al usuario vizualizar y editar sus datos.
+        /// </summary>
         public FormProfile()
         {
             iContext = WinFormsContext.GetInstance();
@@ -33,6 +36,9 @@ namespace TallerProgramacion2020.Forms
             ShowUser();
         }
 
+        /// <summary>
+        /// Muestra los datos del usuario.
+        /// </summary>
         private void ShowUser()
         {
             pictureBoxProfile.Image = Tools.ConvertByteArrayToImage(iContext.User.ProfilePhoto);
@@ -42,6 +48,11 @@ namespace TallerProgramacion2020.Forms
             labelUserUsername.Visible = true;
         }
 
+        /// <summary>
+        /// Permite al usuario editar sus datos.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonEdit_Click(object sender, EventArgs e)
         {
             labelUserFullName.Visible = false;
@@ -66,6 +77,11 @@ namespace TallerProgramacion2020.Forms
             buttonCancel.Visible = true;
         }
 
+        /// <summary>
+        /// Permite al usuario actualizar su foto de perfil.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonUploadPicture_Click(object sender, EventArgs e)
         {
             if (openFileDialogUploadPicture.ShowDialog() == DialogResult.OK)
@@ -86,6 +102,11 @@ namespace TallerProgramacion2020.Forms
             }
         }
 
+        /// <summary>
+        /// Guarda los cambios del usuario.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonSaveChanges_Click(object sender, EventArgs e)
         {
             if
@@ -142,12 +163,21 @@ namespace TallerProgramacion2020.Forms
             }
         }
 
+        /// <summary>
+        /// Etiqueta que muestra mensaje de error.
+        /// </summary>
+        /// <param name="txt"></param>
         private void ErrorMessage(string txt)
         {
             labelErrorMessage.Text = "      " + txt;
             labelErrorMessage.Visible = true;
         }
 
+        /// <summary>
+        /// Cancela la posibilidad de modificar los datos de usuario.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonCancel_Click(object sender, EventArgs e)
         {
             labelUserFullName.Visible = true;

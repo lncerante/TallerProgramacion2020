@@ -19,6 +19,11 @@ namespace TallerProgramacion2020.Forms
         protected int idMedia { get; }
         protected ReviewDTO iReview { get; }
 
+        /// <summary>
+        /// Formulario que permite calificar una pelicula o serie y opcionalmente dejar comentarios.
+        /// </summary>
+        /// <param name="pIdMedia"></param>
+        /// <param name="pReview"></param>
         public FormRateMovieOrSeries(int pIdMedia, ReviewDTO pReview = null)
         {
             idMedia = pIdMedia;
@@ -54,6 +59,11 @@ namespace TallerProgramacion2020.Forms
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
+        /// <summary>
+        /// Guarda la calificación y el comentario del usuario.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonSave_Click(object sender, EventArgs e)
         {
             Rating rating;
@@ -94,7 +104,11 @@ namespace TallerProgramacion2020.Forms
                 MessageBox.Show(ex.Message);
             }
         }
-
+        /// <summary>
+        /// Cierra el formulario.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonClose_Click(object sender, EventArgs e)
         {
             Close();

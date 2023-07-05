@@ -20,6 +20,10 @@ namespace TallerProgramacion2020.Forms
     {
         protected MediaDTO iMedia { get; }
 
+        /// <summary>
+        /// Formulario que muestra toda la información de una película o serie.
+        /// </summary>
+        /// <param name="pMedia">Película o serie a mostrar.</param>
         public FormSeeMoreInformation(MediaDTO pMedia)
         {
             iMedia = pMedia;
@@ -37,6 +41,7 @@ namespace TallerProgramacion2020.Forms
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
+
         private void FormSeeMoreInformation_Load(object sender, EventArgs e)
         {
             richTextBoxCast.Text = string.Join(", ", iMedia.Cast.Select(i => i.FullName));
@@ -52,6 +57,11 @@ namespace TallerProgramacion2020.Forms
             pictureBoxPoster.Image = Tools.ConvertByteArrayToImage(iMedia.Poster);
         }
 
+        /// <summary>
+        /// Cierra el formulario.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonClose_Click(object sender, EventArgs e)
         {
             this.Close();

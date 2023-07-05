@@ -19,6 +19,9 @@ namespace TallerProgramacion2020.Forms
         private IEnumerable<WatchListItemDTO> watchList;
         protected WinFormsContext iContext;
 
+        /// <summary>
+        /// Formulario que muestra todas las peliculas y series que un usuario tiene en su lista de seguimiento.
+        /// </summary>
         public FormWatchList()
         {
             iContext = WinFormsContext.GetInstance();
@@ -30,6 +33,9 @@ namespace TallerProgramacion2020.Forms
             GetWatchList();
         }
 
+        /// <summary>
+        /// Obtiene la lista de seguimiento de un usuario.
+        /// </summary>
         private void GetWatchList()
         {
             try
@@ -61,6 +67,11 @@ namespace TallerProgramacion2020.Forms
             }
         }
 
+        /// <summary>
+        /// Elimina una pelicula o serie de la lista de seguimiento.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonDelete_Click(object sender, EventArgs e)
         {
             if (dataGridViewMedia.SelectedRows.Count == 1)
@@ -90,6 +101,11 @@ namespace TallerProgramacion2020.Forms
             }
         }
 
+        /// <summary>
+        /// Muestra el formulario para calificar la película o serie seleccionada.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonRate_Click(object sender, EventArgs e)
         {
             if (dataGridViewMedia.SelectedRows.Count == 1)
@@ -109,6 +125,11 @@ namespace TallerProgramacion2020.Forms
             }
         }
 
+        /// <summary>
+        /// Permite editar la prioridad que se le había dado a una película o serie.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonEditPriority_Click(object sender, EventArgs e)
         {
             if (dataGridViewMedia.SelectedRows.Count == 1)
@@ -128,6 +149,11 @@ namespace TallerProgramacion2020.Forms
             }
         }
 
+        /// <summary>
+        /// Permite visualizar todos los datos de la película o serie seleccionada.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonSeeMoreInformation_Click(object sender, EventArgs e)
         {
             if (dataGridViewMedia.SelectedRows.Count == 1)

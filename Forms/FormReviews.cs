@@ -17,6 +17,10 @@ namespace TallerProgramacion2020.Forms
     public partial class FormReviews : Form
     {
         private IEnumerable<ReviewDTO> reviewList;
+
+        /// <summary>
+        /// Formulario que permite vizualizar todas las reseñas de un usuario.
+        /// </summary>
         public FormReviews()
         {
             InitializeComponent();
@@ -27,6 +31,9 @@ namespace TallerProgramacion2020.Forms
             GetReviews();
         }
 
+        /// <summary>
+        /// Obtiene y muestra todas las reseñas de un usuario.
+        /// </summary>
         private void GetReviews()
         {
             try
@@ -57,6 +64,11 @@ namespace TallerProgramacion2020.Forms
             }
         }
 
+        /// <summary>
+        /// Permite editar una reseña.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonEdit_Click(object sender, EventArgs e)
         {
             if (dataGridViewMedia.SelectedRows.Count == 1)
@@ -76,6 +88,11 @@ namespace TallerProgramacion2020.Forms
             }
         }
 
+        /// <summary>
+        /// Elimina una reseña.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonDelete_Click(object sender, EventArgs e)
         {
             if (dataGridViewMedia.SelectedRows.Count == 1)

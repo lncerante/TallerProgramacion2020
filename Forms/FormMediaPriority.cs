@@ -23,6 +23,11 @@ namespace TallerProgramacion2020.Forms
         private int idMedia;
         protected WatchListItemDTO iWatchListItem { get; }
 
+        /// <summary>
+        /// Formulario para asignar una prioridad a una pelicula o serie.
+        /// </summary>
+        /// <param name="pIdMedia">Id de una pelicula o serie.</param>
+        /// <param name="pWatchListItem">Ítem de la lista de seguimiento.</param>
         public FormMediaPriority(int pIdMedia, WatchListItemDTO pWatchListItem = null)
         {
             idMedia = pIdMedia;
@@ -35,6 +40,12 @@ namespace TallerProgramacion2020.Forms
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int IParam);
+
+        /// <summary>
+        /// Habilita el arrastre del formulario al hacer clic. 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void PanelControls_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
@@ -49,7 +60,12 @@ namespace TallerProgramacion2020.Forms
                 comboBoxPriority.Text = priority;
             }
         }
-        
+
+        /// <summary>
+        /// Guarda la prioridad que el usuario le asigna a una película o serie.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonSave_Click(object sender, EventArgs e)
         {
             Priority priority;
@@ -88,6 +104,11 @@ namespace TallerProgramacion2020.Forms
             }
         }
 
+        /// <summary>
+        /// Cierra el formulario.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonClose_Click(object sender, EventArgs e)
         {
             Close();
