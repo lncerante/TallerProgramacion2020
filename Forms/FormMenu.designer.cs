@@ -56,6 +56,7 @@
             this.panelFormsContainer = new System.Windows.Forms.Panel();
             this.labelDescription = new System.Windows.Forms.Label();
             this.labelTodayDate = new System.Windows.Forms.Label();
+            this.panelUserData = new System.Windows.Forms.Panel();
             this.panelControls.SuspendLayout();
             this.panelMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.buttonHome)).BeginInit();
@@ -63,6 +64,7 @@
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUser)).BeginInit();
             this.panelFormsContainer.SuspendLayout();
+            this.panelUserData.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelControls
@@ -374,8 +376,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(57)))), ((int)(((byte)(75)))));
-            this.panel2.Controls.Add(this.richTextBoxUserName);
-            this.panel2.Controls.Add(this.pictureBoxUser);
+            this.panel2.Controls.Add(this.panelUserData);
             this.panel2.Controls.Add(this.labelTitle);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(220, 25);
@@ -385,29 +386,29 @@
             // 
             // richTextBoxUserName
             // 
-            this.richTextBoxUserName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.richTextBoxUserName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(57)))), ((int)(((byte)(75)))));
             this.richTextBoxUserName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.richTextBoxUserName.Cursor = System.Windows.Forms.Cursors.Default;
             this.richTextBoxUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richTextBoxUserName.ForeColor = System.Drawing.Color.White;
-            this.richTextBoxUserName.Location = new System.Drawing.Point(492, 20);
+            this.richTextBoxUserName.Location = new System.Drawing.Point(3, 19);
             this.richTextBoxUserName.Multiline = false;
             this.richTextBoxUserName.Name = "richTextBoxUserName";
             this.richTextBoxUserName.ReadOnly = true;
             this.richTextBoxUserName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.richTextBoxUserName.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.richTextBoxUserName.Size = new System.Drawing.Size(521, 24);
+            this.richTextBoxUserName.Size = new System.Drawing.Size(244, 24);
             this.richTextBoxUserName.TabIndex = 66;
             this.richTextBoxUserName.TabStop = false;
             this.richTextBoxUserName.Text = "username";
             // 
             // pictureBoxUser
             // 
+            this.pictureBoxUser.Dock = System.Windows.Forms.DockStyle.Right;
             this.pictureBoxUser.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxUser.Image")));
-            this.pictureBoxUser.Location = new System.Drawing.Point(1019, 3);
+            this.pictureBoxUser.Location = new System.Drawing.Point(253, 0);
             this.pictureBoxUser.Name = "pictureBoxUser";
-            this.pictureBoxUser.Size = new System.Drawing.Size(57, 54);
+            this.pictureBoxUser.Size = new System.Drawing.Size(63, 59);
             this.pictureBoxUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxUser.TabIndex = 17;
             this.pictureBoxUser.TabStop = false;
@@ -449,7 +450,7 @@
             // 
             // labelTodayDate
             // 
-            this.labelTodayDate.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.labelTodayDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.labelTodayDate.AutoSize = true;
             this.labelTodayDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTodayDate.ForeColor = System.Drawing.Color.White;
@@ -459,6 +460,16 @@
             this.labelTodayDate.TabIndex = 10;
             this.labelTodayDate.Text = "TodayDate";
             this.labelTodayDate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // panelUserData
+            // 
+            this.panelUserData.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelUserData.Controls.Add(this.pictureBoxUser);
+            this.panelUserData.Controls.Add(this.richTextBoxUserName);
+            this.panelUserData.Location = new System.Drawing.Point(764, 1);
+            this.panelUserData.Name = "panelUserData";
+            this.panelUserData.Size = new System.Drawing.Size(316, 59);
+            this.panelUserData.TabIndex = 67;
             // 
             // FormMenu
             // 
@@ -483,6 +494,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUser)).EndInit();
             this.panelFormsContainer.ResumeLayout(false);
             this.panelFormsContainer.PerformLayout();
+            this.panelUserData.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -516,5 +528,6 @@
         private System.Windows.Forms.Label labelDescription;
         private System.Windows.Forms.PictureBox pictureBoxUser;
         private System.Windows.Forms.RichTextBox richTextBoxUserName;
+        private System.Windows.Forms.Panel panelUserData;
     }
 }

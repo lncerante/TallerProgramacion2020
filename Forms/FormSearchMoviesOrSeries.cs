@@ -30,9 +30,8 @@ namespace TallerProgramacion2020.Forms
         {
             Loading(false);
             dataGridViewMedia.Visible = false;
-            mediaList = iContext.CurrentMedia;
-            ShowMedia();
         }
+
         public void Loading(bool isLoading)
         {
             panelLoading.BackColor = Color.FromArgb(20, Color.Blue);

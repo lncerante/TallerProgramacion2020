@@ -37,7 +37,7 @@ namespace TallerProgramacion2020.MediaManager.Controllers
                 .Where(i => i.User.ID == iContext.User.ID && i.Media.ID == pMediaID);
             if (exists.Count() > 0)
             {
-                throw new Exception("You have already reviewd this media.");
+                throw new Exception("You have already added this media to your list.");
             }
 
             WatchListItem watchListItem = new WatchListItem
