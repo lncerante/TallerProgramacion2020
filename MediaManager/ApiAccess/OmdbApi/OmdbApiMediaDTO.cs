@@ -7,6 +7,9 @@ using TallerProgramacion2020.MediaManager.Domain;
 
 namespace TallerProgramacion2020.MediaManager.ApiAccess.ImdbApi
 {
+    /// <summary>
+    /// Clase que representa los datos transferidos desde la API de OMDB para una Media.
+    /// </summary>
     internal class OmdbApiMediaDTO
     {
         protected static string[] iSeparator = { ", " };
@@ -24,17 +27,21 @@ namespace TallerProgramacion2020.MediaManager.ApiAccess.ImdbApi
         public string imdbRating;
         public string Type;
 
+        /// <summary>
+        /// Convierte la instancia de OmdbApiMediaDTO en un objeto Media.
+        /// </summary>
         public Media AsMedia
         {
             get
             {
+                // Crear una instancia de Media con los datos de OmdbApiMediaDTO
                 var media = new Media
                 {
                     ImdbID = imdbID,
                     Title = Title,
                     Year = Year
                 };
-
+                // Convertir los campos adicionales en propiedades de Media
                 if (!string.IsNullOrEmpty(Released) && Released != "N/A")
                     media.ReleaseDate = DateTime.Parse(Released);
                 if (!string.IsNullOrEmpty(Runtime) && Runtime != "N/A")
@@ -48,7 +55,7 @@ namespace TallerProgramacion2020.MediaManager.ApiAccess.ImdbApi
                     }
                     catch
                     {
-                        
+                        // Manejar excepciones al descargar el póster
                     }
                 if (Type == "movie")
                 {
@@ -59,6 +66,8 @@ namespace TallerProgramacion2020.MediaManager.ApiAccess.ImdbApi
                     media.MediaType = MediaType.Series;
                 }
 
+                // Convertir las listas de géneros, países, directores, escritores y actores
+                // en las respectivas listas de objetos (Genre, Country, Director, Writer, Actor)
                 var genresDTO = Genre.Split(iSeparator, StringSplitOptions.RemoveEmptyEntries);
                 var genres = new List<Genre>();
                 foreach (var genreDTO in genresDTO)
