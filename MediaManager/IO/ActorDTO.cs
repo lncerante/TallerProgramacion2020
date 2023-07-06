@@ -4,6 +4,10 @@ using System.Xml.Linq;
 
 namespace TallerProgramacion2020.MediaManager.IO
 {
+    /// <summary>
+    /// Clase que representa un objeto de transferencia de datos de un actor.
+    /// Hereda de la clase "PersonDTO".
+    /// </summary>
     public class ActorDTO : PersonDTO
     {
     }
