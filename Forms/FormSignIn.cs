@@ -14,13 +14,16 @@ using TallerProgramacion2020.WinFormsContextClass;
 
 namespace TallerProgramacion2020.Forms
 {
+    /// <summary>
+    /// Formulario que permite a un usuario iniciar sesión.
+    /// </summary>
     public partial class FormSignIn : Form
     {
         public bool userSuccessfullyAuthenticated;
         protected WinFormsContext iContext;
 
         /// <summary>
-        /// Formulario que permite a un usuario iniciar sesión.
+        /// Crea una nueva instancia de la clase FormSignIn.
         /// </summary>
         public FormSignIn()
         {
@@ -29,7 +32,7 @@ namespace TallerProgramacion2020.Forms
             userSuccessfullyAuthenticated = false;
         }
 
-        //Allows to drag a form
+        //Permite arrastrar el formulario.
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
@@ -48,8 +51,6 @@ namespace TallerProgramacion2020.Forms
         /// <summary>
         /// Determina si el usuario puede ingresar o no a la aplicación.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void ButtonConfirm_Click(object sender, EventArgs e)
         {
             if(textBoxUsername.Text.Length == 0 && textBoxPassword.Text.Length == 0)
@@ -92,7 +93,7 @@ namespace TallerProgramacion2020.Forms
         /// <summary>
         /// Etiqueta que muestra un mensjae de error.
         /// </summary>
-        /// <param name="txt"></param>
+        /// <param name="txt">Mensaje de error.</param>
         private void ErrorMessage(string txt)
         {
             labelErrorMessage.Text = "      "+txt;
@@ -102,8 +103,6 @@ namespace TallerProgramacion2020.Forms
         /// <summary>
         /// Minimiza la ventana.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void ButtonMinimized_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
@@ -112,8 +111,6 @@ namespace TallerProgramacion2020.Forms
         /// <summary>
         /// Cierra la aplicación.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void ButtonClose_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -122,15 +119,12 @@ namespace TallerProgramacion2020.Forms
         /// <summary>
         /// Limpia la pantalla luego de que un usuario cierra sesión.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void LogOut(object sender, FormClosedEventArgs e)
         {
             labelErrorMessage.Visible = false;
             textBoxPassword.Clear();
             textBoxUsername.Clear();
             textBoxUsername.Focus();
-            iContext.CurrentMedia = null;
             this.Show();
         }
     }

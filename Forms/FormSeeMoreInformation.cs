@@ -16,12 +16,15 @@ using TallerProgramacion2020.ToolsClass;
 
 namespace TallerProgramacion2020.Forms
 {
+    /// <summary>
+    /// Formulario que muestra toda la información de una película o serie.
+    /// </summary>
     public partial class FormSeeMoreInformation : Form
     {
         protected MediaDTO iMedia { get; }
 
         /// <summary>
-        /// Formulario que muestra toda la información de una película o serie.
+        /// Crea una nueva instancia de la clase FormSeeMoreInformation.
         /// </summary>
         /// <param name="pMedia">Película o serie a mostrar.</param>
         public FormSeeMoreInformation(MediaDTO pMedia)
@@ -30,7 +33,7 @@ namespace TallerProgramacion2020.Forms
             InitializeComponent();
         }
 
-        //Allows to drag a form
+        //Permite arrastrar elformulario.
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
@@ -41,7 +44,9 @@ namespace TallerProgramacion2020.Forms
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
-
+        /// <summary>
+        /// Se ejecuta al cargar el formulario y muestra la información detallada de la película o serie.
+        /// </summary>
         private void FormSeeMoreInformation_Load(object sender, EventArgs e)
         {
             richTextBoxCast.Text = string.Join(", ", iMedia.Cast.Select(i => i.FullName));
@@ -60,8 +65,6 @@ namespace TallerProgramacion2020.Forms
         /// <summary>
         /// Cierra el formulario.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void ButtonClose_Click(object sender, EventArgs e)
         {
             this.Close();

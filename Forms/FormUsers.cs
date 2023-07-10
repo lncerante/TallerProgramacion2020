@@ -16,6 +16,9 @@ using TallerProgramacion2020.WinFormsContextClass;
 
 namespace TallerProgramacion2020.Forms
 {
+    /// <summary>
+    /// Formulario que permite al administrador ver y registrar usuarios.
+    /// </summary>
     public partial class FormUsers : Form
     {
         private string imagePath;
@@ -25,7 +28,7 @@ namespace TallerProgramacion2020.Forms
         private IEnumerable<UserDTO> usersList = new List<UserDTO>();
 
         /// <summary>
-        /// Formulario que permite al administrador ver y registrar usuarios.
+        /// Crea una nueva instancia de la clase FormUsers.
         /// </summary>
         public FormUsers()
         {
@@ -33,11 +36,14 @@ namespace TallerProgramacion2020.Forms
             InitializeComponent();
         }
 
-
+        /// <summary>
+        /// Carga los usuarios y muestra la lista de usuarios en el formulario.
+        /// </summary>
         private void FormUsers_Load(object sender, EventArgs e)
         {
             ShowUsers();
         }
+
         /// <summary>
         /// Muestra en pantalla todos los usuarios registrados y sus datos.
         /// </summary>
@@ -64,8 +70,6 @@ namespace TallerProgramacion2020.Forms
         /// <summary>
         /// Permite la carga de una foto de perfil para un nuevo usuario.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void ButtonUploadPicture_Click(object sender, EventArgs e)
         {
             if (openFileDialogUploadPicture.ShowDialog() == DialogResult.OK)
@@ -82,8 +86,6 @@ namespace TallerProgramacion2020.Forms
         /// <summary>
         /// Registra un nuevo usuario.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void ButtonSave_Click(object sender, EventArgs e)
         {
             if (labelRegisterOrEdit.Text == "REGISTER NEW USER")
@@ -168,10 +170,8 @@ namespace TallerProgramacion2020.Forms
         }
 
         /// <summary>
-        /// Permite editar loos datos de un usuario ya registrado.
+        /// Permite editar los datos de un usuario ya registrado.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void ButtonEdit_Click(object sender, EventArgs e)
         {
             buttonCancel.Visible = true;
@@ -189,8 +189,6 @@ namespace TallerProgramacion2020.Forms
         /// <summary>
         /// Cancela la opción de editar los datos de un usuario.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void ButtonCancel_Click(object sender, EventArgs e)
         {
             labelRegisterOrEdit.Text = "REGISTER NEW USER";
@@ -201,8 +199,6 @@ namespace TallerProgramacion2020.Forms
         /// <summary>
         /// Elimina un usuario.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void ButtonDelete_Click(object sender, EventArgs e)
         {
             if (dataGridViewUsers.SelectedRows.Count == 1)

@@ -18,16 +18,19 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace TallerProgramacion2020.Forms
 {
+    /// <summary>
+    /// Formulario para asignar una prioridad a una pelicula o serie.
+    /// </summary>
     public partial class FormMediaPriority : Form
     {
         private int idMedia;
         protected WatchListItemDTO iWatchListItem { get; }
 
         /// <summary>
-        /// Formulario para asignar una prioridad a una pelicula o serie.
+        /// Crea una nueva instancia de la clase FormMediaPriority.
         /// </summary>
-        /// <param name="pIdMedia">Id de una pelicula o serie.</param>
-        /// <param name="pWatchListItem">Ítem de la lista de seguimiento.</param>
+        /// <param name="pIdMedia">Id de una película o serie.</param>
+        /// <param name="pWatchListItem">Ítem de la lista de seguimiento (opcional).</param>
         public FormMediaPriority(int pIdMedia, WatchListItemDTO pWatchListItem = null)
         {
             idMedia = pIdMedia;
@@ -44,14 +47,16 @@ namespace TallerProgramacion2020.Forms
         /// <summary>
         /// Habilita el arrastre del formulario al hacer clic. 
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void PanelControls_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
+        /// <summary>
+        /// Se ejecuta al cargar el formulario y establece la prioridad seleccionada si
+        /// existe un elemento de la lista de seguimiento asociado.
+        /// </summary>
         private void FormMediaPriority_Load(object sender, EventArgs e)
         {
             if (iWatchListItem != null)
@@ -62,10 +67,9 @@ namespace TallerProgramacion2020.Forms
         }
 
         /// <summary>
-        /// Guarda la prioridad que el usuario le asigna a una película o serie.
+        /// Se ejecuta al hacer clic en el botón Guardar y actualiza o crea un elemento de
+        /// la lista de seguimiento con la prioridad seleccionada. 
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void ButtonSave_Click(object sender, EventArgs e)
         {
             Priority priority;
@@ -105,10 +109,8 @@ namespace TallerProgramacion2020.Forms
         }
 
         /// <summary>
-        /// Cierra el formulario.
+        /// Se ejecuta al hacer clic en el botón Cerrar y cierra el formulario.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void ButtonClose_Click(object sender, EventArgs e)
         {
             Close();

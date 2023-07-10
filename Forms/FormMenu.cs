@@ -16,6 +16,10 @@ using TallerProgramacion2020.ToolsClass;
 
 namespace TallerProgramacion2020.Forms
 {
+    /// <summary>
+    /// Representa un formulario de menú principal que permite navegar entre
+    /// diferentes funcionalidades de la aplicación.
+    /// </summary>
     public partial class FormMenu : Form
     {
         private Form activeForm = null;
@@ -24,7 +28,7 @@ namespace TallerProgramacion2020.Forms
         protected WinFormsContext iContext;
 
         /// <summary>
-        /// Formulario que permite al usuario acceder a todas las funcionalidades de la aplicación.
+        /// Crea una nueva instancia de la clase FormMenu.
         /// </summary>
         public FormMenu()
         {
@@ -34,7 +38,7 @@ namespace TallerProgramacion2020.Forms
         }
 
         /// <summary>
-        /// Determina que funciones estan disponibles según el rol del usuario.
+        /// Restablece el estado inicial del formulario y determina que funciones estan disponibles según el rol del usuario.
         /// </summary>
         public void Reset()
         {
@@ -47,6 +51,9 @@ namespace TallerProgramacion2020.Forms
             pictureBoxUser.Image = Tools.ConvertByteArrayToImage(iContext.User.ProfilePhoto);
         }
 
+        /// <summary>
+        /// Se ejecuta al cargar el formulario y realiza tareas de inicialización y configuración.
+        /// </summary>
         private void FormMenu_Load(object sender, EventArgs e)
         {
             labelTodayDate.Text = DateTime.Today.ToString("D");
@@ -54,9 +61,8 @@ namespace TallerProgramacion2020.Forms
         }
 
         /// <summary>
-        /// Cambia de color el fondo del botón que está activo.
+        /// Cambia de color el fondo del botón que está activo y muestra el título correspondiente.
         /// </summary>
-        /// <param name="buttonSender"></param>
         private void ActiveButton(object buttonSender)
         {
             if (buttonSender != null)
@@ -88,10 +94,8 @@ namespace TallerProgramacion2020.Forms
         }
 
         /// <summary>
-        /// Permite volver al inicio del menú.
+        /// Permite volver al inicio del menú y cierra cualquier formulario activo.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void ButtonHome_Click(object sender, EventArgs e)
         {
             DisableButton();
@@ -120,8 +124,6 @@ namespace TallerProgramacion2020.Forms
         /// <summary>
         /// Abre el formulario FormWatchList.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void ButtonSeeWatchList_Click(object sender, EventArgs e)
         {
             OpenChildForm(new FormWatchList(), sender);
@@ -130,8 +132,6 @@ namespace TallerProgramacion2020.Forms
         /// <summary>
         /// Abre el formulario FormReviews.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void ButtonSeeReviews_Click(object sender, EventArgs e)
         {
             OpenChildForm(new FormReviews(), sender);
@@ -140,8 +140,6 @@ namespace TallerProgramacion2020.Forms
         /// <summary>
         /// Abre el formulario FormSearchMoviesOrSeries.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void ButtonAddToList_Click(object sender, EventArgs e)
         {
             OpenChildForm(new FormSearchMoviesOrSeries(), sender);
@@ -150,8 +148,6 @@ namespace TallerProgramacion2020.Forms
         /// <summary>
         /// Abre el formulario FormProfile.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void ButtonProfile_Click(object sender, EventArgs e)
         {
             OpenChildForm(new FormProfile(), sender);
@@ -160,8 +156,6 @@ namespace TallerProgramacion2020.Forms
         /// <summary>
         /// Abre el formulario FormUsers.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void ButtonManageUsers_Click(object sender, EventArgs e)
         {
             OpenChildForm(new FormUsers(), sender);
@@ -170,8 +164,6 @@ namespace TallerProgramacion2020.Forms
         /// <summary>
         /// Cierra la sesión del usuario.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void ButtonLogOut_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Are you sure to log out?", "Waring", MessageBoxButtons.YesNo,
@@ -184,8 +176,6 @@ namespace TallerProgramacion2020.Forms
         /// <summary>
         /// Permite minimizar la ventana.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void ButtonMinimized_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
@@ -194,8 +184,6 @@ namespace TallerProgramacion2020.Forms
         /// <summary>
         /// Permite maximizar la ventana.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void ButtonMaximized_Click(object sender, EventArgs e)
         {
             LX = this.Location.X;
@@ -209,8 +197,6 @@ namespace TallerProgramacion2020.Forms
         /// <summary>
         /// Cierra la aplicación.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void ButtonClose_Click(object sender, EventArgs e)
         {
             if(MessageBox.Show("Are you sure to close the application?","Waring",MessageBoxButtons.YesNo,
@@ -223,8 +209,6 @@ namespace TallerProgramacion2020.Forms
         /// <summary>
         /// Cambia la ventana a su tamaño original.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void ButtonRestore_Click(object sender, EventArgs e)
         {
             this.Size = new Size(1300, 650);
@@ -241,8 +225,6 @@ namespace TallerProgramacion2020.Forms
         /// <summary>
         /// Habilita el arrastre del formulario al hacer clic.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void PanelControls_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();

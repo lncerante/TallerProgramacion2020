@@ -15,13 +15,16 @@ using TallerProgramacion2020.WinFormsContextClass;
 
 namespace TallerProgramacion2020.Forms
 {
+    /// <summary>
+    /// Formulario que permite buscar películas o series.
+    /// </summary>
     public partial class FormSearchMoviesOrSeries : Form
     {
         protected IEnumerable<MediaDTO> mediaList;
         protected WinFormsContext iContext;
 
         /// <summary>
-        /// Formulario que permite buscar películas o series.
+        /// Crea una nueva instancia de la clase FormSearchMoviesOrSeries.
         /// </summary>
         public FormSearchMoviesOrSeries()
         {
@@ -29,6 +32,9 @@ namespace TallerProgramacion2020.Forms
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Se ejecuta al cargar el formulario y realiza la carga inicial de datos.
+        /// </summary>
         private void FormSearchMoviesOrSeries_Load(object sender, EventArgs e)
         {
             Loading(false);
@@ -57,7 +63,8 @@ namespace TallerProgramacion2020.Forms
         }
 
         /// <summary>
-        /// Busca los datos ingresados en la API o en la BD local según corresponda.
+        /// Busca los datos ingresados en la BD local y si no encuentra resultados busca en la API.
+        /// Devuelve los datos que coincidan con la búsueda.
         /// </summary>
         /// <param name="forceApiSearch"></param>
         private void SearchMedia(bool forceApiSearch = false)
@@ -112,8 +119,6 @@ namespace TallerProgramacion2020.Forms
         /// <summary>
         /// Busca los datos ingresados en la base de datos de la aplicación.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void ButtonSearch_Click(object sender, EventArgs e)
         {
             SearchMedia(false);
@@ -122,8 +127,6 @@ namespace TallerProgramacion2020.Forms
         /// <summary>
         /// Consulta los datos ingresados a la API.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void buttonOnlineSearch_Click(object sender, EventArgs e)
         {
             SearchMedia(true);
@@ -132,7 +135,7 @@ namespace TallerProgramacion2020.Forms
         /// <summary>
         /// Etiqueta que muestra mensaje de error.
         /// </summary>
-        /// <param name="txt"></param>
+        /// <param name="txt">Mensaje de error.</param>
         private void ErrorMessage(string txt)
         {
             labelErrorMessage.Text = "      " + txt;
@@ -142,8 +145,6 @@ namespace TallerProgramacion2020.Forms
         /// <summary>
         /// Permite calificar y dejar un comentario sobre una pelicula o serie seleccionada.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void ButtonRate_Click(object sender, EventArgs e)
         {
             if (dataGridViewMedia.SelectedRows.Count == 1)
@@ -165,8 +166,6 @@ namespace TallerProgramacion2020.Forms
         /// <summary>
         /// Permite ver más información sobre la película o serie seleccionada.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void ButtonSeeMoreInformation_Click(object sender, EventArgs e)
         {
             if (dataGridViewMedia.SelectedRows.Count == 1)
@@ -188,8 +187,6 @@ namespace TallerProgramacion2020.Forms
         /// <summary>
         /// Agrega una película o serie a la lista de seguimiento del usuario.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void ButtonAddToMyList_Click(object sender, EventArgs e)
         {
             if (dataGridViewMedia.SelectedRows.Count == 1)
