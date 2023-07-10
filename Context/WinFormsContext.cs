@@ -10,6 +10,10 @@ using TallerProgramacion2020.Forms;
 
 namespace TallerProgramacion2020.WinFormsContextClass
 {
+    /// <summary>
+    /// Clase que actúa como contexto en una aplicación de Windows Forms.
+    /// Permite almacenar información compartida y acceder a ella desde diferentes partes de la aplicación.
+    /// </summary>
     public class WinFormsContext
     {
         protected static WinFormsContext _instance;
@@ -21,8 +25,7 @@ namespace TallerProgramacion2020.WinFormsContextClass
         protected IEnumerable<MediaDTO> iCurrentMedia;
 
         /// <summary>
-        /// Clase que actúa como contexto en una aplicación de Windows Forms.
-        /// Permite almacenar información compartida y acceder a ella desde diferentes partes de la aplicación.
+        /// Constructor de la clase WinFormsContext. Inicializa las variables iUser y iRootForm como null.
         /// </summary>
         protected WinFormsContext()
         {
