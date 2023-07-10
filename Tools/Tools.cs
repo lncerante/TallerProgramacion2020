@@ -9,6 +9,9 @@ using System.Xml.Linq;
 
 namespace TallerProgramacion2020.ToolsClass
 {
+    /// <summary>
+    /// Proporciona métodos útiles para realizar tareas comunes.
+    /// </summary>
     public class Tools
     {
         /// <summary>
