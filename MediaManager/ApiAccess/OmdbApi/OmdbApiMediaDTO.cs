@@ -55,7 +55,7 @@ namespace TallerProgramacion2020.MediaManager.ApiAccess.ImdbApi
                     }
                     catch
                     {
-                        // Manejar excepciones al descargar el póster
+
                     }
                 if (Type == "movie")
                 {
