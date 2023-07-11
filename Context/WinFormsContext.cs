@@ -31,6 +31,7 @@ namespace TallerProgramacion2020.WinFormsContextClass
         {
             iUser = null;
             iRootForm = null;
+            iCurrentMedia = null;
         }
 
         /// <summary>
@@ -48,16 +49,13 @@ namespace TallerProgramacion2020.WinFormsContextClass
         }
 
         /// <summary>
-        /// Reinicia el contexto de la aplicación, creando una nueva instancia de la clase "WinFormsContext".
+        /// Reinicia el contexto de la aplicación.
         /// </summary>
-        /// <returns>Si no existe una instancia previa, crea una nueva instancia y la retorna</returns>
-        public static WinFormsContext Reset()
+        public void Reset()
         {
-            if (_instance == null)
-            {
-                _instance = new WinFormsContext();
-            }
-            return _instance;
+            iUser = null;
+            iRootForm = null;
+            iCurrentMedia = null;
         }
 
         /// <summary>

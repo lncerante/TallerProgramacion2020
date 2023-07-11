@@ -60,9 +60,6 @@ namespace TallerProgramacion2020.MediaManager.ApiAccess.ImdbApi
             if (response.IsSuccessStatusCode)
             {
                 var jsonString = response.Content.ReadAsStringAsync().Result;
-                /*var writer = new StreamWriter("C:/Users/User/Documents/TallerDeProgramacion/mediaFinderResults.txt", true);
-                writer.WriteLine(jsonString);
-                writer.Dispose();*/
                 var jsSerializer = new JavaScriptSerializer();
                 var mediaSearch = jsSerializer.Deserialize<OmdbApiMediaSearch>(jsonString);
                 if (mediaSearch.Response == true)
@@ -93,9 +90,6 @@ namespace TallerProgramacion2020.MediaManager.ApiAccess.ImdbApi
             if (response.IsSuccessStatusCode)
             {
                 var jsonString = response.Content.ReadAsStringAsync().Result;
-                /*var writer = new StreamWriter("C:/Users/User/Documents/TallerDeProgramacion/mediaFinderResults.txt", true);
-                writer.WriteLine(jsonString);
-                writer.Dispose();*/
                 var jsSerializer = new JavaScriptSerializer();
                 var mediaDTO = jsSerializer.Deserialize<OmdbApiMediaDTO>(jsonString);
                 mediaResponse = mediaDTO.AsMedia;

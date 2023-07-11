@@ -94,6 +94,7 @@ namespace TallerProgramacion2020.Forms
                 }
                 catch (Exception ex)
                 {
+                    Tools.Log(ex);
                     ErrorMessage(ex.Message);
                 }
             }

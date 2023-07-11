@@ -13,6 +13,7 @@ using System.Windows.Forms;
 using TallerProgramacion2020.MediaManager.Controllers;
 using TallerProgramacion2020.MediaManager.Domain;
 using TallerProgramacion2020.MediaManager.IO;
+using TallerProgramacion2020.ToolsClass;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
@@ -104,6 +105,7 @@ namespace TallerProgramacion2020.Forms
             }
             catch (Exception ex)
             {
+                Tools.Log(ex);
                 MessageBox.Show(ex.Message);
             }
         }

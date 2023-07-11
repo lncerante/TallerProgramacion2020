@@ -93,8 +93,9 @@ namespace TallerProgramacion2020.Forms
                 {
                     imgByte = Tools.ConvertImageToByteArray(imagePath);
                 }
-                catch
+                catch (Exception ex)
                 {
+                    Tools.Log(ex);
                     MessageBox.Show("Error while processing image.");
                 }
             }
