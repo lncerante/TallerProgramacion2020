@@ -15,23 +15,38 @@ using TallerProgramacion2020.WinFormsContextClass;
 
 namespace TallerProgramacion2020.Forms
 {
+    /// <summary>
+    /// Formulario que permite buscar películas o series.
+    /// </summary>
     public partial class FormSearchMoviesOrSeries : Form
     {
         protected IEnumerable<MediaDTO> mediaList;
         protected WinFormsContext iContext;
 
+        /// <summary>
+        /// Crea una nueva instancia de la clase FormSearchMoviesOrSeries.
+        /// </summary>
         public FormSearchMoviesOrSeries()
         {
             iContext = WinFormsContext.GetInstance();
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Se ejecuta al cargar el formulario y realiza la carga inicial de datos.
+        /// </summary>
         private void FormSearchMoviesOrSeries_Load(object sender, EventArgs e)
         {
             Loading(false);
             dataGridViewMedia.Visible = false;
+            mediaList = iContext.CurrentMedia;
+            ShowMedia();
         }
 
+        /// <summary>
+        /// Muestra u oculta un panel de carga. 
+        /// </summary>
+        /// <param name="isLoading"></param>
         public void Loading(bool isLoading)
         {
             panelLoading.BackColor = Color.FromArgb(20, Color.Blue);
@@ -47,6 +62,11 @@ namespace TallerProgramacion2020.Forms
             }
         }
 
+        /// <summary>
+        /// Busca los datos ingresados en la BD local y si no encuentra resultados busca en la API.
+        /// Devuelve los datos que coincidan con la búsqueda.
+        /// </summary>
+        /// <param name="forceApiSearch"></param>
         private void SearchMedia(bool forceApiSearch = false)
         {
             if (textBoxSearchTitle.Text.Length == 0 && textBoxGenre.Text.Length == 0 && comboBoxType.Text.Length == 0)
@@ -96,22 +116,36 @@ namespace TallerProgramacion2020.Forms
             }
         }
 
+        /// <summary>
+        /// Busca los datos ingresados en la BD local y si no encuentra resultados busca en la API.
+        /// Devuelve los datos que coincidan con la búsqueda.
+        /// </summary>
         private void ButtonSearch_Click(object sender, EventArgs e)
         {
             SearchMedia(false);
         }
 
-        private void buttonOnlineSearch_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Consulta los datos ingresados a la API y devuelve los datos que coincidan con la búsqueda.
+        /// </summary>
+        private void ButtonOnlineSearch_Click(object sender, EventArgs e)
         {
             SearchMedia(true);
         }
 
+        /// <summary>
+        /// Etiqueta que muestra mensaje de error.
+        /// </summary>
+        /// <param name="txt">Mensaje de error.</param>
         private void ErrorMessage(string txt)
         {
             labelErrorMessage.Text = "      " + txt;
             labelErrorMessage.Visible = true;
         }
 
+        /// <summary>
+        /// Permite calificar y dejar un comentario sobre una pelicula o serie seleccionada.
+        /// </summary>
         private void ButtonRate_Click(object sender, EventArgs e)
         {
             if (dataGridViewMedia.SelectedRows.Count == 1)
@@ -130,6 +164,9 @@ namespace TallerProgramacion2020.Forms
             }
         }
 
+        /// <summary>
+        /// Permite ver más información sobre la película o serie seleccionada.
+        /// </summary>
         private void ButtonSeeMoreInformation_Click(object sender, EventArgs e)
         {
             if (dataGridViewMedia.SelectedRows.Count == 1)
@@ -148,6 +185,9 @@ namespace TallerProgramacion2020.Forms
             }
         }
 
+        /// <summary>
+        /// Agrega una película o serie a la lista de seguimiento del usuario.
+        /// </summary>
         private void ButtonAddToMyList_Click(object sender, EventArgs e)
         {
             if (dataGridViewMedia.SelectedRows.Count == 1)
@@ -166,6 +206,9 @@ namespace TallerProgramacion2020.Forms
             }
         }
 
+        /// <summary>
+        /// Muestra los datos obtenidos en pantalla.
+        /// </summary>
         private void ShowMedia()
         {
             if (mediaList != null)

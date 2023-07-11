@@ -8,11 +8,22 @@ using TallerProgramacion2020.ToolsClass;
 
 namespace TallerProgramacion2020.MediaManager.DAL.EntityFramework
 {
+    /// <summary>
+    /// Clase interna que hereda de Repository y representa el repositorio para la entidad Media.
+    /// Proporciona métodos para realizar operaciones de creación, actualización, eliminación y consulta en la base de datos.
+    /// </summary>
     internal class MediaRepository : Repository<Media, MediaManagerDbContext>, IMediaRepository
     {
-
+        /// <summary>
+        /// Constructor de la clase MediaRepository.
+        /// </summary>
+        /// <param name="pContext">Instancia del contexto de base de datos.</param>
         public MediaRepository(MediaManagerDbContext pContext) : base(pContext) { }
 
+        /// <summary>
+        /// Crea una nueva Media en la base de datos.
+        /// </summary>
+        /// <param name="pMedia">Media a crear.</param>
         public override void Create(Media pMedia)
         {
             pMedia.ITS = DateTime.Now;
@@ -100,21 +111,39 @@ namespace TallerProgramacion2020.MediaManager.DAL.EntityFramework
             iDbContext.Media.Add(pMedia);
         }
 
+        /// <summary>
+        /// Actualizar una Media en la base de datos.
+        /// Lanza una excepción ya que los medios son de solo lectura.
+        /// </summary>
+        /// <param name="pMedia">Media a actualizar.</param>
         public override void Update(Media pMedia)
         {
             throw new Exception("Media is readonly.");
         }
 
+        /// <summary>
+        /// Elimina una Media existente de la base de datos.
+        /// </summary>
+        /// <param name="pMedia">Media a eliminar.</param>
         public override void Delete(Media pMedia)
         {
             iDbContext.Media.Remove(pMedia);
         }
 
+        /// <summary>
+        /// Obtiene una Media de la base de datos según su identificador.
+        /// </summary>
+        /// <param name="pId">Identificador del media.</param>
+        /// <returns>Media encontrada o null si no se encuentra.</returns>
         public override Media Get(int pId)
         {
             return iDbContext.Media.Find(pId);
         }
 
+        /// <summary>
+        /// Obtiene todas las Medias de la base de datos.
+        /// </summary>
+        /// <returns>Enumeración de medias.</returns>
         public override IEnumerable<Media> GetAll()
         {
             return iDbContext.Media

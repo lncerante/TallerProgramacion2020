@@ -7,17 +7,32 @@ using TallerProgramacion2020.MediaManager.Domain;
 
 namespace TallerProgramacion2020.MediaManager.DAL.EntityFramework
 {
+    /// <summary>
+    /// Clase interna que implementa la interfaz IUserRepository y hereda de Repository para la entidad User en el contexto de MediaManager.
+    /// Proporciona métodos para crear, actualizar, eliminar y obtener usuarios del repositorio de usuarios.
+    /// </summary>
     internal class UserRepository : Repository<User, MediaManagerDbContext>, IUserRepository
     {
-
+        /// <summary>
+        /// Constructor de la clase UserRepository.
+        /// </summary>
+        /// <param name="pContext">Instancia del contexto de base de datos.</param>
         public UserRepository(MediaManagerDbContext pContext) : base(pContext) { }
 
+        /// <summary>
+        /// Crea un nuevo usuario en la base de datos.
+        /// </summary>
+        /// <param name="pUser">Usuario a crear.</param>
         public override void Create(User pUser)
         {
             pUser.ITS = DateTime.Now;
             iDbContext.Users.Add(pUser);
         }
 
+        /// <summary>
+        /// Actualiza un usuario existente en la base de datos.
+        /// </summary>
+        /// <param name="pUser">Usuario a actualizar.</param>
         public override void Update(User pUser)
         {
             var user = iDbContext.Users.Find(pUser.ID);
@@ -32,6 +47,10 @@ namespace TallerProgramacion2020.MediaManager.DAL.EntityFramework
             }
         }
 
+        /// <summary>
+        /// Elimina un usuario existente de la base de datos.
+        /// </summary>
+        /// <param name="pUser">Usuario a eliminar.</param>
         public override void Delete(User pUser)
         {
             var reviews = iDbContext.Reviews.Where(r => r.User.ID == pUser.ID);
@@ -49,11 +68,20 @@ namespace TallerProgramacion2020.MediaManager.DAL.EntityFramework
             iDbContext.Users.Remove(pUser);
         }
 
+        /// <summary>
+        /// Obtiene un usuario de la base de datos según su identificador.
+        /// </summary>
+        /// <param name="pId">Identificador del usuario.</param>
+        /// <returns>Usuario encontrado o null si no se encuentra.</returns>
         public override User Get(int pId)
         {
             return iDbContext.Users.Find(pId);
         }
 
+        /// <summary>
+        /// Obtiene todos los usuarios de la base de datos.
+        /// </summary>
+        /// <returns>Enumeración de usuarios.</returns>
         public override IEnumerable<User> GetAll()
         {
             return iDbContext.Users;

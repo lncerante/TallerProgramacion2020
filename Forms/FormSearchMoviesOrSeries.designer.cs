@@ -354,7 +354,7 @@
             this.buttonOnlineSearch.TabIndex = 104;
             this.buttonOnlineSearch.Text = "Online Search";
             this.buttonOnlineSearch.UseVisualStyleBackColor = false;
-            this.buttonOnlineSearch.Click += new System.EventHandler(this.buttonOnlineSearch_Click);
+            this.buttonOnlineSearch.Click += new System.EventHandler(this.ButtonOnlineSearch_Click);
             // 
             // labelErrorMessage
             // 

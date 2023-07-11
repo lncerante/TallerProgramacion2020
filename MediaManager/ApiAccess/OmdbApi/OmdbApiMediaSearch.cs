@@ -8,6 +8,9 @@ using TallerProgramacion2020.MediaManager.Domain;
 
 namespace TallerProgramacion2020.MediaManager.ApiAccess.ImdbApi
 {
+    /// <summary>
+    /// Clase que representa los resultados de búsqueda de Medias utilizando la API de OMDB.
+    /// </summary>
     internal class OmdbApiMediaSearch
     {
         public IEnumerable<OmdbApiMediaDTO> Search;

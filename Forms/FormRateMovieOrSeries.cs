@@ -14,17 +14,29 @@ using TallerProgramacion2020.MediaManager.IO;
 
 namespace TallerProgramacion2020.Forms
 {
+    /// <summary>
+    /// Formulario que permite calificar una pelicula o serie y opcionalmente dejar comentarios.
+    /// </summary>
     public partial class FormRateMovieOrSeries : Form
     {
         protected int idMedia { get; }
         protected ReviewDTO iReview { get; }
 
+        /// <summary>
+        /// Crea una nueva instancia de la clase FormRateMovieOrSeries.
+        /// </summary>
+        /// <param name="pIdMedia">El ID de la película o serie a calificar.</param>
+        /// <param name="pReview">La reseña asociada al elemento (opcional).</param>
         public FormRateMovieOrSeries(int pIdMedia, ReviewDTO pReview = null)
         {
             idMedia = pIdMedia;
             iReview = pReview;
             InitializeComponent();
         }
+
+        /// <summary>
+        /// Se ejecuta al cargar el formulario y muestra los datos de la reseña si existe.
+        /// </summary>
         private void FormRateMovieOrSeries_Load(object sender, EventArgs e)
         {
             if (iReview != null)
@@ -48,12 +60,18 @@ namespace TallerProgramacion2020.Forms
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int IParam);
+        /// <summary>
+        /// Permite arrastrar el formulario al hacer clic en el panel de controles.
+        /// </summary>
         private void PanelControls_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
+        /// <summary>
+        /// Guarda la calificación y el comentario del usuario.
+        /// </summary>
         private void ButtonSave_Click(object sender, EventArgs e)
         {
             Rating rating;
@@ -94,7 +112,9 @@ namespace TallerProgramacion2020.Forms
                 MessageBox.Show(ex.Message);
             }
         }
-
+        /// <summary>
+        /// Cierra el formulario.
+        /// </summary>
         private void ButtonClose_Click(object sender, EventArgs e)
         {
             Close();
