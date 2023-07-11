@@ -117,7 +117,7 @@ namespace TallerProgramacion2020.Forms
         }
 
         /// <summary>
-        /// Busca los datos ingresados en la base de datos de la aplicación.
+        /// Busca los datos ingresados en la base de datos de la aplicación y devuelve los datos que coincidan con la búsueda.
         /// </summary>
         private void ButtonSearch_Click(object sender, EventArgs e)
         {
@@ -125,7 +125,7 @@ namespace TallerProgramacion2020.Forms
         }
 
         /// <summary>
-        /// Consulta los datos ingresados a la API.
+        /// Consulta los datos ingresados a la API y devuelve los datos que coincidan con la búsueda.
         /// </summary>
         private void buttonOnlineSearch_Click(object sender, EventArgs e)
         {
