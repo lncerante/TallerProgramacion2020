@@ -64,7 +64,7 @@ namespace TallerProgramacion2020.Forms
 
         /// <summary>
         /// Busca los datos ingresados en la BD local y si no encuentra resultados busca en la API.
-        /// Devuelve los datos que coincidan con la búsueda.
+        /// Devuelve los datos que coincidan con la búsqueda.
         /// </summary>
         /// <param name="forceApiSearch"></param>
         private void SearchMedia(bool forceApiSearch = false)
@@ -117,7 +117,8 @@ namespace TallerProgramacion2020.Forms
         }
 
         /// <summary>
-        /// Busca los datos ingresados en la base de datos de la aplicación y devuelve los datos que coincidan con la búsueda.
+        /// Busca los datos ingresados en la BD local y si no encuentra resultados busca en la API.
+        /// Devuelve los datos que coincidan con la búsqueda.
         /// </summary>
         private void ButtonSearch_Click(object sender, EventArgs e)
         {
@@ -125,9 +126,9 @@ namespace TallerProgramacion2020.Forms
         }
 
         /// <summary>
-        /// Consulta los datos ingresados a la API y devuelve los datos que coincidan con la búsueda.
+        /// Consulta los datos ingresados a la API y devuelve los datos que coincidan con la búsqueda.
         /// </summary>
-        private void buttonOnlineSearch_Click(object sender, EventArgs e)
+        private void ButtonOnlineSearch_Click(object sender, EventArgs e)
         {
             SearchMedia(true);
         }
