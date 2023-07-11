@@ -19,11 +19,19 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace TallerProgramacion2020.Forms
 {
+    /// <summary>
+    /// Formulario para asignar una prioridad a una pelicula o serie.
+    /// </summary>
     public partial class FormMediaPriority : Form
     {
         private int idMedia;
         protected WatchListItemDTO iWatchListItem { get; }
 
+        /// <summary>
+        /// Crea una nueva instancia de la clase FormMediaPriority.
+        /// </summary>
+        /// <param name="pIdMedia">Id de una película o serie.</param>
+        /// <param name="pWatchListItem">Ítem de la lista de seguimiento (opcional).</param>
         public FormMediaPriority(int pIdMedia, WatchListItemDTO pWatchListItem = null)
         {
             idMedia = pIdMedia;
@@ -36,12 +44,20 @@ namespace TallerProgramacion2020.Forms
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int IParam);
+
+        /// <summary>
+        /// Habilita el arrastre del formulario al hacer clic. 
+        /// </summary>
         private void PanelControls_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
+        /// <summary>
+        /// Se ejecuta al cargar el formulario y establece la prioridad seleccionada si
+        /// existe un elemento de la lista de seguimiento asociado.
+        /// </summary>
         private void FormMediaPriority_Load(object sender, EventArgs e)
         {
             if (iWatchListItem != null)
@@ -50,7 +66,11 @@ namespace TallerProgramacion2020.Forms
                 comboBoxPriority.Text = priority;
             }
         }
-        
+
+        /// <summary>
+        /// Se ejecuta al hacer clic en el botón Guardar y actualiza o crea un elemento de
+        /// la lista de seguimiento con la prioridad seleccionada. 
+        /// </summary>
         private void ButtonSave_Click(object sender, EventArgs e)
         {
             Priority priority;
@@ -90,6 +110,9 @@ namespace TallerProgramacion2020.Forms
             }
         }
 
+        /// <summary>
+        /// Se ejecuta al hacer clic en el botón Cerrar y cierra el formulario.
+        /// </summary>
         private void ButtonClose_Click(object sender, EventArgs e)
         {
             Close();

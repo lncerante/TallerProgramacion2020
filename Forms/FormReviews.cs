@@ -15,19 +15,32 @@ using TallerProgramacion2020.ToolsClass;
 
 namespace TallerProgramacion2020.Forms
 {
+    /// <summary>
+    /// Formulario que permite vizualizar todas las reseñas de un usuario.
+    /// </summary>
     public partial class FormReviews : Form
     {
         private IEnumerable<ReviewDTO> reviewList;
+
+        /// <summary>
+        /// Crea una nueva instancia de la clase FormReviews.
+        /// </summary>
         public FormReviews()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Se ejecuta al cargar el formulario y obtiene las reseñas existentes.
+        /// </summary>
         private void FormReviews_Load(object sender, EventArgs e)
         {
             GetReviews();
         }
 
+        /// <summary>
+        /// Obtiene y muestra todas las reseñas de un usuario.
+        /// </summary>
         private void GetReviews()
         {
             try
@@ -59,6 +72,9 @@ namespace TallerProgramacion2020.Forms
             }
         }
 
+        /// <summary>
+        /// Permite editar una reseña seleccionada.
+        /// </summary>
         private void ButtonEdit_Click(object sender, EventArgs e)
         {
             if (dataGridViewMedia.SelectedRows.Count == 1)
@@ -78,6 +94,9 @@ namespace TallerProgramacion2020.Forms
             }
         }
 
+        /// <summary>
+        /// Elimina una reseña seleccionada.
+        /// </summary>
         private void ButtonDelete_Click(object sender, EventArgs e)
         {
             if (dataGridViewMedia.SelectedRows.Count == 1)

@@ -14,17 +14,27 @@ using System.Web.UI.WebControls;
 
 namespace TallerProgramacion2020.MediaManager.Controllers
 {
+    /// <summary>
+    /// Controlador para la gestión de películas y series.
+    /// </summary>
     public class MediaController
     {
         protected Context iContext;
         protected IMediaFinder iMediaFinder;
 
+        /// <summary>
+        /// Constructor de la clase MediaController.
+        /// </summary>
         public MediaController()
         {
             iContext = Context.GetInstance();
             iMediaFinder = new OmdbApiMediaFinder();
         }
 
+        /// <summary>
+        /// Obtiene todas las películas y series disponibles.
+        /// </summary>
+        /// <returns>Una colección de objetos MediaDTO.</returns>
         public IEnumerable<MediaDTO> GetMedia()
         {
             var media = iContext.UnitOfWork.MediaRepository.GetAll();
@@ -32,6 +42,14 @@ namespace TallerProgramacion2020.MediaManager.Controllers
             return media.Select(m => DTOService.AsDTO(m));
         }
 
+        /// <summary>
+        /// Busca películas y series basadas en el título, el nombre del género y el tipo.
+        /// </summary>
+        /// <param name="pTitle">El título a buscar.</param>
+        /// <param name="pGenreName">El nombre del género a buscar.</param>
+        /// <param name="pMediaType">El tipo de media a buscar.</param>
+        /// <param name="useApi">Indica si se debe utilizar una API para buscar los medios.</param>
+        /// <returns>Una colección de objetos MediaDTO que coinciden con los criterios de búsqueda.</returns>
         public IEnumerable<MediaDTO> SearchMedia(string pTitle, string pGenreName, MediaType? pMediaType, bool useApi = false)
         {
             if (string.IsNullOrEmpty(pTitle))

@@ -16,23 +16,35 @@ using TallerProgramacion2020.WinFormsContextClass;
 
 namespace TallerProgramacion2020.Forms
 {
+    /// <summary>
+    /// Formulario que permite al usuario vizualizar y editar sus datos.
+    /// </summary>
     public partial class FormProfile : Form
     {
         private string imagePath;
         private byte[] imgByte = null;
         protected WinFormsContext iContext;
 
+        /// <summary>
+        /// Crea una nueva instancia de la clase FormProfile.
+        /// </summary>
         public FormProfile()
         {
             iContext = WinFormsContext.GetInstance();
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Se ejecuta al cargar el formulario y muestra los detalles del usuario.
+        /// </summary>
         private void FormProfile_Load(object sender, EventArgs e)
         {
             ShowUser();
         }
 
+        /// <summary>
+        /// Muestra los datos del usuario.
+        /// </summary>
         private void ShowUser()
         {
             pictureBoxProfile.Image = Tools.ConvertByteArrayToImage(iContext.User.ProfilePhoto);
@@ -42,6 +54,9 @@ namespace TallerProgramacion2020.Forms
             labelUserUsername.Visible = true;
         }
 
+        /// <summary>
+        /// Permite al usuario editar sus datos.
+        /// </summary>
         private void ButtonEdit_Click(object sender, EventArgs e)
         {
             labelUserFullName.Visible = false;
@@ -66,6 +81,9 @@ namespace TallerProgramacion2020.Forms
             buttonCancel.Visible = true;
         }
 
+        /// <summary>
+        /// Permite al usuario actualizar su foto de perfil.
+        /// </summary>
         private void ButtonUploadPicture_Click(object sender, EventArgs e)
         {
             if (openFileDialogUploadPicture.ShowDialog() == DialogResult.OK)
@@ -87,6 +105,9 @@ namespace TallerProgramacion2020.Forms
             }
         }
 
+        /// <summary>
+        /// Guarda los cambios del usuario.
+        /// </summary>
         private void ButtonSaveChanges_Click(object sender, EventArgs e)
         {
             if
@@ -143,12 +164,19 @@ namespace TallerProgramacion2020.Forms
             }
         }
 
+        /// <summary>
+        /// Etiqueta que muestra mensaje de error.
+        /// </summary>
+        /// <param name="txt"></param>
         private void ErrorMessage(string txt)
         {
             labelErrorMessage.Text = "      " + txt;
             labelErrorMessage.Visible = true;
         }
 
+        /// <summary>
+        /// Cancela la posibilidad de modificar los datos de usuario.
+        /// </summary>
         private void ButtonCancel_Click(object sender, EventArgs e)
         {
             labelUserFullName.Visible = true;
