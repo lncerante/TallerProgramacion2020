@@ -24,6 +24,7 @@ namespace TallerProgramacion2020.WinFormsContextClass
         {
             iUser = null;
             iRootForm = null;
+            iCurrentMedia = null;
         }
 
         public static WinFormsContext GetInstance()
@@ -35,13 +36,11 @@ namespace TallerProgramacion2020.WinFormsContextClass
             return _instance;
         }
 
-        public static WinFormsContext Reset()
+        public void Reset()
         {
-            if (_instance == null)
-            {
-                _instance = new WinFormsContext();
-            }
-            return _instance;
+            iUser = null;
+            iRootForm = null;
+            iCurrentMedia = null;
         }
 
         public UserDTO User

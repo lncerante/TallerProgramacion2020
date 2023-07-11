@@ -63,10 +63,6 @@ namespace TallerProgramacion2020.Forms
                 imagePath = openFileDialogUploadPicture.FileName;
                 imgByte = Tools.ConvertImageToByteArray(imagePath);
             }
-            else
-            {
-                MessageBox.Show("Something went wrong.");
-            }
         }
 
         private void ButtonSave_Click(object sender, EventArgs e)
@@ -95,6 +91,7 @@ namespace TallerProgramacion2020.Forms
                 }
                 catch (Exception ex)
                 {
+                    Tools.Log(ex);
                     ErrorMessage(ex.Message);
                 }
             }
@@ -124,6 +121,7 @@ namespace TallerProgramacion2020.Forms
                 }
                 catch (Exception ex)
                 {
+                    Tools.Log(ex);
                     ErrorMessage(ex.Message);
                 }
             }
@@ -182,6 +180,7 @@ namespace TallerProgramacion2020.Forms
                     }
                     catch (Exception ex)
                     {
+                        Tools.Log(ex);
                         MessageBox.Show(ex.Message);
                     }
                 }
@@ -200,6 +199,7 @@ namespace TallerProgramacion2020.Forms
             }
             catch (Exception ex)
             {
+                Tools.Log(ex);
                 ErrorMessage(ex.Message);
             }
         }

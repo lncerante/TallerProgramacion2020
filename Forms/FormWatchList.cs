@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using TallerProgramacion2020.MediaManager.Controllers;
 using TallerProgramacion2020.MediaManager.Domain;
 using TallerProgramacion2020.MediaManager.IO;
+using TallerProgramacion2020.ToolsClass;
 using TallerProgramacion2020.WinFormsContextClass;
 
 namespace TallerProgramacion2020.Forms
@@ -55,8 +56,9 @@ namespace TallerProgramacion2020.Forms
                     }
                 }
             }
-            catch
+            catch (Exception ex)
             {
+                Tools.Log(ex);
                 MessageBox.Show("Error trying to get WatchList.");
             }
         }
@@ -78,13 +80,14 @@ namespace TallerProgramacion2020.Forms
                         }
                         catch (Exception ex)
                         {
+                            Tools.Log(ex);
                             MessageBox.Show(ex.Message);
                         }
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Please select a WatchList item to delete.");
+                    MessageBox.Show("Please select a WatchList item.");
                 }
                 GetWatchList();
             }
@@ -103,7 +106,7 @@ namespace TallerProgramacion2020.Forms
                 }
                 else
                 {
-                    MessageBox.Show("Error trying to open review.");
+                    MessageBox.Show("Please select a WatchList item.");
                 }
                 GetWatchList();
             }
@@ -122,7 +125,7 @@ namespace TallerProgramacion2020.Forms
                 }
                 else
                 {
-                    MessageBox.Show("Error trying to open WatchList item.");
+                    MessageBox.Show("Please select a WatchList item.");
                 }
                 GetWatchList();
             }
@@ -141,7 +144,7 @@ namespace TallerProgramacion2020.Forms
                 }
                 else
                 {
-                    MessageBox.Show("Error trying to open media.");
+                    MessageBox.Show("Please select a WatchList item.");
                 }
             }
         }

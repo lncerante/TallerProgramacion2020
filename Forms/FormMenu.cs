@@ -126,6 +126,7 @@ namespace TallerProgramacion2020.Forms
             if (MessageBox.Show("Are you sure to log out?", "Waring", MessageBoxButtons.YesNo,
                 MessageBoxIcon.Warning) == DialogResult.Yes)
             {
+                iContext.Reset();
                 this.Close();
             }
         }

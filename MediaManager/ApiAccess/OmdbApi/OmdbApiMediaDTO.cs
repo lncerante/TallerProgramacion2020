@@ -46,10 +46,7 @@ namespace TallerProgramacion2020.MediaManager.ApiAccess.ImdbApi
                     {
                         media.Poster = new WebClient().DownloadData(Poster);
                     }
-                    catch
-                    {
-                        
-                    }
+                    catch { }
                 if (Type == "movie")
                 {
                     media.MediaType = MediaType.Movie;

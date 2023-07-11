@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using TallerProgramacion2020.MediaManager.Controllers;
 using TallerProgramacion2020.MediaManager.Domain;
 using TallerProgramacion2020.MediaManager.IO;
+using TallerProgramacion2020.ToolsClass;
 using TallerProgramacion2020.WinFormsContextClass;
 
 namespace TallerProgramacion2020.Forms
@@ -77,8 +78,9 @@ namespace TallerProgramacion2020.Forms
                         forceApiSearch
                     );
                 }
-                catch
+                catch (Exception ex)
                 {
+                    Tools.Log(ex);
                     MessageBox.Show("Error trying to call media API. Please try again or modify your search parameters.");
                     mediaList = null;
                 }
@@ -126,7 +128,7 @@ namespace TallerProgramacion2020.Forms
                 }
                 else
                 {
-                    ErrorMessage("Error trying to open media.");
+                    ErrorMessage("Please select a movie or series.");
                 }
             }
         }
@@ -144,7 +146,7 @@ namespace TallerProgramacion2020.Forms
                 }
                 else
                 {
-                    ErrorMessage("Error trying to open media.");
+                    ErrorMessage("Please select a movie or series.");
                 }
             }
         }
@@ -162,7 +164,7 @@ namespace TallerProgramacion2020.Forms
                 }
                 else
                 {
-                    ErrorMessage("Error trying to open media.");
+                    ErrorMessage("Please select a movie or series.");
                 }
             }
         }

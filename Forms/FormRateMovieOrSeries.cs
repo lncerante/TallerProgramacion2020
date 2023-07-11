@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using TallerProgramacion2020.MediaManager.Controllers;
 using TallerProgramacion2020.MediaManager.Domain;
 using TallerProgramacion2020.MediaManager.IO;
+using TallerProgramacion2020.ToolsClass;
 
 namespace TallerProgramacion2020.Forms
 {
@@ -91,6 +92,7 @@ namespace TallerProgramacion2020.Forms
             }
             catch (Exception ex)
             {
+                Tools.Log(ex);
                 MessageBox.Show(ex.Message);
             }
         }
