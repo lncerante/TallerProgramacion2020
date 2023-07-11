@@ -61,6 +61,7 @@ namespace TallerProgramacion2020.Forms
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int IParam);
+
         /// <summary>
         /// Permite arrastrar el formulario al hacer clic en el panel de controles.
         /// </summary>
@@ -114,6 +115,7 @@ namespace TallerProgramacion2020.Forms
                 MessageBox.Show(ex.Message);
             }
         }
+
         /// <summary>
         /// Cierra el formulario.
         /// </summary>
