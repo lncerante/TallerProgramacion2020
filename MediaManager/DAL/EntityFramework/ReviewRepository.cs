@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Security.Cryptography;
@@ -76,6 +77,25 @@ namespace TallerProgramacion2020.MediaManager.DAL.EntityFramework
                 .Include("Media.Cast")
                 .Include("Media.Director")
                 .Include("Media.Writer");
+        }
+
+        /// <summary>
+        /// Obtiene todas las Medias de la base de datos que cumplen con un listado de condiciones.
+        /// </summary>
+        /// <param name="pConditions">Listado de condiciones.</param>
+        /// <returns>Enumeración de medias que cumplen con un listado de condiciones.</returns>
+        public override IEnumerable<Review> GetWhere(IEnumerable<Func<Review, bool>> pConditions)
+        {
+            return iDbContext.Reviews
+                .Include("User")
+                .Include("Media")
+                .Include("Media.Genres")
+                .Include("Media.Origin")
+                .Include("Media.Cast")
+                .Include("Media.Director")
+                .Include("Media.Writer")
+                .AsEnumerable()
+                .Where(review => pConditions.All(condition => condition(review)));
         }
     }
 }

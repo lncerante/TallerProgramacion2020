@@ -102,6 +102,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Context\WinFormsContext.cs" />
+    <Compile Include="MediaManager\ApiAccess\OmdbApi\OmdbApiRequestClient.cs" />
     <Compile Include="MediaManager\Context\Context.cs" />
     <Compile Include="MediaManager\Controllers\MediaController.cs" />
     <Compile Include="MediaManager\Controllers\WatchListController.cs" />

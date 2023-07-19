@@ -8,6 +8,8 @@ using TallerProgramacion2020.MediaManager.IO;
 using TallerProgramacion2020.MediaManager.Domain;
 using TallerProgramacion2020.MediaManager.DAL;
 using System.Linq;
+using System.Net.PeerToPeer;
+using System.Security.Cryptography;
 
 namespace TallerProgramacion2020.MediaManager.Controllers
 {
@@ -30,25 +32,14 @@ namespace TallerProgramacion2020.MediaManager.Controllers
         /// Verifica si existe un usuario administrador en la base de datos.
         /// </summary>
         /// <returns>True si existe un usuario administrador, False en caso contrario.</returns>
-        protected bool AdminExists()
+        public bool AdminExists()
         {
-            var users = iContext.UnitOfWork.UserRepository.GetAll();
-            return users.Any(user => user.UserRole == UserRole.Admin);
-        }
-
-        /// <summary>
-        /// Ejecuta el flujo de inicio de sesión o registro según la existencia de un usuario administrador.
-        /// </summary>
-        public void Run()
-        {
-            if (!AdminExists())
+            Func<User, bool>[] conditions =
             {
-                Application.Run(new FormRegisterAdminUser());
-            }
-            else
-            {
-                Application.Run(new FormSignIn());
-            }
+                user => user.UserRole == UserRole.Admin
+            };
+            var users = iContext.UnitOfWork.UserRepository.GetWhere(conditions);
+            return users.Any();
         }
 
         /// <summary>
@@ -81,11 +72,12 @@ namespace TallerProgramacion2020.MediaManager.Controllers
         /// <returns>Un objeto UserDTO que representa al usuario si el inicio de sesión es exitoso, o null si no es válido.</returns>
         public UserDTO SignIn(string pUserName, string pPassword)
         {
-            var users = iContext.UnitOfWork.UserRepository.GetAll();
-            var user = users.SingleOrDefault(
-                u => u.UserName == pUserName && 
-                u.PasswordHash == pPassword.GetHashCode()
-            );
+            Func<User, bool>[] conditions =
+            {
+                u => u.UserName == pUserName,
+                u => u.PasswordHash == pPassword.GetHashCode()
+            };
+            var user = iContext.UnitOfWork.UserRepository.GetWhere(conditions).SingleOrDefault();
 
             if (user != null)
             {

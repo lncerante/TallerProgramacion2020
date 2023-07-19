@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using TallerProgramacion2020.MediaManager.Controllers;
 using System.Globalization;
+using TallerProgramacion2020.Forms;
 
 namespace TallerProgramacion2020
 {
@@ -13,8 +14,15 @@ namespace TallerProgramacion2020
             CultureInfo.CurrentCulture = new CultureInfo("en-US");
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            
-            new SignInController().Run();
+
+            if (new SignInController().AdminExists())
+            {
+                Application.Run(new FormSignIn());
+            }
+            else
+            {
+                Application.Run(new FormRegisterAdminUser());
+            }
         }
     }
 }

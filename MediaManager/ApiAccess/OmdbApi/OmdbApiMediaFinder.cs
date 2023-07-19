@@ -16,9 +16,7 @@ namespace TallerProgramacion2020.MediaManager.ApiAccess.ImdbApi
     /// </summary>
     internal class OmdbApiMediaFinder : IMediaFinder
     {
-        protected const string iApiUrl = "http://www.omdbapi.com/";
-        protected const string iApiKey = "?apikey=8c8fc255";
-        protected HttpClient iHttpClient;
+        protected OmdbApiRequestClient iRequestClient;
 
         /// <summary>
         /// Constructor de la clase OmdbApiMediaFinder.
@@ -26,9 +24,7 @@ namespace TallerProgramacion2020.MediaManager.ApiAccess.ImdbApi
         /// </summary>
         public OmdbApiMediaFinder()
         {
-            iHttpClient = new HttpClient();
-            iHttpClient.BaseAddress = new Uri(iApiUrl);
-            iHttpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("text/plain"));
+            iRequestClient = new OmdbApiRequestClient();
         }
 
         /// <summary>
@@ -41,25 +37,12 @@ namespace TallerProgramacion2020.MediaManager.ApiAccess.ImdbApi
         /// <returns>Una lista de Medias encontradas según los criterios de búsqueda.</returns>
         public IList<Media> FindMedia(string pTitle, Genre pGenre = null, MediaType? pType = null, int pPage = 1)
         {
-            // Construir los parámetros de la solicitud a la API de OMDB
-            var parameters = iApiKey + "&s=" + pTitle + "&page=" + pPage;
-
-            if (pType == MediaType.Movie)
-            {
-                parameters += "&type=movie";
-            }
-            else if (pType == MediaType.Series)
-            {
-                parameters += "&type=series";
-            }
-
             // Realizar la solicitud a la API de OMDB
-            var response = iHttpClient.GetAsync(parameters).Result;
+            var jsonString = iRequestClient.MultipleMediaRequest(pTitle, pType, pPage);
             var mediaResponse = new List<Media>();
 
-            if (response.IsSuccessStatusCode)
+            if (!string.IsNullOrEmpty(jsonString))
             {
-                var jsonString = response.Content.ReadAsStringAsync().Result;
                 var jsSerializer = new JavaScriptSerializer();
                 var mediaSearch = jsSerializer.Deserialize<OmdbApiMediaSearch>(jsonString);
                 if (mediaSearch.Response == true)
@@ -84,12 +67,11 @@ namespace TallerProgramacion2020.MediaManager.ApiAccess.ImdbApi
         /// <returns>Media correspondiente al ID de IMDB especificado.</returns>
         public Media GetMediaByImdbID(string pImdbID)
         {
-            // Realizar la solicitud a la API de OMDB para obtener los detalles de la Media
-            var response = iHttpClient.GetAsync(iApiKey + "&i=" + pImdbID).Result;
+            var jsonString = iRequestClient.SingleMediaRequest(pImdbID);
             var mediaResponse = new Media();
-            if (response.IsSuccessStatusCode)
+
+            if (!string.IsNullOrEmpty(jsonString))
             {
-                var jsonString = response.Content.ReadAsStringAsync().Result;
                 var jsSerializer = new JavaScriptSerializer();
                 var mediaDTO = jsSerializer.Deserialize<OmdbApiMediaDTO>(jsonString);
                 mediaResponse = mediaDTO.AsMedia;

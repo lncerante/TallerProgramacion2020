@@ -32,9 +32,12 @@ namespace TallerProgramacion2020.MediaManager.Controllers
         /// <returns>Una colección de objetos ReviewDTO que representan las reseñas del usuario.</returns>
         public IEnumerable<ReviewDTO> GetReviews()
         {
+            Func<Review, bool>[] conditions =
+            {
+                r => r.User.ID == iContext.User.ID
+            };
             var reviews = iContext.UnitOfWork.ReviewRepository
-                .GetAll()
-                .Where(r => r.User.ID == iContext.User.ID)
+                .GetWhere(conditions)
                 .OrderByDescending(r => r.ITS);
 
             return reviews.Select(review => DTOService.AsDTO(review));
@@ -50,8 +53,14 @@ namespace TallerProgramacion2020.MediaManager.Controllers
         public void CreateReview(int pMediaID, Rating pRating, string pComment)
         {
             Media media = iContext.UnitOfWork.MediaRepository.Get(pMediaID) ?? throw new Exception("Media could not be found.");
-            var exists = iContext.UnitOfWork.ReviewRepository.GetAll()
-                .Where(r => r.User.ID == iContext.User.ID && r.Media.ID == pMediaID);
+
+            Func<Review, bool>[] conditions =
+            {
+                r => r.User.ID == iContext.User.ID,
+                r => r.Media.ID == pMediaID
+            };
+            var exists = iContext.UnitOfWork.ReviewRepository.GetWhere(conditions);
+
             if (exists.Count() > 0)
             {
                 throw new Exception("You have already reviewd this media.");

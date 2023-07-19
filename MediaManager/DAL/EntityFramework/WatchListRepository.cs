@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.Entity.Migrations;
+using System.Linq;
 using System.Security.Cryptography;
 using TallerProgramacion2020.MediaManager.Domain;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
@@ -75,6 +77,25 @@ namespace TallerProgramacion2020.MediaManager.DAL.EntityFramework
                 .Include("Media.Cast")
                 .Include("Media.Director")
                 .Include("Media.Writer");
+        }
+
+        /// <summary>
+        /// Obtiene todas las Medias de la base de datos que cumplen con un listado de condiciones.
+        /// </summary>
+        /// <param name="pConditions">Listado de condiciones.</param>
+        /// <returns>Enumeración de medias que cumplen con un listado de condiciones.</returns>
+        public override IEnumerable<WatchListItem> GetWhere(IEnumerable<Func<WatchListItem, bool>> pConditions)
+        {
+            return iDbContext.WatchListItems
+                .Include("User")
+                .Include("Media")
+                .Include("Media.Genres")
+                .Include("Media.Origin")
+                .Include("Media.Cast")
+                .Include("Media.Director")
+                .Include("Media.Writer")
+                .AsEnumerable()
+                .Where(watchListItem => pConditions.All(condition => condition(watchListItem)));
         }
     }
 }
