@@ -152,9 +152,10 @@
             this.Controls.Add(this.labelRating);
             this.ForeColor = System.Drawing.Color.Thistle;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormRateMovieOrSeries";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormRateMovieOrSerie";
+            this.Text = "Rate movie or series";
             this.Load += new System.EventHandler(this.FormRateMovieOrSeries_Load);
             this.panelControls.ResumeLayout(false);
             this.ResumeLayout(false);
