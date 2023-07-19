@@ -34,8 +34,12 @@ namespace TallerProgramacion2020.MediaManager.Controllers
         /// <returns>True si el nombre de usuario existe y no coincide con el ID proporcionado, False en caso contrario.</returns>
         public bool UserNameExists(string pUserName, int? pId = null)
         {
-            var users = iContext.UnitOfWork.UserRepository.GetAll();
-            return users.Any(user => user.UserName == pUserName && user.ID != pId);
+            Func<User, bool>[] conditions =
+            {
+                user => user.UserName == pUserName,
+                user => user.ID != pId
+            };
+            return iContext.UnitOfWork.UserRepository.GetWhere(conditions).Any();
         }
 
         /// <summary>

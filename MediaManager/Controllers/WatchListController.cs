@@ -33,9 +33,12 @@ namespace TallerProgramacion2020.MediaManager.Controllers
         /// seguimiento.</returns>
         public IEnumerable<WatchListItemDTO> GetWatchList()
         {
+            Func<WatchListItem, bool>[] conditions =
+            {
+                i => i.User.ID == iContext.User.ID
+            };
             var watchListItems = iContext.UnitOfWork.WatchListRepository
-                .GetAll()
-                .Where(i => i.User.ID == iContext.User.ID)
+                .GetWhere(conditions)
                 .OrderByDescending(i => i.Priority);
 
             return watchListItems.Select(watchListItem => DTOService.AsDTO(watchListItem));
@@ -51,8 +54,14 @@ namespace TallerProgramacion2020.MediaManager.Controllers
         public void CreateWatchListItem(int pMediaID, Priority pPriority)
         {
             Media media = iContext.UnitOfWork.MediaRepository.Get(pMediaID) ?? throw new Exception("Media could not be found.");
-            var exists = iContext.UnitOfWork.WatchListRepository.GetAll()
-                .Where(i => i.User.ID == iContext.User.ID && i.Media.ID == pMediaID);
+
+            Func<WatchListItem, bool>[] conditions =
+            {
+                i => i.User.ID == iContext.User.ID,
+                i => i.Media.ID == pMediaID
+            };
+            var exists = iContext.UnitOfWork.WatchListRepository.GetWhere(conditions);
+
             if (exists.Count() > 0)
             {
                 throw new Exception("You have already added this media to your list.");

@@ -1,0 +1,987 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="TallerProgramacion2020.Program">
+    <Position X="59" Y="17.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TallerProgramacion2020.WinFormsContextClass.WinFormsContext">
+    <Position X="59" Y="2.25" Width="3.25" />
+    <Members>
+      <Field Name="iCurrentMedia" Hidden="true" />
+      <Field Name="iRootForm" Hidden="true" />
+      <Field Name="iUser" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAFAIAAAAAABAAAAAAAgAAgBAAAAAAAAAEAAAAAQAA=</HashCode>
+      <FileName>Context\WinFormsContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TallerProgramacion2020.Forms.FormMediaPriority">
+    <Position X="64.5" Y="6" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAgAACAAABCAACCAAQACAQAAhAAAKAAggAAQAAA=</HashCode>
+      <FileName>Forms\FormMediaPriority.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TallerProgramacion2020.Forms.FormMenu">
+    <Position X="78.5" Y="6" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>QAAYCQAJAChVBBSACuDAAYACAQAAi4jrAAAkIQCaAoI=</HashCode>
+      <FileName>Forms\FormMenu.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="iContext" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="TallerProgramacion2020.Forms.FormProfile">
+    <Position X="71.25" Y="6" Width="3.25" />
+    <AssociationLine Name="iContext" Type="TallerProgramacion2020.WinFormsContextClass.WinFormsContext" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="72.875" Y="6" />
+        <Point X="72.875" Y="3.812" />
+        <Point X="62.25" Y="3.812" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AQCAAAAAkKAEhhAA1ACBBAUCAQIIAQAAAQIAQZIoACA=</HashCode>
+      <FileName>Forms\FormProfile.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="iContext" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="TallerProgramacion2020.Forms.FormRateMovieOrSeries">
+    <Position X="57.75" Y="6" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAACAAAACAACCAAQACAQAAhAAAIABwAAAQQSA=</HashCode>
+      <FileName>Forms\FormRateMovieOrSeries.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TallerProgramacion2020.Forms.FormRegisterAdminUser">
+    <Position X="44.5" Y="6" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AQCAAAAAgCAEABAA2ACBAQUCAQAIhAAAIQCAAYLIACA=</HashCode>
+      <FileName>Forms\FormRegisterAdminUser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TallerProgramacion2020.Forms.FormReviews">
+    <Position X="60.75" Y="6" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>gAVAAAAAACAAAgABQAGAAAACAECAAABABQAAAAIAAEA=</HashCode>
+      <FileName>Forms\FormReviews.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TallerProgramacion2020.Forms.FormSearchMoviesOrSeries">
+    <Position X="51" Y="6" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AUEAAAAAAqIAABUAACGAEKoOgECAAYBgAQAKCEQgAGI=</HashCode>
+      <FileName>Forms\FormSearchMoviesOrSeries.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="iContext" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="TallerProgramacion2020.Forms.FormSeeMoreInformation">
+    <Position X="54.75" Y="6" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>IAECIAACACAAAJAgAKCgAQBCQUAAgBAAQAAoAgAUDAE=</HashCode>
+      <FileName>Forms\FormSeeMoreInformation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TallerProgramacion2020.Forms.FormSignIn">
+    <Position X="48" Y="6" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>gQAIAAAAACAAABAAWiCBAQQCAAAAhQgAiQAAAAKRACA=</HashCode>
+      <FileName>Forms\FormSignIn.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="iContext" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="TallerProgramacion2020.Forms.FormUsers">
+    <Position X="74.75" Y="6" Width="3.5" />
+    <AssociationLine Name="iContext" Type="TallerProgramacion2020.WinFormsContextClass.WinFormsContext" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="76.5" Y="6" />
+        <Point X="76.5" Y="3.375" />
+        <Point X="62.25" Y="3.375" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>gwWCAAAAsCAEBgBA0ECBBAUCAwIIBQgAIQCwAIIIACA=</HashCode>
+      <FileName>Forms\FormUsers.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="iContext" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="TallerProgramacion2020.Forms.FormWatchList">
+    <Position X="67.5" Y="6" Width="3.5" />
+    <AssociationLine Name="iContext" Type="TallerProgramacion2020.WinFormsContextClass.WinFormsContext" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="69.25" Y="6" />
+        <Point X="69.25" Y="4.438" />
+        <Point X="62.25" Y="4.438" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>gCUAAABAACQAAAAAAAGAACBKAECAAYBQAwAIAUAAAGA=</HashCode>
+      <FileName>Forms\FormWatchList.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="iContext" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="TallerProgramacion2020.MediaManager.ApiAccess.ImdbApi.OmdbApiMediaDTO">
+    <Position X="33.5" Y="21" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAABAAAgEAQCAIAAAAAAAIAEAEEAQAAAAEgAEA=</HashCode>
+      <FileName>MediaManager\ApiAccess\OmdbApi\OmdbApiMediaDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TallerProgramacion2020.MediaManager.ApiAccess.ImdbApi.OmdbApiMediaFinder" BaseTypeListCollapsed="true">
+    <Position X="36.75" Y="22.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAADAAAAAAAAAAAAEAAAAAAAAAAgAAAAAAAA=</HashCode>
+      <FileName>MediaManager\ApiAccess\OmdbApi\OmdbApiMediaFinder.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TallerProgramacion2020.MediaManager.ApiAccess.ImdbApi.OmdbApiMediaSearch">
+    <Position X="36.5" Y="25.5" Width="3.25" />
+    <AssociationLine Name="Search" Type="TallerProgramacion2020.MediaManager.ApiAccess.ImdbApi.OmdbApiMediaDTO" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="36.5" Y="26.312" />
+        <Point X="34.75" Y="26.312" />
+        <Point X="34.75" Y="25.055" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.079" Y="0.295" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAQAAgAAA=</HashCode>
+      <FileName>MediaManager\ApiAccess\OmdbApi\OmdbApiMediaSearch.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="Search" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="TallerProgramacion2020.MediaManager.ContextClass.Context">
+    <Position X="51.5" Y="28.75" Width="2.25" />
+    <Members>
+      <Field Name="iUnitOfWork" Hidden="true" />
+      <Field Name="iUser" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAFAAAAAAAAAAAAAAAAAAAgBAAAggAAAAAAAAAAAAA=</HashCode>
+      <FileName>MediaManager\Context\Context.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TallerProgramacion2020.MediaManager.Controllers.MediaController">
+    <Position X="47.5" Y="25.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAgAAAAAABAAQAgAAAAAAAAAAA=</HashCode>
+      <FileName>MediaManager\Controllers\MediaController.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="iContext" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="TallerProgramacion2020.MediaManager.Controllers.ProfileController">
+    <Position X="43.75" Y="25.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAQAAAQAAAAAAAAAAAAA=</HashCode>
+      <FileName>MediaManager\Controllers\ProfileController.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="iContext" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="TallerProgramacion2020.MediaManager.Controllers.ReviewController">
+    <Position X="54.5" Y="25.5" Width="3" />
+    <AssociationLine Name="iContext" Type="TallerProgramacion2020.MediaManager.ContextClass.Context" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="56" Y="27.373" />
+        <Point X="56" Y="29" />
+        <Point X="53.75" Y="29" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>CAhAAAAAAAAAAAAAAAAAAAAAAAAAgQAAAAAAAAAAAAA=</HashCode>
+      <FileName>MediaManager\Controllers\ReviewController.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="iContext" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="TallerProgramacion2020.MediaManager.Controllers.SignInController">
+    <Position X="45.75" Y="25.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAAAAAQAAAAAAAAAIQAAAAAAAAAAAAI=</HashCode>
+      <FileName>MediaManager\Controllers\SignInController.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="iContext" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="TallerProgramacion2020.MediaManager.Controllers.UsersController">
+    <Position X="57.75" Y="25.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAQAAAAAEAAAAAAAAAQAAAQAAAAAABAAAAAA=</HashCode>
+      <FileName>MediaManager\Controllers\UsersController.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="iContext" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="TallerProgramacion2020.MediaManager.Controllers.WatchListController">
+    <Position X="50.75" Y="25.5" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAIAAAAAAAAAAAAAAAAQCAAgAAAAAAAAA=</HashCode>
+      <FileName>MediaManager\Controllers\WatchListController.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="iContext" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="TallerProgramacion2020.MediaManager.DAL.EntityFramework.MediaManagerDbContext">
+    <Position X="39.75" Y="12.75" Width="3" />
+    <Members>
+      <Field Name="iActors" Hidden="true" />
+      <Field Name="iCountries" Hidden="true" />
+      <Field Name="iDirectors" Hidden="true" />
+      <Field Name="iGenres" Hidden="true" />
+      <Field Name="iMedia" Hidden="true" />
+      <Field Name="iReviews" Hidden="true" />
+      <Field Name="iUsers" Hidden="true" />
+      <Field Name="iWatchListItems" Hidden="true" />
+      <Field Name="iWriters" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AIAAAHBQAAAAgABAAAIBIQAgEAACAAIAAAAAAAEACAQ=</HashCode>
+      <FileName>MediaManager\DAL\EntityFramework\MediaManagerDbContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TallerProgramacion2020.MediaManager.DAL.EntityFramework.MediaRepository" Collapsed="true">
+    <Position X="34.25" Y="15.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAABAAAAAAAAAAAEAAEAAAgAAAAAAAAA=</HashCode>
+      <FileName>MediaManager\DAL\EntityFramework\MediaRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TallerProgramacion2020.MediaManager.DAL.EntityFramework.Repository&lt;TEntity, TDbContext&gt;" Collapsed="true">
+    <Position X="31.5" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAEAAAAAAAABAAAAAAAAAAAEAAEAAAgAAAAAAAAA=</HashCode>
+      <FileName>MediaManager\DAL\EntityFramework\Repository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TallerProgramacion2020.MediaManager.DAL.EntityFramework.ReviewRepository" Collapsed="true">
+    <Position X="29" Y="15.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAABAAAAAAAAAAAEAAEAAAgAAAAAAAAA=</HashCode>
+      <FileName>MediaManager\DAL\EntityFramework\ReviewRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TallerProgramacion2020.MediaManager.DAL.EntityFramework.UnitOfWork" BaseTypeListCollapsed="true">
+    <Position X="36.75" Y="12.75" Width="1.5" />
+    <AssociationLine Name="MediaRepository" Type="TallerProgramacion2020.MediaManager.DAL.IMediaRepository" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="37.438" Y="12.75" />
+        <Point X="37.438" Y="12.374" />
+        <Point X="31.906" Y="12.374" />
+        <Point X="31.906" Y="11.191" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-1.028" Y="0.918" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="ReviewRepository" Type="TallerProgramacion2020.MediaManager.DAL.IReviewRepository" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="37.438" Y="12.75" />
+        <Point X="37.438" Y="12.374" />
+        <Point X="33.344" Y="12.374" />
+        <Point X="33.344" Y="11.191" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-1.028" Y="0.962" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="UserRepository" Type="TallerProgramacion2020.MediaManager.DAL.IUserRepository" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="37.438" Y="12.75" />
+        <Point X="37.438" Y="11.582" />
+        <Point X="35.062" Y="11.582" />
+        <Point X="35.062" Y="11.191" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.485" Y="0.909" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="WatchListRepository" Type="TallerProgramacion2020.MediaManager.DAL.IWatchListRepository" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="37.438" Y="12.75" />
+        <Point X="37.438" Y="12.374" />
+        <Point X="29.938" Y="12.374" />
+        <Point X="29.938" Y="11.191" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-1.308" Y="0.935" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>gAAAAEgAACAAABIgAAAAAAAAAAAAAAEAAABIBEAAAAA=</HashCode>
+      <FileName>MediaManager\DAL\EntityFramework\UnitOfWork.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="iDbContext" />
+      <Property Name="MediaRepository" />
+      <Property Name="ReviewRepository" />
+      <Property Name="UserRepository" />
+      <Property Name="WatchListRepository" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TallerProgramacion2020.MediaManager.DAL.EntityFramework.UserRepository" Collapsed="true">
+    <Position X="30.75" Y="15.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAABAAAAAAAAAAAEAAEAAAgAAAAAAAAA=</HashCode>
+      <FileName>MediaManager\DAL\EntityFramework\UserRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TallerProgramacion2020.MediaManager.DAL.EntityFramework.WatchListRepository" Collapsed="true">
+    <Position X="32.5" Y="15.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAABAAAAAAAAAAAEAAEAAAgAAAAAAAAA=</HashCode>
+      <FileName>MediaManager\DAL\EntityFramework\WatchListRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TallerProgramacion2020.MediaManager.Domain.Actor">
+    <Position X="14.25" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>MediaManager\Domain\Actor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TallerProgramacion2020.MediaManager.Domain.Country">
+    <Position X="21.25" Y="12" Width="1.5" />
+    <Members>
+      <Field Name="iDTS" Hidden="true" />
+      <Field Name="iID" Hidden="true" />
+      <Field Name="iITS" Hidden="true" />
+      <Field Name="iName" Hidden="true" />
+      <Field Name="iUTS" Hidden="true" />
+      <Property Name="Media" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAQAEQAAAACAgAAAgAAAAAQAAAAAAAAAIIAAAAAAAIw=</HashCode>
+      <FileName>MediaManager\Domain\Country.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TallerProgramacion2020.MediaManager.Domain.Director">
+    <Position X="16" Y="12" Width="1.5" />
+    <InheritanceLine Type="TallerProgramacion2020.MediaManager.Domain.Person" ManuallyRouted="true">
+      <Path>
+        <Point X="16.75" Y="14.25" />
+        <Point X="16.75" Y="13.684" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>MediaManager\Domain\Director.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TallerProgramacion2020.MediaManager.Domain.Genre">
+    <Position X="19.5" Y="12" Width="1.5" />
+    <Members>
+      <Field Name="iDTS" Hidden="true" />
+      <Field Name="iID" Hidden="true" />
+      <Field Name="iITS" Hidden="true" />
+      <Field Name="iName" Hidden="true" />
+      <Field Name="iUTS" Hidden="true" />
+      <Property Name="Media" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAQAEQAAAACAgAAAgAAAAAQAAAAAAAAAIIAAAAAAAIw=</HashCode>
+      <FileName>MediaManager\Domain\Genre.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TallerProgramacion2020.MediaManager.Domain.Media">
+    <Position X="17" Y="7.25" Width="2.25" />
+    <Members>
+      <Field Name="iCast" Hidden="true" />
+      <Field Name="iDirector" Hidden="true" />
+      <Field Name="iDTS" Hidden="true" />
+      <Field Name="iGenres" Hidden="true" />
+      <Field Name="iID" Hidden="true" />
+      <Field Name="iImdbID" Hidden="true" />
+      <Field Name="iImdbRating" Hidden="true" />
+      <Field Name="iITS" Hidden="true" />
+      <Field Name="iMediaType" Hidden="true" />
+      <Field Name="iOrigin" Hidden="true" />
+      <Field Name="iPoster" Hidden="true" />
+      <Field Name="iReleaseDate" Hidden="true" />
+      <Field Name="iRuntimeInMin" Hidden="true" />
+      <Field Name="iTitle" Hidden="true" />
+      <Field Name="iUTS" Hidden="true" />
+      <Field Name="iWriter" Hidden="true" />
+      <Field Name="iYear" Hidden="true" />
+    </Members>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <AssociationLine Name="Cast" Type="TallerProgramacion2020.MediaManager.Domain.Actor" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="17" Y="10.375" />
+        <Point X="15" Y="10.375" />
+        <Point X="15" Y="12" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="Director" Type="TallerProgramacion2020.MediaManager.Domain.Director" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="17" Y="10.563" />
+        <Point X="16.75" Y="10.563" />
+        <Point X="16.75" Y="12" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.596" Y="0.06" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="Genres" Type="TallerProgramacion2020.MediaManager.Domain.Genre" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="19.25" Y="10.563" />
+        <Point X="20.25" Y="10.563" />
+        <Point X="20.25" Y="12" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.982" Y="0.233" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="Origin" Type="TallerProgramacion2020.MediaManager.Domain.Country" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="19.25" Y="10.375" />
+        <Point X="21.469" Y="10.375" />
+        <Point X="21.469" Y="12" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-2.061" Y="0.06" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="Writer" Type="TallerProgramacion2020.MediaManager.Domain.Writer">
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="-0.916" Y="0.06" Height="0.182" Width="2.038" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>QjQAE1AABBAIgGgBggIAAAACAAACEAgAIMACAAkABIk=</HashCode>
+      <FileName>MediaManager\Domain\Media.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="MediaType" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Cast" />
+      <Property Name="Director" />
+      <Property Name="Genres" />
+      <Property Name="Origin" />
+      <Property Name="Writer" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="TallerProgramacion2020.MediaManager.Domain.Person">
+    <Position X="15.75" Y="14.25" Width="2" />
+    <Members>
+      <Field Name="iDTS" Hidden="true" />
+      <Field Name="iFullName" Hidden="true" />
+      <Field Name="iID" Hidden="true" />
+      <Field Name="iITS" Hidden="true" />
+      <Field Name="iUTS" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAQAEQAAAAAAgIAAgAAAAAAAAAAAAAAAIIAAAAAIAIg=</HashCode>
+      <FileName>MediaManager\Domain\Person.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TallerProgramacion2020.MediaManager.Domain.Review">
+    <Position X="14.25" Y="5.75" Width="1.5" />
+    <Members>
+      <Field Name="iComment" Hidden="true" />
+      <Field Name="iDTS" Hidden="true" />
+      <Field Name="iID" Hidden="true" />
+      <Field Name="iITS" Hidden="true" />
+      <Field Name="iMedia" Hidden="true" />
+      <Field Name="iRating" Hidden="true" />
+      <Field Name="iUser" Hidden="true" />
+      <Field Name="iUTS" Hidden="true" />
+    </Members>
+    <AssociationLine Name="Media" Type="TallerProgramacion2020.MediaManager.Domain.Media" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="15.75" Y="7.438" />
+        <Point X="16.125" Y="7.438" />
+        <Point X="16.125" Y="7.375" />
+        <Point X="17" Y="7.375" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAQBEQAEAAAAgAAAAAAAAAAgAAAADAEAIIAAAAAACIw=</HashCode>
+      <FileName>MediaManager\Domain\Review.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Media" />
+      <Property Name="User" />
+      <Property Name="Rating" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="TallerProgramacion2020.MediaManager.Domain.User">
+    <Position X="17" Y="3.75" Width="2.25" />
+    <Members>
+      <Field Name="iDTS" Hidden="true" />
+      <Field Name="iFullName" Hidden="true" />
+      <Field Name="iID" Hidden="true" />
+      <Field Name="iITS" Hidden="true" />
+      <Field Name="iPasswordHash" Hidden="true" />
+      <Field Name="iProfilePhoto" Hidden="true" />
+      <Field Name="iReviews" Hidden="true" />
+      <Field Name="iUserName" Hidden="true" />
+      <Field Name="iUserRole" Hidden="true" />
+      <Field Name="iUTS" Hidden="true" />
+      <Field Name="iWatchListItems" Hidden="true" />
+      <Property Name="Reviews" Hidden="true" />
+      <Property Name="WatchListItems" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AISAEUBQGAAAgIAAAAAAAAAAAAAAAAgIoYAAAAAIAIg=</HashCode>
+      <FileName>MediaManager\Domain\User.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="UserRole" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="TallerProgramacion2020.MediaManager.Domain.WatchListItem">
+    <Position X="20.5" Y="5.75" Width="1.5" />
+    <Members>
+      <Field Name="iDTS" Hidden="true" />
+      <Field Name="iID" Hidden="true" />
+      <Field Name="iITS" Hidden="true" />
+      <Field Name="iMedia" Hidden="true" />
+      <Field Name="iPriority" Hidden="true" />
+      <Field Name="iUser" Hidden="true" />
+      <Field Name="iUTS" Hidden="true" />
+    </Members>
+    <AssociationLine Name="Media" Type="TallerProgramacion2020.MediaManager.Domain.Media" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="20.5" Y="7.312" />
+        <Point X="19.25" Y="7.312" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAQBEQAAAAAAgAAEAAAAAABgAAAAAAAAIIAAAAAACIw=</HashCode>
+      <FileName>MediaManager\Domain\WatchListItem.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="User" />
+      <Property Name="Media" />
+      <Property Name="Priority" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="TallerProgramacion2020.MediaManager.Domain.Writer">
+    <Position X="17.75" Y="12" Width="1.5" />
+    <InheritanceLine Type="TallerProgramacion2020.MediaManager.Domain.Person" ManuallyRouted="true">
+      <Path>
+        <Point X="16.75" Y="14.25" />
+        <Point X="16.75" Y="14.037" />
+        <Point X="18.5" Y="14.037" />
+        <Point X="18.5" Y="13.684" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>MediaManager\Domain\Writer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TallerProgramacion2020.MediaManager.IO.ActorDTO" Collapsed="true">
+    <Position X="9.75" Y="22.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MediaManager\IO\ActorDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TallerProgramacion2020.MediaManager.IO.BaseObjectDTO">
+    <Position X="9.75" Y="17.5" Width="1.5" />
+    <Members>
+      <Field Name="iID" Hidden="true" />
+      <Field Name="iITS" Hidden="true" />
+      <Field Name="iUTS" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAAAAgAAAAAAAAAAAAAAAAAAAIIAAAAAAAIg=</HashCode>
+      <FileName>MediaManager\IO\BaseObjectDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TallerProgramacion2020.MediaManager.IO.CountryDTO">
+    <Position X="1.25" Y="19.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAAgAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MediaManager\IO\CountryDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TallerProgramacion2020.MediaManager.IO.DirectorDTO" Collapsed="true">
+    <Position X="8" Y="22.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MediaManager\IO\DirectorDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TallerProgramacion2020.MediaManager.IO.DTOService">
+    <Position X="47.25" Y="30.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAACQAAAAAAAA=</HashCode>
+      <FileName>MediaManager\IO\DTOService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TallerProgramacion2020.MediaManager.IO.GenreDTO">
+    <Position X="3.5" Y="19.75" Width="1.5" />
+    <Members>
+      <Field Name="iName" Hidden="true" />
+    </Members>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAAgAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MediaManager\IO\GenreDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TallerProgramacion2020.MediaManager.IO.MediaDTO">
+    <Position X="5.25" Y="24" Width="2" />
+    <Members>
+      <Field Name="iCast" Hidden="true" />
+      <Field Name="iDirector" Hidden="true" />
+      <Field Name="iGenres" Hidden="true" />
+      <Field Name="iImdbID" Hidden="true" />
+      <Field Name="iImdbRating" Hidden="true" />
+      <Field Name="iMediaType" Hidden="true" />
+      <Field Name="iOrigin" Hidden="true" />
+      <Field Name="iPoster" Hidden="true" />
+      <Field Name="iReleaseDate" Hidden="true" />
+      <Field Name="iRuntimeInMin" Hidden="true" />
+      <Field Name="iTitle" Hidden="true" />
+      <Field Name="iWriter" Hidden="true" />
+      <Field Name="iYear" Hidden="true" />
+    </Members>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <AssociationLine Name="Genres" Type="TallerProgramacion2020.MediaManager.IO.GenreDTO" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="5.25" Y="24.233" />
+        <Point X="5.25" Y="24.32" />
+        <Point X="4" Y="24.32" />
+        <Point X="4" Y="21.434" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-2.299" Y="0.11" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="Cast" Type="TallerProgramacion2020.MediaManager.IO.ActorDTO" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="7.25" Y="24.312" />
+        <Point X="10.5" Y="24.312" />
+        <Point X="10.5" Y="23.191" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.079" Y="0.857" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="Writer" Type="TallerProgramacion2020.MediaManager.IO.WriterDTO" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="7.25" Y="24.605" />
+        <Point X="12.25" Y="24.605" />
+        <Point X="12.25" Y="23.191" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.11" Y="1.224" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="Origin" Type="TallerProgramacion2020.MediaManager.IO.CountryDTO" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="5.25" Y="24.702" />
+        <Point X="2.125" Y="24.702" />
+        <Point X="2.125" Y="21.886" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="-2.483" Y="2.592" Height="0.182" Width="2.374" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>QjAAAlAABBAIAGgBggIAAAACAAACEAgAAEACAAkABAE=</HashCode>
+      <FileName>MediaManager\IO\MediaDTO.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="MediaType" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Genres" />
+      <Property Name="Director" />
+      <Property Name="Cast" />
+      <Property Name="Writer" />
+      <Property Name="Origin" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="TallerProgramacion2020.MediaManager.IO.PersonDTO">
+    <Position X="9.75" Y="20" Width="1.5" />
+    <Members>
+      <Field Name="iFullName" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAAgAAAAAAAAAAAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>MediaManager\IO\PersonDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TallerProgramacion2020.MediaManager.IO.ReviewDTO">
+    <Position X="14" Y="19.75" Width="1.5" />
+    <Members>
+      <Field Name="iComment" Hidden="true" />
+      <Field Name="iMedia" Hidden="true" />
+      <Field Name="iName" Hidden="true" />
+      <Field Name="iRating" Hidden="true" />
+      <Field Name="iUser" Hidden="true" />
+    </Members>
+    <AssociationLine Name="Media" Type="TallerProgramacion2020.MediaManager.IO.MediaDTO" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="14.75" Y="21.175" />
+        <Point X="14.75" Y="24.995" />
+        <Point X="7.25" Y="24.995" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAABAAAEAACAAAAAAAAAAAQgAAAADAEAAAAAAAAACAQ=</HashCode>
+      <FileName>MediaManager\IO\ReviewDTO.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="User" />
+      <Property Name="Media" />
+      <Property Name="Rating" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="TallerProgramacion2020.MediaManager.IO.UserDTO">
+    <Position X="17" Y="19.75" Width="1.75" />
+    <Members>
+      <Field Name="iFullName" Hidden="true" />
+      <Field Name="iPassword" Hidden="true" />
+      <Field Name="iProfilePhoto" Hidden="true" />
+      <Field Name="iUserName" Hidden="true" />
+      <Field Name="iUserRole" Hidden="true" />
+    </Members>
+    <AssociationLine Name="UserRole" Type="TallerProgramacion2020.MediaManager.Domain.UserRole" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="18.349" Y="19.75" />
+        <Point X="18.349" Y="17.769" />
+        <Point X="13.708" Y="17.769" Type="JumpStart" />
+        <Point X="13.542" Y="17.769" Type="JumpEnd" />
+        <Point X="12.77" Y="17.769" />
+        <Point X="12.77" Y="3.213" />
+        <Point X="21.062" Y="3.213" />
+        <Point X="21.062" Y="4" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAGAAAAIAAAAAAAAAAAAAAAAgKIQAAAAAYAAA=</HashCode>
+      <FileName>MediaManager\IO\UserDTO.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="UserRole" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="TallerProgramacion2020.MediaManager.IO.WatchListItemDTO">
+    <Position X="19.75" Y="19.75" Width="1.5" />
+    <Members>
+      <Field Name="iMedia" Hidden="true" />
+      <Field Name="iName" Hidden="true" />
+      <Field Name="iPriority" Hidden="true" />
+      <Field Name="iUser" Hidden="true" />
+    </Members>
+    <AssociationLine Name="Media" Type="TallerProgramacion2020.MediaManager.IO.MediaDTO" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="20.5" Y="20.983" />
+        <Point X="20.5" Y="25.405" />
+        <Point X="7.25" Y="25.405" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="Priority" Type="TallerProgramacion2020.MediaManager.Domain.Priority" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="21.25" Y="20.062" />
+        <Point X="23.198" Y="20.062" Type="JumpStart" />
+        <Point X="23.365" Y="20.062" Type="JumpEnd" />
+        <Point X="24.183" Y="20.062" />
+        <Point X="24.183" Y="8.625" />
+        <Point X="22" Y="8.625" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAACAAAAEAAAAAARgAAAAAAAAAAAAAAAACAQ=</HashCode>
+      <FileName>MediaManager\IO\WatchListItemDTO.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="User" />
+      <Property Name="Media" />
+      <Property Name="Priority" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="TallerProgramacion2020.MediaManager.IO.WriterDTO" Collapsed="true">
+    <Position X="11.5" Y="22.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MediaManager\IO\WriterDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TallerProgramacion2020.Properties.Resources">
+    <Position X="59" Y="19.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TallerProgramacion2020.ToolsClass.Tools">
+    <Position X="54.5" Y="0.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAgAAAAAAgAAgIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Tools\Tools.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="TallerProgramacion2020.MediaManager.ApiAccess.IMediaFinder">
+    <Position X="36.75" Y="20.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAgAAAAAAAA=</HashCode>
+      <FileName>MediaManager\ApiAccess\IMediaFinder.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="TallerProgramacion2020.MediaManager.DAL.IMediaRepository" Collapsed="true">
+    <Position X="30.5" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MediaManager\DAL\IMediaRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="TallerProgramacion2020.MediaManager.DAL.IRepository&lt;TEntity&gt;">
+    <Position X="31" Y="8" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAABAAAAAAAAAAAEAAEAAAgAAAAAAAAA=</HashCode>
+      <FileName>MediaManager\DAL\IRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="TallerProgramacion2020.MediaManager.DAL.IReviewRepository" Collapsed="true">
+    <Position X="32.25" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MediaManager\DAL\IReviewRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="TallerProgramacion2020.MediaManager.DAL.IUnitOfWork">
+    <Position X="29" Y="12.75" Width="2.75" />
+    <AssociationLine Name="MediaRepository" Type="TallerProgramacion2020.MediaManager.DAL.IMediaRepository" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="29.062" Y="12.75" />
+        <Point X="29.062" Y="11.771" />
+        <Point X="29.854" Y="11.771" Type="JumpStart" />
+        <Point X="30.021" Y="11.771" Type="JumpEnd" />
+        <Point X="31.5" Y="11.771" />
+        <Point X="31.5" Y="11.191" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="ReviewRepository" Type="TallerProgramacion2020.MediaManager.DAL.IReviewRepository" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="29.062" Y="12.75" />
+        <Point X="29.062" Y="11.771" />
+        <Point X="29.854" Y="11.771" Type="JumpStart" />
+        <Point X="30.021" Y="11.771" Type="JumpEnd" />
+        <Point X="31.823" Y="11.771" Type="JumpStart" />
+        <Point X="31.99" Y="11.771" Type="JumpEnd" />
+        <Point X="32.875" Y="11.771" />
+        <Point X="32.875" Y="11.191" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="UserRepository" Type="TallerProgramacion2020.MediaManager.DAL.IUserRepository" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="29.062" Y="12.75" />
+        <Point X="29.062" Y="11.725" />
+        <Point X="29.854" Y="11.725" Type="JumpStart" />
+        <Point X="30.021" Y="11.725" Type="JumpEnd" />
+        <Point X="31.823" Y="11.725" Type="JumpStart" />
+        <Point X="31.99" Y="11.725" Type="JumpEnd" />
+        <Point X="33.26" Y="11.725" Type="JumpStart" />
+        <Point X="33.427" Y="11.725" Type="JumpEnd" />
+        <Point X="34.219" Y="11.725" />
+        <Point X="34.219" Y="11.191" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="WatchListRepository" Type="TallerProgramacion2020.MediaManager.DAL.IWatchListRepository" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="29.062" Y="12.75" />
+        <Point X="29.062" Y="11.74" />
+        <Point X="29.062" Y="11.74" />
+        <Point X="29.062" Y="11.191" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAAAAIgAAAAAAAAAAAAAAAAAABABEAAAAA=</HashCode>
+      <FileName>MediaManager\DAL\IUnitOfWork.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="MediaRepository" />
+      <Property Name="ReviewRepository" />
+      <Property Name="UserRepository" />
+      <Property Name="WatchListRepository" />
+    </ShowAsAssociation>
+  </Interface>
+  <Interface Name="TallerProgramacion2020.MediaManager.DAL.IUserRepository" Collapsed="true">
+    <Position X="34" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MediaManager\DAL\IUserRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="TallerProgramacion2020.MediaManager.DAL.IWatchListRepository" Collapsed="true">
+    <Position X="28.75" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MediaManager\DAL\IWatchListRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="TallerProgramacion2020.MediaManager.Domain.MediaType">
+    <Position X="22.25" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAE=</HashCode>
+      <FileName>MediaManager\Domain\MediaType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="TallerProgramacion2020.MediaManager.Domain.Priority">
+    <Position X="20.5" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAgAAAAAAAAgIAAAAAAAAAAQAAAA=</HashCode>
+      <FileName>MediaManager\Domain\Priority.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="TallerProgramacion2020.MediaManager.Domain.Rating">
+    <Position X="14.25" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAgAAAAAAAAAAAAIAAAAAAAAAAAAAAAEAAE=</HashCode>
+      <FileName>MediaManager\Domain\Rating.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="TallerProgramacion2020.MediaManager.Domain.UserRole">
+    <Position X="20.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MediaManager\Domain\UserRole.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

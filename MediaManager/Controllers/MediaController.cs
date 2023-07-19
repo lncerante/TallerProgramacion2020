@@ -57,11 +57,8 @@ namespace TallerProgramacion2020.MediaManager.Controllers
                 throw new Exception("Title is required.");
             }
 
-            IEnumerable<Media> media = iContext.UnitOfWork.MediaRepository.GetAll();
-
             if (useApi)
             {
-                var imdbIds = media.Select(m => m.ImdbID);
                 IEnumerable<Media> apiResult = iMediaFinder.FindMedia
                 (
                     pTitle,
@@ -71,7 +68,12 @@ namespace TallerProgramacion2020.MediaManager.Controllers
 
                 foreach (var item in apiResult)
                 {
-                    if (!imdbIds.Contains(item.ImdbID))
+                    Func<Media, bool>[] mediaExists =
+                    {
+                        m => m.ImdbID == item.ImdbID
+                    };
+
+                    if (!iContext.UnitOfWork.MediaRepository.GetWhere(mediaExists).Any())
                     {
                         iContext.UnitOfWork.MediaRepository.Create(item);
                         iContext.UnitOfWork.Complete();
@@ -79,21 +81,23 @@ namespace TallerProgramacion2020.MediaManager.Controllers
                 }
             }
 
-            media = iContext.UnitOfWork.MediaRepository.GetAll().AsEnumerable();
-
-            media = media.Where(m => m.Title.ToLower().Trim().Contains(pTitle.ToLower().Trim()));
+            List<Func<Media, bool>> conditions = new List<Func<Media, bool>>();
 
             if (pMediaType != null)
             {
-                media = media.Where(m => m.MediaType == pMediaType);
+                conditions.Add(m => m.MediaType == pMediaType);
             }
 
             if (!string.IsNullOrEmpty(pGenreName))
             {
-                media = media.Where(m => m.Genres.Any(g => g.Equals(new Genre(pGenreName))));
+                conditions.Add(m => m.Genres.Any(g => g.Equals(new Genre(pGenreName))));
             }
 
-            if (media.Count() > 0)
+            conditions.Add(m => m.Title.ToLower().Trim().Contains(pTitle.ToLower().Trim()));
+
+            IEnumerable<Media> media = iContext.UnitOfWork.MediaRepository.GetWhere(conditions);
+
+            if (media.Any())
             {
                 return media.Select(m => DTOService.AsDTO(m));
             }

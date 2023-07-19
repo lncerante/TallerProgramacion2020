@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace TallerProgramacion2020.MediaManager.DAL.EntityFramework
 {
@@ -50,5 +51,12 @@ namespace TallerProgramacion2020.MediaManager.DAL.EntityFramework
         /// </summary>
         /// <returns>Una colección de todas las entidades.</returns>
         public abstract IEnumerable<TEntity> GetAll();
+
+        /// <summary>
+        /// Obtiene todas las entidades almacenadas en el repositorio que cumplen con un listado de condiciones.
+        /// </summary>
+        /// <param name="pConditions">Listado de condiciones.</param>
+        /// <returns>Una colección de todas las entidades del repositorio que cumplen con un listado de condiciones.</returns>
+        public abstract IEnumerable<TEntity> GetWhere(IEnumerable<Func<TEntity, bool>> pConditions);
     }
 }
