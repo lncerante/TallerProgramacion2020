@@ -33,9 +33,3 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyVersion("1.0")]
 [assembly: AssemblyFileVersion("1.0")]
 [assembly: NeutralResourcesLanguage("en")]
-
-
-// Este atributo permite que el Proyecto de Pruebas "TallerProgramacion2020.Test" tenga acceso
-// a las clases internas (internal) del Proyecto Principal "TallerProgramacion2020", lo que permite
-// realizar pruebas unitarias sin necesidad de cambiar los modificador de acceso a public.
-[assembly: InternalsVisibleTo("TallerProgramacion2020.Test")]
