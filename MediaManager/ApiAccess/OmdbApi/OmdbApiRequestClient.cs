@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.Drawing.Printing;
 using System.IO;
@@ -58,7 +60,31 @@ namespace TallerProgramacion2020.MediaManager.ApiAccess.ImdbApi
 
             if (response.IsSuccessStatusCode)
             {
-                return response.Content.ReadAsStringAsync().Result;
+                var jsonString = response.Content.ReadAsStringAsync().Result;
+
+                // Deserializar la cadena JSON utilizando Newtonsoft.Json
+                var jsonObject = JsonConvert.DeserializeObject<Dictionary<string, object>>(jsonString);
+
+                if (jsonObject.TryGetValue("Search", out var searchResults) && searchResults is JArray resultsArray)
+                {
+                    // Filtrar los resultados por tipo de medio (película o serie)
+                    var filteredResults = new JArray();
+
+                    foreach (var item in resultsArray)
+                    {
+                        if (item is JObject media && media.TryGetValue("Type", out var mediaType) &&
+                            (mediaType.ToString().Equals("movie", StringComparison.OrdinalIgnoreCase) ||
+                             mediaType.ToString().Equals("series", StringComparison.OrdinalIgnoreCase)))
+                        {
+                            filteredResults.Add(item);
+                        }
+                    }
+
+                    jsonObject["Search"] = filteredResults;
+                    jsonString = JsonConvert.SerializeObject(jsonObject);
+                }
+
+                return jsonString;
             }
             return null;
         }
