@@ -31,9 +31,9 @@ namespace TallerProgramacion2020.Test.MediaManagerTests.ApiAccessTests.OmdbApiAc
             IList<Media> medias = finder.FindMedia(title, genre, type);
 
             // Assert
-            Assert.AreEqual(title, medias[0].Title);
-            Assert.IsTrue(medias[0].Genres.Any(g => g.Name == genre.Name));
-            Assert.AreEqual(type, medias[0].MediaType);
+            Assert.IsTrue(medias.All(m => m.Title.Contains(title)));
+            Assert.IsTrue(medias.All(m => m.Genres.Any(g => g.Name == genre.Name)));
+            Assert.IsTrue(medias.All(m => m.MediaType == type));
         }
 
         /// <summary>

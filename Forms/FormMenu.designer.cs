@@ -50,21 +50,21 @@
             this.buttonHome = new System.Windows.Forms.PictureBox();
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.richTextBoxUserName = new System.Windows.Forms.RichTextBox();
+            this.panelUserData = new System.Windows.Forms.Panel();
             this.pictureBoxUser = new System.Windows.Forms.PictureBox();
+            this.richTextBoxUserName = new System.Windows.Forms.RichTextBox();
             this.labelTitle = new System.Windows.Forms.Label();
             this.panelFormsContainer = new System.Windows.Forms.Panel();
             this.labelDescription = new System.Windows.Forms.Label();
             this.labelTodayDate = new System.Windows.Forms.Label();
-            this.panelUserData = new System.Windows.Forms.Panel();
             this.panelControls.SuspendLayout();
             this.panelMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.buttonHome)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.panel2.SuspendLayout();
+            this.panelUserData.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUser)).BeginInit();
             this.panelFormsContainer.SuspendLayout();
-            this.panelUserData.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelControls
@@ -384,6 +384,27 @@
             this.panel2.Size = new System.Drawing.Size(1080, 60);
             this.panel2.TabIndex = 41;
             // 
+            // panelUserData
+            // 
+            this.panelUserData.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelUserData.Controls.Add(this.pictureBoxUser);
+            this.panelUserData.Controls.Add(this.richTextBoxUserName);
+            this.panelUserData.Location = new System.Drawing.Point(764, 1);
+            this.panelUserData.Name = "panelUserData";
+            this.panelUserData.Size = new System.Drawing.Size(316, 59);
+            this.panelUserData.TabIndex = 67;
+            // 
+            // pictureBoxUser
+            // 
+            this.pictureBoxUser.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pictureBoxUser.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxUser.Image")));
+            this.pictureBoxUser.Location = new System.Drawing.Point(253, 0);
+            this.pictureBoxUser.Name = "pictureBoxUser";
+            this.pictureBoxUser.Size = new System.Drawing.Size(63, 59);
+            this.pictureBoxUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxUser.TabIndex = 17;
+            this.pictureBoxUser.TabStop = false;
+            // 
             // richTextBoxUserName
             // 
             this.richTextBoxUserName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(57)))), ((int)(((byte)(75)))));
@@ -401,17 +422,6 @@
             this.richTextBoxUserName.TabIndex = 66;
             this.richTextBoxUserName.TabStop = false;
             this.richTextBoxUserName.Text = "username";
-            // 
-            // pictureBoxUser
-            // 
-            this.pictureBoxUser.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pictureBoxUser.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxUser.Image")));
-            this.pictureBoxUser.Location = new System.Drawing.Point(253, 0);
-            this.pictureBoxUser.Name = "pictureBoxUser";
-            this.pictureBoxUser.Size = new System.Drawing.Size(63, 59);
-            this.pictureBoxUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxUser.TabIndex = 17;
-            this.pictureBoxUser.TabStop = false;
             // 
             // labelTitle
             // 
@@ -461,16 +471,6 @@
             this.labelTodayDate.Text = "TodayDate";
             this.labelTodayDate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // panelUserData
-            // 
-            this.panelUserData.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelUserData.Controls.Add(this.pictureBoxUser);
-            this.panelUserData.Controls.Add(this.richTextBoxUserName);
-            this.panelUserData.Location = new System.Drawing.Point(764, 1);
-            this.panelUserData.Name = "panelUserData";
-            this.panelUserData.Size = new System.Drawing.Size(316, 59);
-            this.panelUserData.TabIndex = 67;
-            // 
             // FormMenu
             // 
             this.ClientSize = new System.Drawing.Size(1300, 650);
@@ -480,10 +480,11 @@
             this.Controls.Add(this.panelControls);
             this.ForeColor = System.Drawing.Color.CornflowerBlue;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Media Affinity";
             this.Load += new System.EventHandler(this.FormMenu_Load);
             this.panelControls.ResumeLayout(false);
             this.panelMenu.ResumeLayout(false);
@@ -491,10 +492,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panelUserData.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUser)).EndInit();
             this.panelFormsContainer.ResumeLayout(false);
             this.panelFormsContainer.PerformLayout();
-            this.panelUserData.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
