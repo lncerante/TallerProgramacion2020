@@ -50,7 +50,7 @@ namespace TallerProgramacion2020.MediaManager.ApiAccess.ImdbApi
                     foreach (var mediaDTO in mediaSearch.Search)
                     {
                         var media = GetMediaByImdbID(mediaDTO.imdbID);
-                        if (pGenre == null || media.Genres.Any(genre => genre.Equals(pGenre)))
+                        if ((pGenre == null || media.Genres.Any(genre => genre.Equals(pGenre))) && media.MediaType != 0)
                         {
                             mediaResponse.Add(media);
                         }

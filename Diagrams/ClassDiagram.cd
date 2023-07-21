@@ -143,11 +143,14 @@
     </TypeIdentifier>
   </Class>
   <Class Name="TallerProgramacion2020.MediaManager.ApiAccess.ImdbApi.OmdbApiMediaFinder" BaseTypeListCollapsed="true">
-    <Position X="36.75" Y="22.5" Width="2.25" />
+    <Position X="36.75" Y="22.5" Width="3" />
     <TypeIdentifier>
-      <HashCode>BAAAAAAAAADAAAAAAAAAAAAEAAAAAAAAAAgAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAACAAAAAAEAAAAAAAAAAgAAAAAAAA=</HashCode>
       <FileName>MediaManager\ApiAccess\OmdbApi\OmdbApiMediaFinder.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="iRequestClient" />
+    </ShowAsAssociation>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="TallerProgramacion2020.MediaManager.ApiAccess.ImdbApi.OmdbApiMediaSearch">
@@ -221,7 +224,7 @@
   <Class Name="TallerProgramacion2020.MediaManager.Controllers.SignInController">
     <Position X="45.75" Y="25.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAACAAAAAAAAAAAQAAAAAAAAAIQAAAAAAAAAAAAI=</HashCode>
+      <HashCode>AAAAAACAAAAAAAAAAAQAAAAAAAAAIQAAAAAAAAAAAAA=</HashCode>
       <FileName>MediaManager\Controllers\SignInController.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -269,7 +272,7 @@
   <Class Name="TallerProgramacion2020.MediaManager.DAL.EntityFramework.MediaRepository" Collapsed="true">
     <Position X="34.25" Y="15.75" Width="1.75" />
     <TypeIdentifier>
-      <HashCode>AAQAAAAAAAAAAABAAAAAAAAAAAEAAEAAAgAAAAAAAAA=</HashCode>
+      <HashCode>AAQAAAAAAAAAAQBAAAAAAAAAAAEAAEAAAgAAAAAAAAA=</HashCode>
       <FileName>MediaManager\DAL\EntityFramework\MediaRepository.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -277,7 +280,7 @@
   <Class Name="TallerProgramacion2020.MediaManager.DAL.EntityFramework.Repository&lt;TEntity, TDbContext&gt;" Collapsed="true">
     <Position X="31.5" Y="14.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAAEAAAAAAAABAAAAAAAAAAAEAAEAAAgAAAAAAAAA=</HashCode>
+      <HashCode>AAQAAEAAAAAAAQBAAAAAAAAAAAEAAEAAAgAAAAAAAAA=</HashCode>
       <FileName>MediaManager\DAL\EntityFramework\Repository.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -285,13 +288,24 @@
   <Class Name="TallerProgramacion2020.MediaManager.DAL.EntityFramework.ReviewRepository" Collapsed="true">
     <Position X="29" Y="15.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAAAAAAAAAAABAAAAAAAAAAAEAAEAAAgAAAAAAAAA=</HashCode>
+      <HashCode>AAQAAAAAAAAAAQBAAAAAAAAAAAEAAEAAAgAAAAAAAAA=</HashCode>
       <FileName>MediaManager\DAL\EntityFramework\ReviewRepository.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="TallerProgramacion2020.MediaManager.DAL.EntityFramework.UnitOfWork" BaseTypeListCollapsed="true">
     <Position X="36.75" Y="12.75" Width="1.5" />
+    <AssociationLine Name="UserRepository" Type="TallerProgramacion2020.MediaManager.DAL.IUserRepository" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="37.438" Y="12.75" />
+        <Point X="37.438" Y="11.582" />
+        <Point X="35.062" Y="11.582" />
+        <Point X="35.062" Y="11.191" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.485" Y="0.909" />
+      </MemberNameLabel>
+    </AssociationLine>
     <AssociationLine Name="MediaRepository" Type="TallerProgramacion2020.MediaManager.DAL.IMediaRepository" FixedFromPoint="true" FixedToPoint="true">
       <Path>
         <Point X="37.438" Y="12.75" />
@@ -314,17 +328,6 @@
         <Position X="-1.028" Y="0.962" />
       </MemberNameLabel>
     </AssociationLine>
-    <AssociationLine Name="UserRepository" Type="TallerProgramacion2020.MediaManager.DAL.IUserRepository" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="37.438" Y="12.75" />
-        <Point X="37.438" Y="11.582" />
-        <Point X="35.062" Y="11.582" />
-        <Point X="35.062" Y="11.191" />
-      </Path>
-      <MemberNameLabel ManuallyPlaced="true">
-        <Position X="-0.485" Y="0.909" />
-      </MemberNameLabel>
-    </AssociationLine>
     <AssociationLine Name="WatchListRepository" Type="TallerProgramacion2020.MediaManager.DAL.IWatchListRepository" FixedFromPoint="true" FixedToPoint="true">
       <Path>
         <Point X="37.438" Y="12.75" />
@@ -342,9 +345,9 @@
     </TypeIdentifier>
     <ShowAsAssociation>
       <Field Name="iDbContext" />
+      <Property Name="UserRepository" />
       <Property Name="MediaRepository" />
       <Property Name="ReviewRepository" />
-      <Property Name="UserRepository" />
       <Property Name="WatchListRepository" />
     </ShowAsAssociation>
     <Lollipop Position="0.2" Collapsed="true" />
@@ -352,7 +355,7 @@
   <Class Name="TallerProgramacion2020.MediaManager.DAL.EntityFramework.UserRepository" Collapsed="true">
     <Position X="30.75" Y="15.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAAAAAAAAAAABAAAAAAAAAAAEAAEAAAgAAAAAAAAA=</HashCode>
+      <HashCode>AAQAAAAAAAAAAQBAAAAAAAAAAAEAAEAAAgAAAAAAAAA=</HashCode>
       <FileName>MediaManager\DAL\EntityFramework\UserRepository.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -360,7 +363,7 @@
   <Class Name="TallerProgramacion2020.MediaManager.DAL.EntityFramework.WatchListRepository" Collapsed="true">
     <Position X="32.5" Y="15.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAAAAAAAAAAABAAAAAAAAAAAEAAEAAAgAAAAAAAAA=</HashCode>
+      <HashCode>AAQAAAAAAAAAAQBAAAAAAAAAAAEAAEAAAgAAAAAAAAA=</HashCode>
       <FileName>MediaManager\DAL\EntityFramework\WatchListRepository.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -439,12 +442,15 @@
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
-    <AssociationLine Name="Cast" Type="TallerProgramacion2020.MediaManager.Domain.Actor" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+    <AssociationLine Name="Genres" Type="TallerProgramacion2020.MediaManager.Domain.Genre" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="17" Y="10.375" />
-        <Point X="15" Y="10.375" />
-        <Point X="15" Y="12" />
+        <Point X="19.25" Y="10.563" />
+        <Point X="20.25" Y="10.563" />
+        <Point X="20.25" Y="12" />
       </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.982" Y="0.233" />
+      </MemberNameLabel>
     </AssociationLine>
     <AssociationLine Name="Director" Type="TallerProgramacion2020.MediaManager.Domain.Director" FixedFromPoint="true" FixedToPoint="true">
       <Path>
@@ -456,15 +462,17 @@
         <Position X="-0.596" Y="0.06" />
       </MemberNameLabel>
     </AssociationLine>
-    <AssociationLine Name="Genres" Type="TallerProgramacion2020.MediaManager.Domain.Genre" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="19.25" Y="10.563" />
-        <Point X="20.25" Y="10.563" />
-        <Point X="20.25" Y="12" />
-      </Path>
-      <MemberNameLabel ManuallyPlaced="true">
-        <Position X="-0.982" Y="0.233" />
+    <AssociationLine Name="Writer" Type="TallerProgramacion2020.MediaManager.Domain.Writer">
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="-0.916" Y="0.06" Height="0.182" Width="2.038" />
       </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="Cast" Type="TallerProgramacion2020.MediaManager.Domain.Actor" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="17" Y="10.375" />
+        <Point X="15" Y="10.375" />
+        <Point X="15" Y="12" />
+      </Path>
     </AssociationLine>
     <AssociationLine Name="Origin" Type="TallerProgramacion2020.MediaManager.Domain.Country" FixedFromPoint="true" FixedToPoint="true">
       <Path>
@@ -476,11 +484,6 @@
         <Position X="-2.061" Y="0.06" />
       </MemberNameLabel>
     </AssociationLine>
-    <AssociationLine Name="Writer" Type="TallerProgramacion2020.MediaManager.Domain.Writer">
-      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
-        <Position X="-0.916" Y="0.06" Height="0.182" Width="2.038" />
-      </MemberNameLabel>
-    </AssociationLine>
     <TypeIdentifier>
       <HashCode>QjQAE1AABBAIgGgBggIAAAACAAACEAgAIMACAAkABIk=</HashCode>
       <FileName>MediaManager\Domain\Media.cs</FileName>
@@ -489,11 +492,11 @@
       <Property Name="MediaType" />
     </ShowAsAssociation>
     <ShowAsCollectionAssociation>
-      <Property Name="Cast" />
-      <Property Name="Director" />
       <Property Name="Genres" />
-      <Property Name="Origin" />
+      <Property Name="Director" />
       <Property Name="Writer" />
+      <Property Name="Cast" />
+      <Property Name="Origin" />
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="TallerProgramacion2020.MediaManager.Domain.Person">
@@ -535,8 +538,8 @@
       <FileName>MediaManager\Domain\Review.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Property Name="Media" />
       <Property Name="User" />
+      <Property Name="Media" />
       <Property Name="Rating" />
     </ShowAsAssociation>
   </Class>
@@ -691,16 +694,6 @@
         <Position X="-2.299" Y="0.11" />
       </MemberNameLabel>
     </AssociationLine>
-    <AssociationLine Name="Cast" Type="TallerProgramacion2020.MediaManager.IO.ActorDTO" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="7.25" Y="24.312" />
-        <Point X="10.5" Y="24.312" />
-        <Point X="10.5" Y="23.191" />
-      </Path>
-      <MemberNameLabel ManuallyPlaced="true">
-        <Position X="0.079" Y="0.857" />
-      </MemberNameLabel>
-    </AssociationLine>
     <AssociationLine Name="Writer" Type="TallerProgramacion2020.MediaManager.IO.WriterDTO" FixedFromPoint="true" FixedToPoint="true">
       <Path>
         <Point X="7.25" Y="24.605" />
@@ -709,6 +702,16 @@
       </Path>
       <MemberNameLabel ManuallyPlaced="true">
         <Position X="0.11" Y="1.224" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="Cast" Type="TallerProgramacion2020.MediaManager.IO.ActorDTO" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="7.25" Y="24.312" />
+        <Point X="10.5" Y="24.312" />
+        <Point X="10.5" Y="23.191" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.079" Y="0.857" />
       </MemberNameLabel>
     </AssociationLine>
     <AssociationLine Name="Origin" Type="TallerProgramacion2020.MediaManager.IO.CountryDTO" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
@@ -731,8 +734,8 @@
     <ShowAsCollectionAssociation>
       <Property Name="Genres" />
       <Property Name="Director" />
-      <Property Name="Cast" />
       <Property Name="Writer" />
+      <Property Name="Cast" />
       <Property Name="Origin" />
     </ShowAsCollectionAssociation>
   </Class>
@@ -856,6 +859,13 @@
       <FileName>Tools\Tools.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="TallerProgramacion2020.MediaManager.ApiAccess.ImdbApi.OmdbApiRequestClient">
+    <Position X="41.25" Y="22.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>BAAIAAAACADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MediaManager\ApiAccess\OmdbApi\OmdbApiRequestClient.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Interface Name="TallerProgramacion2020.MediaManager.ApiAccess.IMediaFinder">
     <Position X="36.75" Y="20.5" Width="2.25" />
     <TypeIdentifier>
@@ -873,7 +883,7 @@
   <Interface Name="TallerProgramacion2020.MediaManager.DAL.IRepository&lt;TEntity&gt;">
     <Position X="31" Y="8" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AAQAAAAAAAAAAABAAAAAAAAAAAEAAEAAAgAAAAAAAAA=</HashCode>
+      <HashCode>AAQAAAAAAAAAAQBAAAAAAAAAAAEAAEAAAgAAAAAAAAA=</HashCode>
       <FileName>MediaManager\DAL\IRepository.cs</FileName>
     </TypeIdentifier>
   </Interface>
@@ -886,11 +896,25 @@
   </Interface>
   <Interface Name="TallerProgramacion2020.MediaManager.DAL.IUnitOfWork">
     <Position X="29" Y="12.75" Width="2.75" />
+    <AssociationLine Name="UserRepository" Type="TallerProgramacion2020.MediaManager.DAL.IUserRepository" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="29.062" Y="12.75" />
+        <Point X="29.062" Y="11.725" />
+        <Point X="29.855" Y="11.725" Type="JumpStart" />
+        <Point X="30.021" Y="11.725" Type="JumpEnd" />
+        <Point X="31.823" Y="11.725" Type="JumpStart" />
+        <Point X="31.989" Y="11.725" Type="JumpEnd" />
+        <Point X="33.261" Y="11.725" Type="JumpStart" />
+        <Point X="33.427" Y="11.725" Type="JumpEnd" />
+        <Point X="34.219" Y="11.725" />
+        <Point X="34.219" Y="11.191" />
+      </Path>
+    </AssociationLine>
     <AssociationLine Name="MediaRepository" Type="TallerProgramacion2020.MediaManager.DAL.IMediaRepository" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
       <Path>
         <Point X="29.062" Y="12.75" />
         <Point X="29.062" Y="11.771" />
-        <Point X="29.854" Y="11.771" Type="JumpStart" />
+        <Point X="29.855" Y="11.771" Type="JumpStart" />
         <Point X="30.021" Y="11.771" Type="JumpEnd" />
         <Point X="31.5" Y="11.771" />
         <Point X="31.5" Y="11.191" />
@@ -900,26 +924,12 @@
       <Path>
         <Point X="29.062" Y="12.75" />
         <Point X="29.062" Y="11.771" />
-        <Point X="29.854" Y="11.771" Type="JumpStart" />
+        <Point X="29.855" Y="11.771" Type="JumpStart" />
         <Point X="30.021" Y="11.771" Type="JumpEnd" />
         <Point X="31.823" Y="11.771" Type="JumpStart" />
-        <Point X="31.99" Y="11.771" Type="JumpEnd" />
+        <Point X="31.989" Y="11.771" Type="JumpEnd" />
         <Point X="32.875" Y="11.771" />
         <Point X="32.875" Y="11.191" />
-      </Path>
-    </AssociationLine>
-    <AssociationLine Name="UserRepository" Type="TallerProgramacion2020.MediaManager.DAL.IUserRepository" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="29.062" Y="12.75" />
-        <Point X="29.062" Y="11.725" />
-        <Point X="29.854" Y="11.725" Type="JumpStart" />
-        <Point X="30.021" Y="11.725" Type="JumpEnd" />
-        <Point X="31.823" Y="11.725" Type="JumpStart" />
-        <Point X="31.99" Y="11.725" Type="JumpEnd" />
-        <Point X="33.26" Y="11.725" Type="JumpStart" />
-        <Point X="33.427" Y="11.725" Type="JumpEnd" />
-        <Point X="34.219" Y="11.725" />
-        <Point X="34.219" Y="11.191" />
       </Path>
     </AssociationLine>
     <AssociationLine Name="WatchListRepository" Type="TallerProgramacion2020.MediaManager.DAL.IWatchListRepository" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
@@ -935,9 +945,9 @@
       <FileName>MediaManager\DAL\IUnitOfWork.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
+      <Property Name="UserRepository" />
       <Property Name="MediaRepository" />
       <Property Name="ReviewRepository" />
-      <Property Name="UserRepository" />
       <Property Name="WatchListRepository" />
     </ShowAsAssociation>
   </Interface>
