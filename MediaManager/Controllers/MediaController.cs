@@ -72,13 +72,13 @@ namespace TallerProgramacion2020.MediaManager.Controllers
                     {
                         m => m.ImdbID == item.ImdbID
                     };
-
+                    
                     if (!iContext.UnitOfWork.MediaRepository.GetWhere(mediaExists).Any())
                     {
                         iContext.UnitOfWork.MediaRepository.Create(item);
-                        iContext.UnitOfWork.Complete();
                     }
                 }
+                iContext.UnitOfWork.Complete();
             }
 
             List<Func<Media, bool>> conditions = new List<Func<Media, bool>>();
