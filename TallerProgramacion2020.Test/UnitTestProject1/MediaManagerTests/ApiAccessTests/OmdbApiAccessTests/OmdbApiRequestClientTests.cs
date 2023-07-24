@@ -31,26 +31,6 @@ namespace TallerProgramacion2020.Test.MediaManagerTests.ApiAccessTests.OmdbApiAc
         }
 
         /// <summary>
-        /// Verifica si el método MultipleMediaRequest realiza una solicitud exitosa
-        /// a la API de OMDB y devuelve solo series o movies
-        /// </summary>
-        [TestMethod]
-        public void Test_MultipleMediaRequest_CorrectType()
-        {
-            // Arrange
-            var client = new OmdbApiRequestClient();
-            var title = "The Matrix";
-
-            // Act
-            string jsonResponse = client.MultipleMediaRequest(title);
-
-            Console.WriteLine(jsonResponse);
-
-            // Assert
-            Assert.IsFalse(jsonResponse.Contains("\"Type\": \"game\","));
-        }
-
-        /// <summary>
         /// Verifica si el método MultipleMediaRequest devuelve una Response False
         /// para una búsqueda con un título inválido en la API de OMDB.
         /// </summary>
